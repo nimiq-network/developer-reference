@@ -1,0 +1,26 @@
+{
+  "name": "nimiq-doc",
+  "version": "1.0.0",
+  "homepage": "https://nimiq.com/",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "esdoc": "esdoc"
+  },
+  "author": {
+    "name": "The Nimiq Core Development Team",
+    "url": "https://nimiq.com/"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nimiq-network/core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimiq-network/core.git"
+  },
+  "devDependencies": {
+    "esdoc": "^1.0.4",
+    "esdoc-standard-plugin": "^1.0.0"
+  }
+}

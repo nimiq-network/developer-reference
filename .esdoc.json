@@ -1,0 +1,19 @@
+{
+  "source": "./src",
+  "destination": "./dist/docs",
+  "index": "./README.md",
+  "package": "./package.json",
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "manual": {
+          "index": "./README.md",
+          "asset": "./src/docs/assets",
+          "files": [
+          ]
+        }
+      }
+    }
+  ]
+}
