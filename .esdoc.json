@@ -13,7 +13,8 @@
           "files": [
             "./src/docs/NodeAndClientTypes.md",
             "./src/docs/CryptographicPrimitives.md",
-            "./src/docs/AccountTypes.md"
+            "./src/docs/AccountTypes.md",
+            "./src/docs/TransactionTypes.md"
           ]
         }
       }
