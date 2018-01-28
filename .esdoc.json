@@ -12,6 +12,7 @@
           "asset": "./src/docs/assets",
           "files": [
 	    "./src/docs/NodeAndClientTypes.md"
+	    "./src/docs/Constants.md"
           ]
         }
       }
