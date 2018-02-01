@@ -5,7 +5,7 @@ A Nimiq block can be at most 1MB (1 million bytes) maximum and is composed of (b
 | Element           | Size [bytes]            |
 |-------------------|-------------------------|
 | Header            | 146                     |
-| Interlink         | <= 1053                 |
+| Interlink         | <= 8193                 |
 | Full/Light Switch | 1                       |
 | Body              | >= 117 <if switch is 1> |
 
@@ -33,16 +33,16 @@ An interlink is composed of
 |-------------|------------|---------------|
 | count       | Uint8      | 1             |
 | repeat bits | Uint8Array | ceil(count/8) |
-| hashes      | [Hash]     | <= count * 4  |
+| hashes      | [Hash]     | <= count * 32 |
 
 Repeat bits is a bit mask corresponding to the list of hashes, 
 a 1-bit indicating that the hash at that particular index is the same as the previous one, 
 i.e. repeated, and thus the hash will not be stored in the hash list again to reduce size. 
 As each hash is represented by one bit the size is ceil(count/8).
 
-Hashes are a list of up to 255 block hashes of 4 bytes each.
+Hashes are a list of up to 255 block hashes of 32 bytes each.
 
-Thus, an interlink can be up to 1+ceil(255/8)+255*4 = 1053 bytes.
+Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 
 # Body
 The body part is 117 bytes plus data and transactions. The maximum block size is 1MB.
