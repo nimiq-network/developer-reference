@@ -1,10 +1,10 @@
 # Overview
 A Nimiq block can exist in two modes: full and light. A light block is equal to a full block, but does not have a body.
-A Nimiq block is composed of (body optional
+A Nimiq block can be at most 1MB (1 million bytes) maximum and is composed of (body optional)
 
 Element      | Header | Interlink | Full/Light Switch | Body
 ------------ | ------ | --------- | ----------------- | ---------------------------
-Size [bytes] | 146    | <= 1053   | 0 or 1            | 117 to 1MB <if switch is 1>
+Size [bytes] | 146    | <= 1053   | 0 or 1            | >= 117 <if switch is 1>
 
 # Header
 The header has total size of 146 bytes and is composed of
