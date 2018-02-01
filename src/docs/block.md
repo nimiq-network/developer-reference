@@ -6,7 +6,7 @@ A Nimiq block can be at most 1MB (1 million bytes) maximum and is composed of (b
 |-------------------|-------------------------|
 | Header            | 146                     |
 | Interlink         | <= 1053                 |
-| Full/Light Switch | 0 or 1                  |
+| Full/Light Switch | 1                       |
 | Body              | >= 117 <if switch is 1> |
 
 # Header
