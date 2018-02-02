@@ -5,7 +5,7 @@ Among account share the following fields:
 
 | Element | Data type | size [bytes] | Description
 |---------|-----------|--------------|-------
-| type    | Uint8     | 1            | 0..2: basic, [vesting](#vesting-contract), [HTLC](#hashed-time-locked-contract-HTLC)
+| type    | Uint8     | 1            | 0..2: basic, [vesting](#vesting-contract), [HTLC](#hashed-time-locked-contract-htlc)
 | balance | Uint64    | 8            | in Satoshi
 
 # Basic account
