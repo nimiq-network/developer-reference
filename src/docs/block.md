@@ -47,15 +47,15 @@ Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 # Body
 The body part is 117 bytes plus data and transactions. The maximum block size is 1MB.
 
-| Miner address          | Data type       | Size [bytes]      |
+| Element                | Data type       | Size [bytes]      |
 |------------------------|-----------------|-------------------|
+| miner address          | Address+Account | 20+8+64 = 92      |
 | extra data length      | Address         | 20                |
 | extra data             | Uint8           | 1                 |
 | transaction count      | Uint8Array      | extra data length |
 | transactions           | Uint16          | 2                 |
 | prunded accounts count | [Transaction]   | ~150 each         |
 | prunded accounts       | Uint16          | 2                 |
-|                        | Address+Account | 20+8+64 = 92      |
 
 [Transactions](./transactions) can be basic or extended.
 Basic uses 138 bytes, extended more than 68 bytes.
