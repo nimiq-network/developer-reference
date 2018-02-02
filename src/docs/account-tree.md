@@ -4,8 +4,17 @@ This tree's root is stored in each [block's header](block.md#header).
 The account tree can be used to verify that an account in a certain state was part of a certain block.
 And account tree is composed of account tree nodes.
 
+# Applying blocks to AccountsTree
+* No spending of funds received in the same block
+* Transaction ordering: In general fee per byte (same as in Mempool), currently ignored
+* Procedure:
+  1 subtract from all sender accounts
+  2 add to all recipient accounts
+  3 create contract accounts
+  4 prune contract accounts
+
 # Account tree node
-And account tree node can be of two types: branch or terminal. 
+And account tree node can be of two types: branch or terminal.
 Branch node build the tree structure while the terminal nodes are the leaves of the tree.
 
 ## Account tree node branch

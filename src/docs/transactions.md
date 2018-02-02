@@ -1,4 +1,6 @@
 # Transactions
+All transactions MUST transfer value (value > 0). The value is always transferred from transaction sender to transaction recipient.
+The hash of the transaction does not include the signature/proof.
 
 ## Basis Transaction
 Size-Optimized format (138 bytes) for simple value transfer from basic to basic account.
