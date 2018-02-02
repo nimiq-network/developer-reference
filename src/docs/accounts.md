@@ -3,22 +3,21 @@ Niminq supports three types of accounts: basic account, vesting contract, and ha
 
 Among account share the following fields:
 
-| Element | Data type | size [bytes] |
-|---------|-----------|--------------|
-| type    | Uint8     | 1            |
-| balance | Uint64    | 8            |
+| Element | Data type | size [bytes] | Description
+|---------|-----------|--------------|-------
+| type    | Uint8     | 1            | 0..2: basic, [vesting](#vesting-contract), [HTLC](#hashed-time-locked-contract-HTLC)
+| balance | Uint64    | 8            | in Satoshi
 
 # Basic account
-Only the fields of account with type set to `0`.
+An account with balance, the type field is set to `0`.
 
 # Pruned account
-Is composed of an account of any type with an address:
+A prunded account is composed of an account of any type with an address:
 
 | Element | Data type    | size [bytes] |
 |---------|--------------|--------------|
-| address | Uint8        | 1            |
-| type    | Uint8        | 1            |
-| balance | Uint64       | 8            |
+| address | Address      | 20           | 
+| account | Account      | variable     | Can be a basic account, vesting contract, or HTLC
 
 This type is used in the body of a block to communicate the accounts to be pruned with this block.
 
@@ -36,8 +35,8 @@ until the funds are used up.
 | vesting step amount  | Uint64    | 8            | The amount made to be made available at each step
 | vesting total amount | Uint64    | 8            | The total amount of all steps added up. If <= `vesting total amount`, the difference will be made available immediately.
 
-# Hashed time-locked contract
-Used for conditional payments and for cross-chain atomic swaps. 
+# Hashed time-locked contract HTLC
+Used for conditional payments and for cross-chain atomic swaps. All HTLC are time limited.
 
 | Element              | Data type | size [bytes] | Description
 |----------------------|-----------|--------------| -----------
