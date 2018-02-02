@@ -49,13 +49,14 @@ The body part is 117 bytes plus data and transactions. The maximum block size is
 
 | Element                | Data type       | Size [bytes]      |
 |------------------------|-----------------|-------------------|
-| miner address          | Address+Account | 20+8+64 = 92      |
-| extra data length      | Address         | 20                |
-| extra data             | Uint8           | 1                 |
-| transaction count      | Uint8Array      | extra data length |
-| transactions           | Uint16          | 2                 |
-| prunded accounts count | [Transaction]   | ~150 each         |
-| prunded accounts       | Uint16          | 2                 |
+| miner address          | Address         | 20                |
+| extra data length      | Uint8           | 1                 |
+| extra data             | Uint8Array      | extra data length |
+| transaction count      | Uint16          | 2                 |
+| transactions           | [Transaction]   | ~150 each         |
+| prunded accounts count | Uint16          | 2                 |
+| prunded accounts       | Address+Account | 20+8+64 = 92      |
+
 
 [Transactions](./transactions) can be basic or extended.
 Basic uses 138 bytes, extended more than 68 bytes.
