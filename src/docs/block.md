@@ -45,18 +45,18 @@ Hashes are a list of up to 255 block hashes of 32 bytes each.
 Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 
 # Body
-The body part is 117 bytes plus data and transactions. The maximum block size is 1MB.
+The body part is 25 bytes plus data, transactions, and prunded accounts. 
+The maximum block size is 1MB (10^6 bytes).
 
-| Element                | Data type       | Size [bytes]      |
-|------------------------|-----------------|-------------------|
-| miner address          | Address         | 20                |
-| extra data length      | Uint8           | 1                 |
-| extra data             | Uint8Array      | extra data length |
-| transaction count      | Uint16          | 2                 |
-| transactions           | [Transaction]   | ~150 each         |
-| prunded accounts count | Uint16          | 2                 |
-| prunded accounts       | Address+Account | 20+8+64 = 92      |
-
+| Element               | Data type                     | Size [bytes]      |
+|-----------------------|-------------------------------|-------------------|
+| miner address         | Address                       | 20                |
+| extra data length     | Uint8                         | 1                 |
+| extra data            | Uint8Array                    | extra data length |
+| transaction count     | Uint16                        | 2                 |
+| transactions          | [Transaction]                 | ~150 each         |
+| pruned accounts count | Uint16                        | 2                 |
+| pruned accounts       | [Pruned Account](accounts.md) | each >= 20+8      |
 
 [Transactions](./transactions) can be basic or extended.
 Basic uses 138 bytes, extended more than 68 bytes.
