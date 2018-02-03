@@ -4,7 +4,7 @@ The hash of the transaction does not include the signature/proof.
 All transactions in Nimiq have a maximum validity window of 120 blocks, approximately two hours.
 Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can be send only once the previous transaction has been invalidated or mined.
 
-## Basis Transaction
+## Basis transaction
 Size-Optimized format (138 bytes) for simple value transfer from basic to basic account.
 
 | Element               | Data type    | Bytes | Description                                     |
@@ -21,7 +21,7 @@ Size-Optimized format (138 bytes) for simple value transfer from basic to basic 
 To make a transaction validity shorter than the default of 120 blocks, set the start height to a value befor the current blockchain height. For example, current height - 60 will result in a remaining livetime of 60 blocks, approximately one hour.
 
 
-## Extended Transaction
+## Extended transaction
 Each extended transaction is at least 68 (3+|data|+65+|proof|) bytes long.
 
 | Element               | Data type    | Bytes        | Description                                                                  |
@@ -39,3 +39,6 @@ Each extended transaction is at least 68 (3+|data|+65+|proof|) bytes long.
 | flags                 | uint8        | 1            | Unknown flags must be 0; Contract Creation (0x1)                             |
 | proof length          | uint16       | 2            |                                                                              |
 | proof                 | raw          | proof length | validity depends on sender account type, account state, current block height |
+
+## Transaction hash
+A hash of a transaction is created by using Blake2b on all the fields of a [extended transaction](#extended-transaction), without `type`, `proof length`, and `proof`.
