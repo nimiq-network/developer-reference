@@ -17,16 +17,6 @@ No restrictions on when the funds might be used. Most common type.
 Basic account will automatically be pruned when made empty. It can be replaced by a contract account via a contract creation transaction.
 All addresses are initially empty basic accounts.
 
-## Pruned account
-A prunded account is composed of an account of any type with an address:
-
-| Element | Data type | Bytes | Description                                       |
-|---------|-----------|-------|---------------------------------------------------|
-| address | Address   | 20    | Address of account                                |
-| account | Account   | >9    | Can be a basic account, vesting contract, or HTLC |
-
-This type is used in the body of a block to communicate the accounts to be pruned with this block.
-
 # Contracts
 Contract-specific properties are immutable. All incoming transactions will be rejected.
 Cannot be replaced by other contract accounts.
