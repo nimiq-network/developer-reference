@@ -1,4 +1,4 @@
-Niminq supports three types of accounts and contracts: [Basic](#basic-account), [Vesting Contract](#vesting-contract), and [Hashed Time-Locked Contract](#hashed-time-locked-contract-htlc)
+Nimiq supports three types of accounts and contracts: [Basic](#basic-account), [Vesting Contract](#vesting-contract), and [Hashed Time-Locked Contract](#hashed-time-locked-contract-htlc)
 
 All accounts and contracts share the following fields:
 
@@ -96,7 +96,7 @@ Used for conditional transfers, off-chain payment methods, and cross-chain [atom
 | recipient      | Address      | 20    | Signs the contract, usually the receiver of the amount |
 | hash algorithm | uint8        | 1     | 1 or 3, Blake2b or SHA256; Argon2d not allowed |
 | hash root      | Hash         | 32    | hash of pre-image                              |
-| hash count     | uint8        | 1     | how many times the proof has been hashed       |
+| hash count     | uint8        | 1     | how many times the proof has been hashed. Must be > 0.       |
 | timeout        | uint32       | 4     | Contract invalid after this amount of blocks   |
 | total amount   | uint64       | 8     |                                                |
 
