@@ -16,6 +16,7 @@
             "./src/docs/AccountTypes.md",
             "./src/docs/TransactionTypes.md",
             "./src/docs/DataStructures.md"
+            "./src/docs/Constants.md"
           ]
         }
       }
