@@ -5,13 +5,16 @@ The account tree can be used to verify that an account in a certain state was pa
 And account tree is composed of account tree nodes.
 
 # Applying blocks to AccountsTree
-* No spending of funds received in the same block
-* Transaction ordering: In general fee per byte (same as in Mempool), currently ignored
-* Procedure:
-  1 subtract from all sender accounts
-  2 add to all recipient accounts
-  3 create contract accounts
-  4 prune contract accounts
+* It forbidden to spend funds received in the same block
+* Transaction ordering: in general block order, currently ignored - it's irrelevant because you can only spend funds you received before this block
+
+Procedure:
+1. subtract from all sender accounts
+2. add to all recipient accounts
+3. create contract accounts
+4. prune contract accounts (must be pruned when empty)
+
+Position in tree is unrelated to position in block body
 
 # Account tree node
 And account tree node can be of two types: branch or terminal.

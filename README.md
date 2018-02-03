@@ -9,6 +9,8 @@ This technical documentation contains:
 
 For a high-level introduction please read the [Nimiq White Paper](https://medium.com/nimiq-network/nimiq-a-peer-to-peer-payment-protocol-native-to-the-web-ffd324bb084).
 
+The source code is available on [GitHub](https://github.com/nimiq-network/core).
+
 # Data schemas
 
 Data schemas as used on the wire, focusing on fields, bytes sizes and short explanations.
