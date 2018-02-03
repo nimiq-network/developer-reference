@@ -11,13 +11,15 @@
           "index": "./README.md",
           "asset": "./src/docs/assets",
           "files": [
-            "./src/docs/NodeAndClientTypes.md",
-            "./src/docs/CryptographicPrimitives.md",
-            "./src/docs/AccountTypes.md",
-            "./src/docs/TransactionTypes.md",
-            "./src/docs/DataStructures.md"
-            "./src/docs/SupplyAndRewards.md"
-            "./src/docs/Constants.md"
+            "./src/docs/transactions.md",
+            "./src/docs/block.md",
+            "./src/docs/accounts-and-contracts.md",
+            "./src/docs/account-tree.md",
+            "./src/docs/primitives.md",
+            "./src/docs/messages.md",
+            "./src/docs/constants.md",
+            "./src/docs/nodes-and-clients.md",
+            "./src/docs/supply-and-reward.md"
           ]
         }
       }
