@@ -26,9 +26,10 @@ Data schemas as used on the wire, focusing on fields, bytes sizes and short expl
 
 Higher level concepts used in and underlying Nimiq.
 
-* [Constants](chapters/constants.md): Configuration of the NIMIQ core
+* [Constants](chapters/constants.md): Configuration of the Nimiq core
 * [Nodes and clients](chapters/nodes-and-clients.md): Node.js and browser, full, small, and nano.
 * [Supply and reward](chapters/supply-and-reward.md): total supply, rewards, difficulty adjustment
+* [Verification](chapters/verify.md): Validation rules for the Nimiq blockchain
 
 # Examples
 
