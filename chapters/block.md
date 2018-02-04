@@ -35,7 +35,7 @@ It's created using [Blake2b](#hash) on the serialized block header of the previo
 
 
 # Interlink
-The interlink implements the [Non Interactive Proofs of Proof of Work (NiPoPow)](https://eprint.iacr.org/2017/963.pdf) so that only some of the most difficult blocks in the current blockchain are enough to make a proof.
+The interlink implements the [Non Interactive Proofs of Proof of Work (NiPoPow)](https://eprint.iacr.org/2017/963.pdf) and contains links to previous blocks.
 
 An interlink is composed of
 
@@ -55,8 +55,14 @@ As each hash is represented by one bit the size is ceil(count/8).
 Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 
 ## Interlink construction
-[Non-Interactive Proofs of Proof-of-Work](https://eprint.iacr.org/2017/963.pdf) are used to create the interlink.
+The concept of [Non-Interactive Proofs of Proof-of-Work](https://eprint.iacr.org/2017/963.pdf) are used to create the interlink.
 
+An interlink contains hashes to previous blocks with an high-than-target difficulty. The position of a hash in the interlink correlates to how much higher the difficulty was compared to the target difficulty.
+
+An interlink is created based on the interlink of the previous block plus putting the current hash into place.
+
+1. The block's hash will be placed into the beginning of the new interlink as many times as it is more difficult than the required difficulty.
+2. The remaining places of the new interlink will be filled by the hashes of the previous interlink, keeping the position.
 
 # Body
 The body part is 25 bytes plus data, transactions, and prunded accounts.
