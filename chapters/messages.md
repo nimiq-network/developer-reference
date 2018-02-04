@@ -16,13 +16,13 @@ This message transmits the node's version of the protocol, peerAddress, the hash
 | Element     | Data type    | Bytes            | Description            |
 |-------------|--------------|------------------|------------------------|
 | version     | unsigned int | 4	 		    | version of the protocol|
-| peerAddress | unsigned int | 4	 		    | [WsPeerAddress](#WsPeerAddress) or [RtcPeerAddress](#RtcPeerAddress)|
+| peerAddress | unsigned int | 4	 		    | [WsPeerAddress](#wspeeraddress) or [RtcPeerAddress](#rtcpeeraddress)|
 
 ## WsPeerAddress
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | unsigned int | 1     | [Protocol type](/constants.md#protocol-types)      |
+| protocol  | unsigned int | 1     | [Protocol type](./constants.md#protocol-types)      |
 | services  | unsigned int | 4     | [Service type](./constants.md#services-types)      |
 | timestamp | unsigned int | 8     | Used by other nodes to calculate offset.   |
 | host      | string         | (?)   | Hostname.               |
@@ -32,7 +32,7 @@ This message transmits the node's version of the protocol, peerAddress, the hash
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | unsigned int   | 1     | [Protocol type](/constants.md#protocol-types)      |
+| protocol  | unsigned int   | 1     | [Protocol type](./constants.md#protocol-types)      |
 | services  | unsigned int   | 4     | [Service type](./constants.md#services-types)      |
 | timestamp | unsigned int   | 8     | Used by other nodes to calculate offset.   |
 | signalId  | unsigned int	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
@@ -44,7 +44,7 @@ The inventory message points a vector to requested data. The structure for `Base
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| type  | unsigned int   | 4     | [Protocol type](/constants.md#protocol-types)      |
+| type  | unsigned int   | 4     | [Protocol type](./constants.md#protocol-types)      |
 | hash  | unsigned int   | 32     | Hash of the message  |
 
 There are several sub-message categories related to inventory message:
