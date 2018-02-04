@@ -1,1 +1,5 @@
-theme: jekyll-theme-leap-day
+theme: jekyll-theme-minimal
+title: Nimiq Specs
+description: "Specifications of Nimiq v1"
+show_downloads: false
+google_analytics:

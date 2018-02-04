@@ -1,0 +1,54 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+:root{
+    --cta-color: #0070c9;
+}
+
+html,body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: #333;
+    background-color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 300;
+}
+
+h2{
+    padding-top: 56px;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: var(--cta-color);
+}
+
+a:hover{
+    border-bottom: 1px solid var(--cta-color);
+    font-weight: 500;
+}
+
+
+ul, ol{
+    padding-left: 24px;
+}
+
+ul > li, ol >li {
+    padding-bottom: 8px;
+}
+
+strong{
+    color: #333;
+    font-weight: 700;
+}
