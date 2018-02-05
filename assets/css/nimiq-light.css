@@ -1,0 +1,256 @@
+/* Layout */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    padding: 16px 32px;
+    z-index: 1;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 64px;
+    padding-left: 320px;
+}
+
+section {
+    width: 660px;
+    padding: 16px 48px;
+}
+
+aside {
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    padding: 16px 24px;
+}
+
+footer{
+    width: 100%;
+    padding: 32px 24px;
+    margin-top: 80px;
+}
+
+
+/* Responsiveness */
+
+@media (max-width: 880px){
+    main{
+        padding-left: 0;
+        overflow-x: scroll;
+        justify-content: flex-start;
+    }
+
+    section{
+        width: auto;
+    }
+
+    aside{
+        transform: translate(-100%);
+    }
+}
+
+/* Typography */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-top: 64px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 64px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+
+h2 + p, h3 + p{
+    margin-top: 0;
+}
+
+h1 + h2{
+    margin-top: 40px;
+}
+
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+    margin-bottom: 24px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+ul>li,
+ol>li {
+    padding-bottom: 8px;
+}
+
+strong {
+    font-weight: 700;
+}
+
+
+
+/* Colors */
+
+:root {
+    --cta-color: #0070c9;
+}
+
+body {
+    color: #333;
+    background-color: white;
+}
+
+header {
+    background: linear-gradient(to right, #536DFE, #a553fe);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+footer{
+    background-color: #333;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+main{
+    background-color: #fafafa;
+}
+
+aside{
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Tables */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    white-space: nowrap;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
+th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+td:first-child {
+    width: 120px;
+}
+
+
+
+/* Logo */
+
+/*.logo:before {
+    content: '';
+    background-image: url('data:image/svg+xml,<svg width="499" height="440" xmlns="http://www.w3.org/2000/svg"><path d="M389.33 20.73C382.65 9.28 366.48 0 353.24 0h-208c-13.26 0-29.4 9.28-36.09 20.73L5.33 198.87c-6.68 11.45-6.68 30.02 0 41.47l103.82 178.14c6.68 11.45 22.85 20.74 36.09 20.74h208c13.26 0 29.4-9.28 36.09-20.74l103.82-178.14c6.68-11.45 6.68-30.01 0-41.47L389.33 20.73zM272.6 347.45v41.1h-38.74v-39.53c-23.53-2.82-51.45-13.02-70.28-30.12l25.57-39.06c20.4 15.06 37.96 22.9 57.1 22.9 22.43 0 32.31-9.1 32.31-27.29 0-40.63-105.4-39.84-105.4-111.06 0-38.74 23.2-65.57 60.7-73.1V50.51h38.74v40c25.57 3.6 43.92 16.16 59.45 32.47l-29.49 33.26c-14.43-13.02-26.66-19.77-43.45-19.77-19.13 0-29.49 7.53-29.49 25.26 0 37.49 105.41 34.35 105.41 109.96-.15 37.8-21.33 67.13-62.43 75.76z" fill="%23FFC107" fill-rule="evenodd"/></svg>');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 64px;
+    position: absolute;
+}*/
+
+.logo h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 4px;
+    margin-top: 0px;
+}
+
+.logo h1+p {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+
+
+/* Links */
+
+a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: var(--cta-color);
+}
+
+a:hover {
+    border-bottom: 1px solid var(--cta-color);
+    font-weight: 400;
+    color: var(--cta-color);
+}
+
+/* Code */
+code {
+    font-size: 13px;
+    background: #efefef;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 2px;
+}
