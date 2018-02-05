@@ -9,18 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
-       <a href="{{ site.github.url }}" class="logo">
-        <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-      </a>
-    </header>
-    <main>
-      <aside>
+    <aside>
+        <header>
+         <a href="{{ site.github.url }}" class="logo">
+          <h1>{{ site.title | default: site.github.repository_name }}</h1>
+          <p>{{ site.description | default: site.github.project_tagline }}</p>
+        </a>
+        </header>
         <ul>
-          
+            
         </ul>
-      </aside>
+    </aside>
+    <main>
       <section>
 
       {{ content }}
