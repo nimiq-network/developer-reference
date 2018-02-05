@@ -10,12 +10,6 @@ body {
     margin: 0;
 }
 
-header {
-    width: 100%;
-    padding: 0 16px;
-    z-index: 1;
-}
-
 main {
     display: flex;
     justify-content: center;
@@ -36,7 +30,7 @@ aside {
     left: 0;
     bottom: 0;
     width: 320px;
-    padding: 16px 24px 16px 40px;
+    padding: 16px 24px 16px 72px;
 }
 
 footer{
@@ -123,16 +117,6 @@ dl {
     margin-bottom: 24px;
 }
 
-ul,
-ol {
-    padding-left: 24px;
-}
-
-ul>li,
-ol>li {
-    padding-bottom: 8px;
-}
-
 strong {
     font-weight: 700;
 }
@@ -167,6 +151,23 @@ aside:before{
     bottom: 0;
     width: 16px;
     background: linear-gradient(#536DFE, #a553fe);
+}
+
+
+/* Lists */
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+ul>li,
+ol>li {
+    padding-bottom: 8px;
+}
+
+li>ul {
+    padding-top: 8px;
 }
 
 /* Tables */
