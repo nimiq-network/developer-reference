@@ -14,19 +14,13 @@
         <a href="{{ site.github.url }}" class="logo">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-          <nav>
-            <ul>
-              <li>
-                <a href="{{ site.github.url }}"> home </a>
-              </li>
-            </ul>
+        </a>
+      </header>
+      <nav>
             {% for node in site.pages %}
               {% include toc.html html=node.content %}
             {% endfor %}
-          </nav>
-      </a>
-      </header>
+      </nav>
     </aside>
     <main>
       <section>
