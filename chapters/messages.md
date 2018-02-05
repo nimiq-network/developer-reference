@@ -4,38 +4,38 @@ Message instance. This is usually not called directly but by subclasses.
 
 | Element   | Data type    | Bytes            | Description                |
 |-----------|--------------|------------------|----------------------------|
-| magic     | unsigned int | 4	 		      | [Magic String](./constants.md#message-magic)|
-| type      | unsigned int | 4	 		      | [Message Type](./constants.md#message-types)|
-| lenght    | unsigned int | 4	 		      | lenght of the message. |
-| checksum  | unsigned int | 4	 		      | CRC32 checksum. |
+| magic     | Uint4 | 4	 		      | [Magic String](./constants.md#message-magic)|
+| type      | Uint4 | 4	 		      | [Message Type](./constants.md#message-types)|
+| lenght    | Uint4 | 4	 		      | lenght of the message. |
+| checksum  | Uint4 | 4	 		      | CRC32 checksum. |
 
 # Version Message
  
-This message transmits the node's version of the protocol, peerAddress, the hash of its Genesis block, and the hash of the latest block in its blockchain (the head).
+This message transmits the node's version of the protocol, peer ddress, the hash of its Genesis block, and the hash of the latest block in its blockchain (the head).
 
 | Element     | Data type    | Bytes            | Description            |
 |-------------|--------------|------------------|------------------------|
-| version     | unsigned int | 4	 		    | version of the protocol|
-| peerAddress | unsigned int | 4	 		    | [WsPeerAddress](#wspeeraddress) or [RtcPeerAddress](#rtcpeeraddress)|
+| version     | Uint4 | 4	 		    | version of the protocol|
+| peer address | Uint4 | 4	 		    | [Ws Peer Address](#wspeeraddress) or [Rtc Peer Address](#rtcpeeraddress)|
 
-## WsPeerAddress
+## Ws Peer Address
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | unsigned int | 1     | [Protocol type](./constants.md#protocol-types)      |
-| services  | unsigned int | 4     | [Service type](./constants.md#services-types)      |
-| timestamp | unsigned int | 8     | Used by other nodes to calculate offset.   |
+| protocol  | Uint1 | 1     | [Protocol type](./constants.md#protocol-types)      |
+| services  | Uint4 | 4     | [Service type](./constants.md#services-types)      |
+| timestamp | Uint8 | 8     | Used by other nodes to calculate offset.   |
 | host      | string         | (?)   | Hostname.               |
-| port      | number         | 2     | Port number for WebSocketConnector to listen to.	|
+| port      | number         | 2     | Port number for Web Socket Connector to listen to.	|
 
-## RtcPeerAddress
+## Rtc Peer Address
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | unsigned int   | 1     | [Protocol type](./constants.md#protocol-types)      |
-| services  | unsigned int   | 4     | [Service type](./constants.md#services-types)      |
-| timestamp | unsigned int   | 8     | Used by other nodes to calculate offset.   |
-| signalId  | unsigned int	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
+| protocol  | Uint1   | 1     | [Protocol type](./constants.md#protocol-types)      |
+| services  | Uint4   | 4     | [Service type](./constants.md#services-types)      |
+| timestamp | Uint8   | 8     | Used by other nodes to calculate offset.   |
+| signalId  | Uint2	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
 | distance  | number		 | 1     | 0: self, 1: direct connection, 2: 1 hop |
 
 # Inventory Message
@@ -44,8 +44,8 @@ The inventory message points a vector to requested data. The structure for `Base
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| type  | unsigned int   | 4     | [Protocol type](./constants.md#protocol-types)      |
-| hash  | unsigned int   | 32     | Hash of the message  |
+| type  | Uint4   | 4     | [Protocol type](./constants.md#protocol-types)      |
+| hash  | Uint32   | 32     | Hash of the message  |
 
 There are several sub-message categories related to inventory message:
 
@@ -58,9 +58,9 @@ There are several sub-message categories related to inventory message:
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| locators  | unsigned int   | 2     | The hash of the block from which to start sending blocks. This is an array, the first block that is found in the blockchain of the receiving node should be used. |
-| maxInvSize | unsigned int   | 2     | The number of blocks that are been asked.  |
-| direction | unsigned int   | 1     | Defines if the blocks been asked are the ones after the locators or before the locators.  |
+| locators  | Uint2   | 2     | The hash of the block from which to start sending blocks. This is an array, the first block that is found in the blockchain of the receiving node should be used. |
+| max inventory size | Uint1   | 2     | The number of blocks that are been asked.  |
+| direction | Uint1   | 1     | Defines if the blocks been asked are the ones after the locators or before the locators.  |
 
 # Block Message
 
@@ -84,11 +84,11 @@ This message is used to signal to a peer that something they sent us was rejecte
 
 | Element     | Data type      | Bytes | Description            |
 |-------------|----------------|-------|------------------------|
-| messageType | unsigned int   | 1     |  |
-| code        | unsigned int   | 1     | Reject Message Code  |
-| reason      | unsigned int   | >255  | FIXME: What is reason for?  |
-| byteLength  | unsigned int   | 1     |   |
-| extraData   | unsigned int   | 2     |   |
+| message type | Uint1   | 1     | [message type](/constants.md#message-types)  |
+| code        | Uint1   | 1     | [Reject Message Code](./constants.md#reject-message-code)  |
+| reason      | Uint   | >255  | FIXME: What is reason for?  |
+| byte length  | Uint1   | 1     |   |
+| extra data   | Uint2   | 2     |   |
 
 # Subscribe Message
 
@@ -104,8 +104,8 @@ Ask for the addresses that the peer knows that use the specified protocols and p
 
 | Element     | Data type      | Bytes | Description       			        |
 |-------------|----------------|-------|------------------------------------|
-| protocolMask| unsigned int   | 1     | 0:DUMB, 1:WS, 2:RTC  			    |
-| serviceMask | unsigned int   | 4     | 0: NONE, 1:LIGHT, 2:LIGHT, 4:FULL  |
+| protocol mask| Uint1   | 1     | 0:DUMB, 1:WS, 2:RTC  			    |
+| service mask | Uint4   | 4     | 0: NONE, 1:LIGHT, 2:LIGHT, 4:FULL  |
 
 # Ping Message
 
@@ -119,15 +119,15 @@ This is the response to a ping message.
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|------------------------------------|
-| senderId       | SignalId 	  | 16    | 									|
-| recipientId    | SignalId 	  | 16    | 						   		    |
-| nonce		     | unsigned int   | 4     | 								    |
-| ttl	     	 | unsigned int   | 1     | 								    |
-| flags		     | unsigned int   | 1     | 								    |
-| payload Bytelenght | unsigned int   | 2     | 								    |
-| payload        | unsigned int   | FIXME | 								    |
-| senderPubKey   | unsigned int   | 32    |Only present if payload Bytelenght > 0.  |
-| signature      | unsigned int   | 64    |Only present if payload Bytelenght > 0.  |
+| sender id       | SignalId 	  | 16    | 									|
+| recipient id    | SignalId 	  | 16    | 						   		    |
+| nonce		     | Uint4   | 4     | 								    |
+| ttl	     	 | Uint1   | 1     | 								    |
+| flags		     | Uint1   | 1     | 								    |
+| payload byte lenght | Uint2   | 2     | 								    |
+| payload        | Uint   | FIXME | 								    |
+| sender public key   | Uint32   | 32    |Only present if payload Bytelenght > 0.  |
+| signature      | Uint 64  | 64    |Only present if payload Bytelenght > 0.  |
 
 FIXME: What's this for? Something to do with WebRTC? 
 
@@ -161,7 +161,7 @@ This message is used to ask for the TransactionsProof from a peer node.
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|-------------------------------------|
-| blockHash      | hash 		  | 32    | 									|
+| block hash      | hash 		  | 32    | 									|
 | addresses length    | SignalId  | FIXME | 						   		    |
 
 # TransactionsProof Message
@@ -170,8 +170,8 @@ This message is used to send a TransactionsProof to a peer node. FIXME: What's a
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|-------------------------------------|
-| hasProof       | unsigned int   | 1     | 						   		    |
-| proof          | unsigned int   | FIXME | 						   		    |
+| has roof       | Uint1   | 1     | 						   		    |
+| proof          | Uint    | FIXME | 						   		    |
 
 # TransactionsReceipts Message
 
