@@ -3,3 +3,4 @@ title: "Nimiq"
 description: "Developer Reference"
 show_downloads: false
 google_analytics:
+markdown: kramdown
