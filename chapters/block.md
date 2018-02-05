@@ -1,3 +1,7 @@
+---
+category: "Data schemas"
+---
+
 # Blockchain
 
 ## Block
@@ -97,4 +101,5 @@ A prunded account is composed of an account of any type with an address:
 | account | Account   | >9    | Can be a basic account, vesting contract, or HTLC |
 
 This type is used in the body of a block to communicate the accounts to be pruned with this block.
+
 

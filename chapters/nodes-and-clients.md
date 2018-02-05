@@ -1,3 +1,7 @@
+---
+category: "Higher level concepts"
+---
+
 # Node and Client Types
 
 There are two types of clients in the Nimiq Network: NodeJS Clients and Browser Clients. Both types use the same isomorphic JavaScript code base and can run any of the three node types: Full, Light and Nano. Some combination of Node/Client types will, in the long run, be more common that others (i.e Browser Clients will mainly be light/nano nodes, and they won’t necessarily participate as miners).

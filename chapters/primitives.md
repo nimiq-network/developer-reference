@@ -1,3 +1,7 @@
+---
+category: "Primitives"
+---
+
 # Primitives
 
 ## Public Key

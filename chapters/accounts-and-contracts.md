@@ -1,3 +1,7 @@
+---
+category: "Data schemas"
+---
+
 # Accounts and contracts
 
 Nimiq supports three types of accounts and contracts: [Basic](#basic-account), [Vesting Contract](#vesting-contract), and [Hashed Time-Locked Contract](#hashed-time-locked-contract-htlc)

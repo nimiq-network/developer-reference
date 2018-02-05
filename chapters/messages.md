@@ -1,3 +1,7 @@
+---
+category: "Data schemas"
+---
+
 # Message
 
 Message instance. This is usually not called directly but by subclasses.
@@ -10,7 +14,7 @@ Message instance. This is usually not called directly but by subclasses.
 | checksum  | Uint4 | 4	 		      | CRC32 checksum. |
 
 # Version Message
- 
+
 This message transmits the node's version of the protocol, peer ddress, the hash of its Genesis block, and the hash of the latest block in its blockchain (the head).
 
 | Element     | Data type    | Bytes            | Description            |
@@ -49,7 +53,7 @@ The inventory message points a vector to requested data. The structure for `Base
 
 There are several sub-message categories related to inventory message:
 
-  * Get Data 
+  * Get Data
   * Get Header
   * Not Found
 
@@ -129,7 +133,7 @@ This is the response to a ping message.
 | sender public key   | Uint32   | 32    |Only present if payload Bytelenght > 0.  |
 | signature      | Uint 64  | 64    |Only present if payload Bytelenght > 0.  |
 
-FIXME: What's this for? Something to do with WebRTC? 
+FIXME: What's this for? Something to do with WebRTC?
 
 # Get ChainProof Message
 
@@ -175,4 +179,4 @@ This message is used to send a TransactionsProof to a peer node. FIXME: What's a
 
 # TransactionsReceipts Message
 
-This message is used to request a TransactionsReceipt to a peer node. 
+This message is used to request a TransactionsReceipt to a peer node.

@@ -1,3 +1,7 @@
+---
+category: "Data schemas"
+---
+
 # Transactions
 All transactions MUST transfer value (value > 0). The value is always transferred from transaction sender to transaction recipient.
 The hash of the transaction does not include the signature/proof.

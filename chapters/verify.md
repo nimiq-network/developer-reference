@@ -1,3 +1,7 @@
+---
+category: "Higher level concepts"
+---
+
 # Verification
 Or: What's a valid Nimiq blockchain?
 

@@ -1,3 +1,7 @@
+---
+category: "Data schemas"
+---
+
 # Account tree
 A tree storing addresses and account (i.e. balances and further fields).
 This tree's root is stored in each [block's header](block.md#header).

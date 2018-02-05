@@ -1,3 +1,7 @@
+---
+category: "Higher level concepts"
+---
+
 # Constants
 
 ## Policy
@@ -299,7 +303,7 @@
 |**Parameter**							|**Value**	|**Description**	|
 |--------------------------------------	|----------	|------------------	|
 |`CHAINPROOF_REQUEST_TIMEOUT`			|20000		|Maximum time {ms} to wait for `chainProof` after sending out `getChainProof` before dropping the peer.	|
-|`ACCOUNTS_TREE_CHUNK_REQUEST_TIMEOUT`	|5000		|Maximum time {ms} to wait for accounts tree chunk after requesting it to a peer before dropping that peer.| 
+|`ACCOUNTS_TREE_CHUNK_REQUEST_TIMEOUT`	|5000		|Maximum time {ms} to wait for accounts tree chunk after requesting it to a peer before dropping that peer.|
 |`SYNC_ATTEMPTS_MAX`					|5			|Maximum number of blockchain sync retries before closing the connection.	|
 |`GETBLOCKS_VECTORS_MAX`				|500		|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.	|
 

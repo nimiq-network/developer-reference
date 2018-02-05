@@ -18,6 +18,19 @@
       <header>
         <a href="{{ site.github.url }}"> <h1>{{ site.title | default: site.github.repository_name }}</h1> </a>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <ul>
+          <li>
+            <a href="{{ site.github.url }}"> home </a>
+          </li>
+        {% for node in site.pages %}
+          <li>
+          {{ node.title }}
+          --
+          {% include toc.html html=node.content %}
+          --
+          </li>
+        {% endfor %}
+        </ul>
       </header>
       <section>
 
