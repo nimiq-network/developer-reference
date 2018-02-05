@@ -10,8 +10,10 @@
   </head>
   <body>
     <aside>
-      <a href="{{ site.github.url }}"> <h1>{{ site.title | default: site.github.repository_name }}</h1> </a>
-      <p>{{ site.description | default: site.github.project_tagline }}</p>
+      <a href="{{ site.github.url }}" class="logo">
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+      </a>
     </aside>
     <main>
       <header></header>
