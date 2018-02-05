@@ -69,7 +69,7 @@
         {% endunless %}
 
         {% capture my_toc %}{{ my_toc }}
-{{ space }}{{ listModifier }} {{ listItemClass }} [{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}](#{{ html_id }}){% endcapture %}
+        {{ space }}{{ listModifier }} {{ listItemClass }} [{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}]({{ site.baseurl }}{{ include.url }}#{{ html_id }}){% endcapture %}
 
     {% endfor %}
 
