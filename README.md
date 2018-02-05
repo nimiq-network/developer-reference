@@ -7,7 +7,7 @@ This technical documentation contains:
 * [High level concepts and architecture](#higher-level-concepts)
 * [Examples](#examples)
 
-# Data schemas
+## Data schemas
 
 Data schemas as used on the wire, focusing on fields, bytes sizes and short explanations.
 
@@ -18,7 +18,7 @@ Data schemas as used on the wire, focusing on fields, bytes sizes and short expl
 * [Primitives](chapters/primitives.md): none-composed elements, e.g. hashes, addresses
 * [Messages](chapters/messages.md): All p2p-related inter-node messages
 
-# Higher level concepts
+## Higher level concepts
 
 Higher level concepts used in and underlying Nimiq.
 
@@ -27,16 +27,16 @@ Higher level concepts used in and underlying Nimiq.
 * [Supply and reward](chapters/supply-and-reward.md): total supply, rewards, difficulty adjustment
 * [Verification](chapters/verify.md): Validation rules for the Nimiq blockchain
 
-# Examples
+## Examples
 
 Check out our testnet [Browser Miner](https://nimiq.com/miner) and [Wallet](https://nimiq.com/wallet).
 
 Read the [API Documentation](https://github.com/nimiq-network/core/blob/master/dist/API_DOCUMENTATION.md).
 
-# Contribute
+## Contribute
 
 If you'd like to contribute to the development of Nimiq please follow our [Code of Conduct](https://github.com/nimiq-network/core/blob/master/.github/CODE_OF_CONDUCT.md) and [Contributing Guidelines](https://github.com/nimiq-network/core/blob/master/.github/CONTRIBUTING.md).
 
-# License
+## License
 
 This project is under the [Apache License 2.0](https://github.com/nimiq-network/core/blob/master/LICENSE.md).
