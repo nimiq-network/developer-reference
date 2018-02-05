@@ -1,0 +1,249 @@
+/* Layout */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 64px;
+    padding-left: 320px;
+    min-height:100vh;
+}
+
+section {
+    width: 660px;
+    padding: 16px 48px;
+}
+
+aside {
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    padding: 16px 24px 16px 72px;
+}
+
+footer{
+    width: 100%;
+    padding: 32px 24px;
+    margin-top: 80px;
+}
+
+
+/* Responsiveness */
+
+@media (max-width: 880px){
+    main{
+        padding-left: 0;
+        overflow-x: scroll;
+        justify-content: flex-start;
+    }
+
+    section{
+        width: auto;
+    }
+
+    aside{
+        transform: translate(-100%);
+    }
+}
+
+@media (min-width: 1240px){
+    main{
+        padding-left: 0;
+    }
+}
+
+/* Typography */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-top: 64px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 64px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+
+h2 + p, h3 + p{
+    margin-top: 0;
+}
+
+h1 + h2{
+    margin-top: 40px;
+}
+
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+    margin-bottom: 24px;
+}
+
+strong {
+    font-weight: 700;
+}
+
+
+
+/* Colors */
+
+:root {
+    --cta-color: #0070c9;
+}
+
+body {
+    color: #333;
+    background-color: white;
+}
+
+footer{
+    background-color: #333;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+aside:before{
+    content:'';
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: linear-gradient(#536DFE, #a553fe);
+}
+
+
+/* Lists */
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+ul>li,
+ol>li {
+    padding-bottom: 8px;
+}
+
+li>ul {
+    padding-top: 8px;
+}
+
+li{
+    line-height: 18px;
+}
+
+/* Tables */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    white-space: nowrap;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
+th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+td:first-child {
+    width: 120px;
+}
+
+
+
+/* Logo */
+
+.logo h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 800;
+    color: rgb(90, 90, 90);
+}
+
+.logo h1+p {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+
+
+/* Links */
+
+a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: var(--cta-color);
+}
+
+a:hover {
+    border-bottom: 1px solid var(--cta-color);
+    font-weight: 400;
+    color: var(--cta-color);
+}
+
+/* Code */
+code {
+    font-size: 13px;
+    background: #efefef;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 2px;
+}
