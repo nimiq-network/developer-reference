@@ -170,6 +170,10 @@ li>ul {
     padding-top: 8px;
 }
 
+li{
+    line-height: 18px;
+}
+
 /* Tables */
 
 table {
