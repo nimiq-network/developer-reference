@@ -63,6 +63,12 @@ footer{
     }
 }
 
+@media (min-width: 1240px){
+    main{
+        padding-left: 0;
+    }
+}
+
 /* Typography */
 
 body {
