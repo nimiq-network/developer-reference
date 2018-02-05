@@ -15,16 +15,18 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-          <ul>
-            <li>
-              <a href="{{ site.github.url }}"> home </a>
-            </li>
-          {% for node in site.pages %}
-            <li>
-            {% include toc.html html=node.content %}
-            </li>
-          {% endfor %}
-          </ul>
+          <nav>
+            <ul>
+              <li>
+                <a href="{{ site.github.url }}"> home </a>
+              </li>
+              {% for node in site.pages %}
+              <li>
+              {% include toc.html html=node.content %}
+              </li>
+            {% endfor %}
+            </ul>
+          </nav>
       </a>
       </header>
     </aside>
