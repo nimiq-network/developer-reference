@@ -15,42 +15,12 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
         </a>
-        <pre>test</pre>
-        <pre style="display:none">
-          {% assign pages = site.pages %}
-          {% for page in pages %}
-
-            {% comment %}
-            $$$ {{ page }} == current page
-
-          {% assign pages = site.pages | group_by_exp: "item", "item.category" %}
-
-            {{ page.title }}
-            {{ page.url }}
-            {{ page.date }}
-            {{ page.id }}
-            {{ page.categories }}
-            {{ page.tags }}
-            {{ page.path }}
-            {{ page.dir }}
-            {% endcomment %}
-
-            {{ page | strip_html }}
-
-            ---
-          {% endfor %}
-        </pre>
-        <nav>
-          <ul>
-            <li>
-              <a href="{{ site.github.url }}"> Home </a>
-            </li>
-          </ul>
-          {% for node in site.pages %}
-            {% include toc.html html=node.content url=node.url %}
-          {% endfor %}
-        </nav>
       </header>
+      <nav>
+        {% for node in site.pages %}
+          {% include toc.html html=node.content url=node.url %}
+        {% endfor %}
+      </nav>
     </aside>
     <main>
       <section>
