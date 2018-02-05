@@ -5,7 +5,6 @@ This technical documentation contains:
 
 * [Data schemas](#data-schema)
 * [High level concepts and architecture](#higher-level-concepts)
-* [Examples](#examples)
 
 ## Data schemas
 
