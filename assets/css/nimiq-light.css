@@ -22,6 +22,7 @@ main {
     position: relative;
     padding-bottom: 64px;
     padding-left: 320px;
+    min-height:100vh;
 }
 
 section {
