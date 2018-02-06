@@ -60,7 +60,7 @@ category: "Higher level concepts"
 |**Parameter**		|**Value**	|**Description**																						|
 |------------------	|----------	|------------------------------------------------------------------------------------------------------	|
 |`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
-|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
+|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant.	|
 |`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
 |`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
 |`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
@@ -72,11 +72,11 @@ category: "Higher level concepts"
 
 |**Parameter**			|**Value**	|**Description**													|
 |----------------------	|----------	|------------------	|
-|`ABORTED`				|-1			|(?)				|
-|`PROVE_CHAIN`			|0			|(?)				|
-|`PROVE_ACCOUNTS_TREE`	|1			|(?)				|
-|`PROVE_BLOCKS`			|2			|(?)				|
-|`COMPLETE`				|3			|(?)				|
+|`ABORTED`				|-1			|				|
+|`PROVE_CHAIN`			|0			|				|
+|`PROVE_ACCOUNTS_TREE`	|1			|				|
+|`PROVE_BLOCKS`			|2			|				|
+|`COMPLETE`				|3			|				|
 
 #### LightConsensusAgent
 
@@ -123,8 +123,8 @@ category: "Higher level concepts"
 |**Parameter**		|**Value**	|**Description**																						|
 |------------------	|----------	|------------------------------------------------------------------------------------------------------	|
 |`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
-|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
-|`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
+|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant.	|
+|`OK_KNOWN`			|0			|Indicates the node already knows this block.															|
 |`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
 |`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
 |`OK_FORKED`		|3			|Indicates new fork was created.															|
