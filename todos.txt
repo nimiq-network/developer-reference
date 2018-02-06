@@ -6,6 +6,22 @@ Important
 		- add tables
 	- Constants.md
 		- fix tables
+	- Make navigation more clear 
+		- Reduce depth of nav to only H1 and H2
+			- refine headings accordingly
+				- i.e. messages should have only 3-5 H2 tags
+				- i.e. constants should have only 3-5 H2 tags
+					- maybe 'consensus constants' and 'network constants'
+	- Consistency
+		- consistent casing in all headings
+			- don't mix 'Account tree' and 'NetUtils'.
+		- consistent capitalization in all headings
+			- don't mix 'Protocol Types' and 'Higher level concepts'.
+		- consistent wording
+			- don't mix 'Account tree' and 'AccountsTree'
+		- variable names like 'proof length' should always be in a <code> tag
+	- Always use lists when enumerating rules
+		- see intro of transactions.md
 - Review with Core Dev and Fix content bugs
 - Edit this page button (see: https://jekyllrb.com/docs/pages/ on the top right "Improve this page")
 - Readme should redirect to index
@@ -17,3 +33,5 @@ Unimportant
 	- sidebar show / hide 
 - external links should have target="_blank" 
 - add footer
+- unifiy table and column widths
+- add sticky header

@@ -117,12 +117,6 @@ strong {
     font-weight: 700;
 }
 
-p+ul {
-    margin-bottom-bottom: 0;
-}
-
-
-
 
 
 /* Colors */
@@ -206,7 +200,7 @@ th {
 }
 
 td {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 td:first-child {
@@ -310,7 +304,9 @@ nav li a:hover:before {
     opacity: 1;
 }
 
-
+nav ul ul ul {
+    display: none;
+}
 
 
 /* Logo */
@@ -396,7 +392,7 @@ a.logo {
     }
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1480px) {
     main {
         margin-left: 320px;
     }
