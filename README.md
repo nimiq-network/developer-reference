@@ -7,7 +7,7 @@ layout: default
 
 This technical documentation contains:
 
-* [Data schemas](#data-schema)
+* [Data schemas](#data-schemas)
 * [High level concepts and architecture](#higher-level-concepts)
 
 ## Data schemas
@@ -33,9 +33,6 @@ Higher level concepts used in and underlying Nimiq.
 ## Further Ressources
 Further ressources to get an overview of the Nimiq project and ecosystem:
 * [API Documentation](https://github.com/nimiq-network/core/blob/master/dist/API_DOCUMENTATION.md)
-* [Contributing Guidelines](https://github.com/nimiq-network/core/blob/master/.github/CONTRIBUTING.md)
-* [Code of Conduct](https://github.com/nimiq-network/core/blob/master/.github/CODE_OF_CONDUCT.md)
-* [Developer Reference](https://github.com/nimiq-network/developer-reference)
-* [Browser Miner](https://nimiq.com/miner)
-* [Browser Wallet](https://nimiq.com/wallet)
+* [Browser Miner](https://nimiq.com/miner) and [Browser Wallet](https://nimiq.com/wallet)
+* [Contributing Guidelines](https://github.com/nimiq-network/core/blob/master/.github/CONTRIBUTING.md) and [Code of Conduct](https://github.com/nimiq-network/core/blob/master/.github/CODE_OF_CONDUCT.md)
 * This project is under the [Apache License 2.0](https://github.com/nimiq-network/core/blob/master/LICENSE.md)
