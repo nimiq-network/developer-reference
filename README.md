@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # Nimiq Blockchain
 [Nimiq](https://nimiq.com/) is a frictionless payment protocol for the web. For a high-level introduction please read the [Nimiq White Paper](https://medium.com/nimiq-network/nimiq-a-peer-to-peer-payment-protocol-native-to-the-web-ffd324bb084). The source code is available on [GitHub](https://github.com/nimiq-network/core).
 
