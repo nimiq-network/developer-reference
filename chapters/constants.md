@@ -8,13 +8,20 @@ category: "Higher level concepts"
 
 ### Block Parameters
 
-|**Parameters**						|**Value**		|**Description**													|
-|----------------------------------	|---------------|------------------------------------------------------------------	|
-|`BLOCK_TIME`						|60				|Targeted block time in seconds.									|
-|`BLOCK_SIZE_MAX`					|1e6 (1 MB)		|Maximum block size in bytes.										|
-|`DIFFICULTY_BLOCK_WINDOW`			|120			|Number of blocks we take into account to calculate next difficulty.|
-|`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`	|2				|Limits the rate at which the difficulty is adjusted min/max.		|
-|`TRANSACTION_VALIDITY_WINDOW`		|120			|Number of blocks a transaction is valid.							|
+`Policy.BLOCK_TIME = 60`
+The targeted block time in seconds.
+
+`Policy.BLOCK_SIZE_MAX = 1e6 (1000000 => 1MB)`
+The maximum block size in bytes.
+
+`Policy.DIFFICULTY_BLOCK_WINDOW = 120`
+Number of past blocks that are taken into account for calculating the next difficulty.
+
+`Policy.DIFFICULTY_MAX_ADJUSTMENT_FACTOR = 2`
+Maximum factor about which the difficulty can be adjusted from one block to the next.
+
+`Policy.TRANSACTION_VALIDITY_WINDOW = 120`
+Number of blocks a transaction is valid for after it's `startValidity`.
 
 ### Supply & Emission Parameters
 
@@ -55,14 +62,14 @@ category: "Higher level concepts"
 |`PEER_COUNT_PER_IP_WS_MAX`	|1/25		|Maximum WebSocket connections from the same IP Address. Browsers are limited to 1, other platforms to 25.|
 |`PEER_COUNT_PER_IP_RTC_MAX`|2									|Maximum RTC connections for a peer's IP Address.						|
 
-## NetUtils
+### Network Utils
 
 |**Parameter**				|**Value**							|**Description**											|
 |--------------------------	|----------------------------------	|----------------------------------------------------------	|
 |`IP_BLACKLIST`				|'0.0.0.0',<br>'255.255.255.255','::'|Blacklisted IP address.|
 |`IPv4_PRIVATE_NETWORK`		|'10.0.0.0/8',<br>'172.16.0.0/12',<br>'192.168.0.0/16',<br>'100.64.0.0/10',<br>'169.254.0.0/16'|IP Address ranges considered within private network.|
 
-## NetworkAgent
+### NetworkAgent
 
 
 |**Parameter**					|**Value**			|**Description**																|
@@ -75,9 +82,9 @@ category: "Higher level concepts"
 |`VERSION_ATTEMPTS_MAX`			|10					|During handshake, maximum amount of version attempts per address the node will allow before droping the connection. A version attempt checks version, network address & blockchain head hash.|
 |`VERSION_RETRY_DELAY`			|500				|Time {ms} the node waits before retrying a version attempt during handshake.	|
 
-## Peer Address
+### Peer Address
 
-### Parameters
+#### Parameters
 
 |**Parameter**					|**Value**		|**Description**																|
 |--------------------------	|-----------------	|------------------------------------------------------------------------------	|
@@ -91,7 +98,7 @@ category: "Higher level concepts"
 |`INITIAL_FAILED_BACKOFF`	|15000<br>(15 sec)	|Initial backoff, {ms}, for failed connections.									|
 |`MAX_FAILED_BACKOFF`		|600000<br>(10 min)	|Maximum backoff, {ms}, for failed connections.									|
 
-### States
+#### States
 
 |**State**					|**Value**	|**Description**																			|
 |--------------------------	|----------	|------------------------------------------------------------------------------------------	|
@@ -103,20 +110,20 @@ category: "Higher level concepts"
 |`BANNED`					|6			|State of a peer address that have been banned.												|
 
 
-## Signal Id Serialized Size
+### Signal Id Serialized Size
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`SERIALIZED_SIZE`			|16			|Size in bytes of the serialized signal.					|
 
 
-## Transaction Receipts Message Maximum Count
+### Transaction Receipts Message Maximum Count
 
 |**Parameter**				|**Value**	|**Description**												|
 |--------------------------	|----------	|--------------------------------------------------------------	|
 |`RECEIPTS_MAX_COUNT`		|500		|Maximum amount of transaction receipts in transaction receipts.|
 
-## Signal Message Flags
+### Signal Message Flags
 
 |**Flag**					|**Value**	|**Description**														|
 |--------------------------	|----------	|----------------------------------------------------------------------	|
@@ -124,7 +131,7 @@ category: "Higher level concepts"
 |`TTL_EXCEEDED`				|0x2		|Indicates the TTL of a signal message has exceeded the maximum allowed.|
 
 
-## Reject Message Code
+### Reject Message Code
 
 |**Flag**					|**Value**	|
 |--------------------------	|----------	|
@@ -174,14 +181,16 @@ category: "Higher level concepts"
 |`GET_TRANSACTION_RECEIPTS`	|49			|											|
 |`TRANSACTION_RECEIPTS`		|50			|	[Transactions receipts](/messages.md#transactions-receipts-message)														|
 
-## `GetBlocksMessage` Directions
+### GetBlocksMessage Directions
 
 |**Direction**	|**Value**	|
 |--------------	|----------	|
 |`FORWARD`		|0x1 		|
 |`BACKWARD`		|0x2 		|
 
-## Protocol Types
+## Further Constants
+
+### Protocol Types
 
 |**Protocol**	|**Value**	|
 |--------------	|----------	|
@@ -189,7 +198,7 @@ category: "Higher level concepts"
 |`WS`			|1			|
 |`RTC`			|2			|
 
-## Services Types
+### Services Types
 
 |**Protocol**	|**Value**	|
 |--------------	|----------	|
@@ -198,7 +207,7 @@ category: "Higher level concepts"
 |`LIGHT`		|2			|
 |`FULL`			|4			|
 
-## Alphabets
+### Alphabets
 
 |**Alphabet**	|**Value**							|
 |--------------	|----------------------------------	|
@@ -207,7 +216,7 @@ category: "Higher level concepts"
 |`NIMIQ`		|'0123456789ABCDEFGHJKLMNPQRSTUVXY'	|
 |`HEX_ALPHABET`	|'0123456789abcdef'					|
 
-## CryptoWorker
+### Crypto Worker
 
 |**Paramemter**				|**Value**	|
 |--------------------------	|----------	|
@@ -222,7 +231,7 @@ category: "Higher level concepts"
 |`SIGNATURE_HASH_SIZE` 		|64 		|
 
 
-## MerkleProof Operations
+### MerkleProof Operations
 
 |**Operation**	|**Value**	|
 |--------------	|----------	|
@@ -230,7 +239,7 @@ category: "Higher level concepts"
 |`CONSUME_INPUT`|1			|
 |`HASH`			|2			|
 
-## Browser Client Errors
+### Browser Client Errors
 
 |**Error**			|**Value**	|
 |------------------	|----------	|
@@ -238,7 +247,7 @@ category: "Higher level concepts"
 |`ERR_UNSUPPORTED`	|-2			|
 |`ERR_UNKNOWN`		|-3			|
 
-## WebRtc Data Channel
+### WebRtc Data Channel
 
 **Parameter**				|**Value**			|**Description**																		|
 |--------------------------	|------------------	|--------------------------------------------------------------------------------------	|
@@ -249,19 +258,22 @@ category: "Higher level concepts"
 |`CHUNK_INNER_MAGIC`		|0xfe				|Special string that indicates the middle chunks of a message splitted in chunks.		|
 |`CHUNK_END_MAGIC`			|0xfd				|Special string that indicates the end chunk of a message splitted in chunks.			|
 
-## WebSocket Connector
+### WebSocket Connector
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`CONNECT_TIMEOUT`			|5000		|Timeout for WebSocket conections in Browsers.				|
 
-## Full Consensus
+
+## Consensus Constants
+
+### Full Consensus
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`SYNC_THROTTLE`			|1500		|Time {ms} for the node to wait for more peers to connect before start syncing. |
 
-## FullConsensusAgent
+### FullConsensusAgent
 
 |**Parameter**				|**Value**			|**Description**																	|
 |--------------------------	|------------------	|----------------------------------------------------------------------------------	|
@@ -274,7 +286,7 @@ category: "Higher level concepts"
 |`MEMPOOL_ENTRIES_MAX`		|10					|Maximum number Number of allowed transaction to send.								|
 
 
-## FullChain
+### FullChain
 
 |**Parameter**		|**Value**	|**Description**																						|
 |------------------	|----------	|------------------------------------------------------------------------------------------------------	|
@@ -287,7 +299,7 @@ category: "Higher level concepts"
 
 
 
-## PartialLightChain State
+### PartialLightChain State
 
 |**Parameter**			|**Value**	|**Description**													|
 |----------------------	|----------	|------------------	|
@@ -297,7 +309,7 @@ category: "Higher level concepts"
 |`PROVE_BLOCKS`			|2			|(?)				|
 |`COMPLETE`				|3			|(?)				|
 
-## LightConsensusAgent
+### LightConsensusAgent
 
 |**Parameter**							|**Value**	|**Description**	|
 |--------------------------------------	|----------	|------------------	|
@@ -307,20 +319,20 @@ category: "Higher level concepts"
 |`GETBLOCKS_VECTORS_MAX`				|500		|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.	|
 
 
-## Light Consensus
+### Light Consensus
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
 
-## NanoMempool
+### NanoMempool
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`TRANSACTIONS_MAX_COUNT`	|50000		|Maximum lenght of the mempool, oldest transactions are evicted from the mempool if it grows too large than this value. |
 |`TRANSACTIONS_EVICT_COUNT`	|5000		|Amount of transaction to be evicted each time. |
 
-## NanoConsensusAgent
+### NanoConsensusAgent
 
 |**Parameter**					|**Value**	|**Description**											|
 |------------------------------	|----------	|----------------------------------------------------------	|
@@ -329,13 +341,13 @@ category: "Higher level concepts"
 |`TRANSACTIONSPROOF_REQUEST_TIMEOUT`	|10000		|Maximum time {ms} to wait for transaction proof after requesting it to a peer before dropping that peer. |
 |`TRANSACTIONS_REQUEST_TIMEOUT`	|15000		|Maximum time {ms} to wait for `transactions` after sending out `getTransactions` before dropping the peer.|
 
-## Nano Consensus
+### Nano Consensus
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
 
-## NanoChain
+### NanoChain
 
 |**Parameter**		|**Value**	|**Description**																						|
 |------------------	|----------	|------------------------------------------------------------------------------------------------------	|
