@@ -7,7 +7,7 @@ layout: default
 
 This technical documentation contains:
 
-* [Data schemas](#data-schema)
+* [Data schemas](#data-schemas)
 * [High level concepts and architecture](#higher-level-concepts)
 
 ## Data schemas
