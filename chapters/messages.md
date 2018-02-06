@@ -185,6 +185,10 @@ This message is used to send a `TransactionsProof` to a peer node.
 | has proof      | Uint1   | 1     | 						   		    |
 | proof          | transactionProof    | FIXME  | 	Only present if payload = 0.					   		    |
 
+### `Get Transactions Receipts` message
+
+This message is used to request `TransactionsReceipts` to a peer node.
+
 ### `Transactions Receipts` message
 
-This message is used to request a `TransactionsReceipt` to a peer node.
+This message is used to send `TransactionsReceipt` to a peer node.
