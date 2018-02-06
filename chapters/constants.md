@@ -12,20 +12,20 @@ category: "Higher level concepts"
 |--------------------  |---------------|---------------------------------  | 
 |`BLOCK_TIME`            |60        |Targeted block time in seconds.                  | 
 |`BLOCK_SIZE_MAX`          |1e6 (1 MB)    |Maximum block size in bytes.                    | 
-|`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks we take into account to calculate next difficulty.| 
-|`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`  |2        |Limits the rate at which the difficulty is adjusted min/max.    | 
-|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid.              |
+|`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks that are taken into account for calculating the next difficulty.| 
+|`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`  |2        |Maximum factor about which the difficulty can be adjusted from one block to the next.| 
+|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid for after it's `startValidity`.              |
 
 ### Supply & Emission Parameters
 
 |**Parameter**				|**Value**		|**Description**																		|
 |--------------------------	|--------------	|------------------------------------------	|
-|`SATOSHIS_PER_COIN`		|1e5			|Number of Satoshis per Nimiq.															|
-|`TOTAL_SUPPLY`				|21e14			|Targeted total supply in satoshis.														|
-|`INITIAL_SUPPLY`			|0				|Initial supply before genesis block in satoshis.										|
+|`SATOSHIS_PER_COIN`		|1e5			|Number of _Satoshis_ per Nimiq.															|
+|`TOTAL_SUPPLY`				|21e14			|Targeted total supply in _satoshis_.	This is the same amount that Bitcoin has.	|
+|`INITIAL_SUPPLY`			|0				|Initial supply at the genesis block in satoshis. This describes the amount NIMs that are created from the ICO and all other pre-allocated funds.										|
 |`EMISSION_SPEED`			|2^22			|Emission speed.																		|
 |`EMISSION_TAIL_START`		|48692960		|First block using constant tail emission until total supply is reached.				|
-|`EMISSION_TAIL_REWARD`		|4000			|Constant tail emission in satoshis until total supply is reached.						|
+|`EMISSION_TAIL_REWARD`		|4000			|Constant tail emission in _satoshis_ until total supply is reached.						|
 |`M`						|240			|NIPoPoW Security parameter `M`															|
 |`K`						|120			|NIPoPoW Security parameter `K`															|
 |`DELTA`					|0.1			|NIPoPoW Security parameter `DELTA`														|
@@ -36,17 +36,17 @@ category: "Higher level concepts"
 
 |**Parameter**				|**Value**		|**Description**																		|
 |--------------------------	|--------------	|--------------------------------------------	|
-|`MIN_TIME_ON_BLOCK`		|10000<br>*(10 sec)	|Minimum time in milliseconds a miner needs to wait before starting work on a block.	|
-|`MOVING_AVERAGE_MAX_SIZE`	|10				|Number of blocks considered in moving average for the hashrate calculation.			|
+|`MIN_TIME_ON_BLOCK`		|10000<br>*(10 sec)*	|Minimum time in milliseconds a miner needs to wait before (re)starting work on the same block with new transactions or the next block. This prevents the miner from constantly restarting when the mempool receives new transactions without the miner having a chance to start mining on a fixed block body.	|
+|`MOVING_AVERAGE_MAX_SIZE`	|10				|Number of past `hashrate-changed`events considered in the moving average for the hashrate calculation.	The event is dispatched every second.		|
 
 ## Network
 
 |**Parameter**				|**Value**							|**Description**														|
 |------------	|-------------------	|------------------------------------------	|
-|`PEER_COUNT_DESIRED`		|6									|Number of peers the node aims to connect to.|
-|`PEER_COUNT_RELAY`			|4									|When new addresses are learned, pick `PEER_COUNT_RELAY` random peers and relay addresses to them if number of addresses <= 10|
-|`CONNECTING_COUNT_MAX`		|2									|Maximum number of ongoing outbound connection attempts					|
-|`SIGNAL_TTL_INITIAL`		|3									|Considered to check validity of the signals.							|
+|`PEER_COUNT_DESIRED`		|6									|Number of peers a node aims to connect to. |
+|`PEER_COUNT_RELAY`			|4									|Specifies to how many peers newly learned addresses are forwarded.|
+|`CONNECTING_COUNT_MAX`		|2									|Maximum number of simultaneous outbound connection attempts.					|
+|`SIGNAL_TTL_INITIAL`		|3									|Considered to check validity of signals.							|
 |`ADDRESS_UPDATE_DELAY`		|1000								|Delay added before checking peer count and connecting to new peers. This allows RTC peer addresses to be sent to the peer in question.	|
 |`CONNECT_BACKOFF_INITIAL`	|1000									|Backoff for peer count check in seconds.							|
 |`CONNECT_BACKOFF_MAX`		|300000<br>(5 min)						|Maximum Backoff time before a new backoff is triggered.		|
@@ -59,11 +59,10 @@ category: "Higher level concepts"
 
 |**Parameter**				|**Value**							|**Description**											|
 |-------------------	|-------------------------	|----------------------------------------	|
-|`IP_BLACKLIST`				|'0.0.0.0',<br>'255.255.255.255','::'|Blacklisted IP address.|
-|`IPv4_PRIVATE_NETWORK`		|'10.0.0.0/8',<br>'172.16.0.0/12',<br>'192.168.0.0/16',<br>'100.64.0.0/10',<br>'169.254.0.0/16'|IP Address ranges considered within private network.|
+|`IP_BLACKLIST`				|'0.0.0.0',<br>'255.255.255.255','::'|Blacklisted IP addresses that are never connected to.|
+|`IPv4_PRIVATE_NETWORK`		|'10.0.0.0/8',<br>'172.16.0.0/12',<br>'192.168.0.0/16',<br>'100.64.0.0/10',<br>'169.254.0.0/16'|IP Address ranges considered to be within private networks and thus are not connected to.|
 
 ## NetworkAgent
-
 
 |**Parameter**					|**Value**			|**Description**																|
 |------------------------------	|------------------	|-----------------------------------------------------	|
@@ -280,11 +279,11 @@ category: "Higher level concepts"
 |**Parameter**		|**Value**	|**Description** |
 |------------------	|----------	|--------------------------------------	|
 |`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.|
-|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
-|`OK_KNOWN`			|0			|Indicates the node already knows this block.. |
-|`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
-|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
-|`OK_FORKED`		|3			|Indicates new fork was created.															|
+|`ERR_INVALID`		|-1			|Indicates the block is not a full block (does not include block body) or matches with an intrinsic variant. (?)	|
+|`OK_KNOWN`			|0			|Indicates the node already knows this block. |
+|`OK_EXTENDED`		|1			|Indicates the block extends the node's current main chain.													|
+|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and the node will rebranch to it.									|
+|`OK_FORKED`		|3			|Indicates a new fork was created.															|
 
 
 
@@ -345,4 +344,4 @@ category: "Higher level concepts"
 |`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
 |`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
 |`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
-|`OK_FORKED`		|3			|Indicates new fork was created.															|
+|`OK_FORKED`		|3			|Indicates a new fork was created.															|
