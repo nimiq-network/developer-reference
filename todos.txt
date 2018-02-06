@@ -1,5 +1,6 @@
 Important
 - Content, Content, Content
+	- Explain the concepts behind `userFriendlyAddress` 
 #	- Message.md
 #		-  h1 -> h2 !
 #		- fix content
