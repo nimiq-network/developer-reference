@@ -35,7 +35,7 @@ A branch is composed of a prefix and children:
 | prefix        | string       | length        | Common part of the hashes of all accounts on this side of the tree |
 | child count   | unsigned int | 1             | Number of immediate tree sub nodes                                 |
 
-And then for each child as structure as follows:
+And then for each child a structure as follows is attached:
 
 | Element             | Data type    | size in bytes | Description                               |
 |---------------------|--------------|---------------|-------------------------------------------|
