@@ -16,7 +16,7 @@ main {
     position: relative;
     padding-bottom: 64px;
     margin-left: 320px;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 section {
@@ -26,18 +26,20 @@ section {
 
 aside {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     bottom: 0;
     width: 320px;
-    padding: 16px 24px 16px 72px;
+    padding: 16px 0px 16px 72px;
 }
 
-footer{
+footer {
     width: 100%;
     padding: 32px 24px;
     margin-top: 80px;
 }
+
+
 
 
 /* Typography */
@@ -62,26 +64,36 @@ h5 {
 
 h1 {
     font-size: 34px;
-    margin-top: 64px;
+    margin-top: 0px;
+    padding-top: 64px;
 }
 
 h2 {
     font-size: 24px;
-    margin-top: 64px;
+    margin-top: 0px;
+    padding-top: 64px;
 }
 
 h3 {
     font-size: 20px;
-    margin-top: 40px;
+    padding-top: 0px;
+    padding-top: 40px;
 }
 
-
-h2 + p, h3 + p{
-    margin-top: 0;
+h4 {
+    font-size: 16px;
+    padding-top: 0px;
+    padding-top: 24px;
+    font-weight: 500;
 }
 
-h1 + h2{
-    margin-top: 40px;
+h2+p,
+h3+p {
+    padding-top: 0;
+}
+
+h1+h2 {
+    padding-top: 40px;
 }
 
 p,
@@ -98,9 +110,11 @@ strong {
     font-weight: 700;
 }
 
-p + ul{
-    margin-bottom-bottom:0;
+p+ul {
+    margin-bottom-bottom: 0;
 }
+
+
 
 /* Colors */
 
@@ -113,17 +127,17 @@ body {
     background-color: white;
 }
 
-footer{
+footer {
     background-color: #333;
     color: white;
 }
 
-footer a{
+footer a {
     color: white;
 }
 
-aside:before{
-    content:'';
+aside:before {
+    content: '';
     position: fixed;
     left: 0;
     top: 0;
@@ -131,6 +145,8 @@ aside:before{
     width: 16px;
     background: linear-gradient(#536DFE, #a553fe);
 }
+
+
 
 
 /* Lists */
@@ -149,9 +165,11 @@ li>ul {
     padding-top: 8px;
 }
 
-li{
+li {
     line-height: 18px;
 }
+
+
 
 /* Tables */
 
@@ -182,6 +200,8 @@ td:first-child {
 }
 
 
+
+
 /* Links */
 
 a {
@@ -196,7 +216,10 @@ a:hover {
     color: var(--cta-color);
 }
 
+
+
 /* Code */
+
 code {
     font-size: 13px;
     background: #efefef;
@@ -206,27 +229,50 @@ code {
 }
 
 
+
+
 /* Table of Contents */
-nav{
+
+nav {
     padding-top: 24px;
     padding-bottom: 64px;
 }
 
-nav li{
-    list-style:none;
+nav li {
+    list-style: none;
 }
 
-nav ul{
+nav ul {
     margin-bottom: 0;
 }
 
-nav > ul{
+nav>ul {
     padding-left: 0;
 }
 
-li > ul > li:last-child{
+li>ul>li:last-child {
     padding-bottom: 0;
 }
+
+nav li {
+    line-height: 24px;
+}
+
+nav li a:hover {
+    border-bottom: none;
+}
+
+nav li a:hover:before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 16px;
+    right: 0;
+    height: 32px;
+    margin-top: -4px;
+}
+
+
 
 
 /* Logo */
@@ -250,26 +296,40 @@ li > ul > li:last-child{
 
 
 
+
+
 /* Responsiveness */
 
-@media (max-width: 880px){
-    main{
-        padding-left: 0;
+@media (min-width: 1240px) {
+    main {
+        margin-left: 0;
+    }
+
+    aside {
+        width: 480px;
+        padding: 16px 0px 16px 128px;
+    }
+}
+
+@media (max-width: 1600px) {
+    main {
+        margin-left: 320px;
+    }
+}
+
+@media (max-width: 880px) {
+    main {
+        margin-left: 0;
         overflow-x: scroll;
         justify-content: flex-start;
     }
 
-    section{
+    section {
         width: auto;
     }
 
-    aside{
+    aside {
         transform: translate(-100%);
     }
 }
 
-@media (min-width: 1240px){
-    main{
-        padding-left: 0;
-    }
-}
