@@ -9,7 +9,7 @@ category: "Higher level concepts"
 ### Block Parameters
 
 |**Parameters**            |**Value**    |**Description**                          | 
-|----------------------------------  |---------------|------------------------------------------------------------------  | 
+|--------------------  |---------------|---------------------------------  | 
 |`BLOCK_TIME`            |60        |Targeted block time in seconds.                  | 
 |`BLOCK_SIZE_MAX`          |1e6 (1 MB)    |Maximum block size in bytes.                    | 
 |`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks we take into account to calculate next difficulty.| 
@@ -19,7 +19,7 @@ category: "Higher level concepts"
 ### Supply & Emission Parameters
 
 |**Parameter**				|**Value**		|**Description**																		|
-|--------------------------	|--------------	|--------------------------------------------------------------------------------------	|
+|--------------------------	|--------------	|------------------------------------------	|
 |`SATOSHIS_PER_COIN`		|1e5			|Number of Satoshis per Nimiq.															|
 |`TOTAL_SUPPLY`				|21e14			|Targeted total supply in satoshis.														|
 |`INITIAL_SUPPLY`			|0				|Initial supply before genesis block in satoshis.										|
@@ -35,14 +35,14 @@ category: "Higher level concepts"
 ## Miner
 
 |**Parameter**				|**Value**		|**Description**																		|
-|--------------------------	|--------------	|--------------------------------------------------------------------------------------	|
+|--------------------------	|--------------	|--------------------------------------------	|
 |`MIN_TIME_ON_BLOCK`		|10000<br>*(10 sec)	|Minimum time in milliseconds a miner needs to wait before starting work on a block.	|
 |`MOVING_AVERAGE_MAX_SIZE`	|10				|Number of blocks considered in moving average for the hashrate calculation.			|
 
 ## Network
 
 |**Parameter**				|**Value**							|**Description**														|
-|--------------------------	|----------------------------------	|----------------------------------------------------------------------	|
+|------------	|-------------------	|------------------------------------------	|
 |`PEER_COUNT_DESIRED`		|6									|Number of peers the node aims to connect to.|
 |`PEER_COUNT_RELAY`			|4									|When new addresses are learned, pick `PEER_COUNT_RELAY` random peers and relay addresses to them if number of addresses <= 10|
 |`CONNECTING_COUNT_MAX`		|2									|Maximum number of ongoing outbound connection attempts					|
@@ -58,7 +58,7 @@ category: "Higher level concepts"
 ## NetUtils
 
 |**Parameter**				|**Value**							|**Description**											|
-|--------------------------	|----------------------------------	|----------------------------------------------------------	|
+|-------------------	|-------------------------	|----------------------------------------	|
 |`IP_BLACKLIST`				|'0.0.0.0',<br>'255.255.255.255','::'|Blacklisted IP address.|
 |`IPv4_PRIVATE_NETWORK`		|'10.0.0.0/8',<br>'172.16.0.0/12',<br>'192.168.0.0/16',<br>'100.64.0.0/10',<br>'169.254.0.0/16'|IP Address ranges considered within private network.|
 
@@ -66,7 +66,7 @@ category: "Higher level concepts"
 
 
 |**Parameter**					|**Value**			|**Description**																|
-|------------------------------	|------------------	|------------------------------------------------------------------------------	|
+|------------------------------	|------------------	|-----------------------------------------------------	|
 |`HANDSHAKE_TIMEOUT`			|3000<br>(3 sec)	|Timeout {ms} the node waits before droping a peer's connection.				|
 |`PING_TIMEOUT`					|10000<br>(10 sec)	|Timeout {ms} the node waits for a peer to answer with a matching pong message during connectivity check.|
 |`CONNECTIVITY_CHECK_INTERVAL`	|60000<br>(1 min)	|Interval at which the node regularly checks connectivity.						|
@@ -80,7 +80,7 @@ category: "Higher level concepts"
 ### Parameters
 
 |**Parameter**					|**Value**		|**Description**																|
-|--------------------------	|-----------------	|------------------------------------------------------------------------------	|
+|--------------------------	|-----------------	|--------------------------------------------------	|
 |`MAX_AGE_WEBRTC`			|60000<br>(1 min)	|Age {ms} of a peer address to be sent back in a WebRTC address query.			|
 |`MAX_AGE_DUMB`				|4					|Age {ms} of a peer address to be sent back in a Dumb address query.			|
 |`MAX_FAILED_ATTEMPTS_WS`	|3					|Maximum failed attempts for peers connecting using WebSocket					|
@@ -94,7 +94,7 @@ category: "Higher level concepts"
 ### States
 
 |**State**					|**Value**	|**Description**																			|
-|--------------------------	|----------	|------------------------------------------------------------------------------------------	|
+|--------------------------	|----------	|-----------------------------------------------------	|
 |`NEW`						|1			|Initial state peer addresses are initialized with.											|
 |`CONNECTING`				|2			|State in which the node remains while connection to the peer address is being established	|
 |`CONNECTED`				|3			|Indicates a connection to a peer address has been established.								|
@@ -106,20 +106,20 @@ category: "Higher level concepts"
 ## Signal Id Serialized Size
 
 |**Parameter**				|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
+|--------------------------	|----------	|-------------------------------------------	|
 |`SERIALIZED_SIZE`			|16			|Size in bytes of the serialized signal.					|
 
 
 ## Transaction Receipts Message Maximum Count
 
 |**Parameter**				|**Value**	|**Description**												|
-|--------------------------	|----------	|--------------------------------------------------------------	|
+|--------------------------	|----------	|--------------------------------------------	|
 |`RECEIPTS_MAX_COUNT`		|500		|Maximum amount of transaction receipts in transaction receipts.|
 
 ## Signal Message Flags
 
 |**Flag**					|**Value**	|**Description**														|
-|--------------------------	|----------	|----------------------------------------------------------------------	|
+|--------------------------	|----------	|-----------------------------------------------------	|
 |`UNROUTABLE`				|0x1		|Indicates a signal message is unroutable.								|
 |`TTL_EXCEEDED`				|0x2		|Indicates the TTL of a signal message has exceeded the maximum allowed.|
 
@@ -139,13 +139,13 @@ category: "Higher level concepts"
 
 ### Message Magic
 |**Type**					|**Value**	|**Description**																		|
-|--------------------------	|----------	|--------------------------------------------------------------------------------------	|
+|--------------------------	|----------	|-------------------------------------------	|
 |`MAGIC`					|0x42042042	|Special string that indicates the information sent should be interpreted as a message.	|
 
 ### Message Types
 
 |**Type**					|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
+|--------------------------	|----------	|-----------------------------------	|
 |`VERSION`					|0			|	[Version message.](/messages.md#version-message)														|
 |`INV`						|1			|	[Inventory message](/messages.md#inventory-message)														|
 |`GET_DATA`					|2			|															|
@@ -240,8 +240,8 @@ category: "Higher level concepts"
 
 ## WebRtc Data Channel
 
-**Parameter**				|**Value**			|**Description**																		|
-|--------------------------	|------------------	|--------------------------------------------------------------------------------------	|
+|**Parameter**				|**Value**			|**Description**																		|
+|--------------------------	|------------------	|-------------------------------------------	|
 |`CHUNK_SIZE_MAX`			|16384<br>(16 Kb)	|Maximum size {bits} allowed for a WebRTC message before being splited into chunks.	|
 |`MESSAGE_SIZE_MAX`			|10485760<br>(10Mb)	|Maximum size {bits} allowed for a message WebRTC.										|
 |`CHUNK_TIMEOUT`			|5000<br>(5 sec)	|Allowed timeout between chunks for a chunked WebRTC message.							|
@@ -264,7 +264,7 @@ category: "Higher level concepts"
 ## FullConsensusAgent
 
 |**Parameter**				|**Value**			|**Description**																	|
-|--------------------------	|------------------	|----------------------------------------------------------------------------------	|
+|--------------------------	|------------------	|----------------------------------------------	|
 |`SYNC_ATTEMPTS_MAX`		|10					|Maximum number of blockchain sync retries before closing the connection.			|
 |`GETBLOCKS_VECTORS_MAX`	|500				|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.		|
 |`RESYNC_THROTTLE`			|3000<br>(3 sec)	|Time in millisecongs to wait before triggering a blockchain re-sync with the peer.	|
@@ -276,11 +276,11 @@ category: "Higher level concepts"
 
 ## FullChain
 
-|**Parameter**		|**Value**	|**Description**																						|
-|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
-|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
+|**Parameter**		|**Value**	|**Description** |
+|------------------	|----------	|--------------------------------------	|
+|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.|
 |`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
-|`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
+|`OK_KNOWN`			|0			|Indicates the node already knows this block.. |
 |`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
 |`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
 |`OK_FORKED`		|3			|Indicates new fork was created.															|
@@ -289,7 +289,7 @@ category: "Higher level concepts"
 
 ## PartialLightChain State
 
-|**Parameter**			|**Value**	|**Description**													|
+|**Parameter**			|**Value**	|**Description**	|
 |----------------------	|----------	|------------------	|
 |`ABORTED`				|-1			|(?)				|
 |`PROVE_CHAIN`			|0			|(?)				|
@@ -332,13 +332,13 @@ category: "Higher level concepts"
 ## Nano Consensus
 
 |**Parameter**				|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
+|--------------------------	|----------	|-----------------------------------------	|
 |`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
 
 ## NanoChain
 
-|**Parameter**		|**Value**	|**Description**																						|
-|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
+|**Parameter**		|**Value**	|**Description**	|
+|------------------	|----------	|----------------------------------------------------	|
 |`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
 |`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
 |`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
