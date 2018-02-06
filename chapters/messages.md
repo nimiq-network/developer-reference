@@ -2,9 +2,9 @@
 category: "Data schemas"
 ---
 
-# Message
+# Messages
 
-Message instance. This is usually not called directly but by subclasses.
+Bassic message instance. This is usually not called directly but by subclasses.
 
 | Element   | Data type    | Bytes            | Description                |
 |-----------|--------------|------------------|----------------------------|
@@ -13,7 +13,11 @@ Message instance. This is usually not called directly but by subclasses.
 | lenght    | Uint4 | 4	 		      | lenght of the message. |
 | checksum  | Uint4 | 4	 		      | CRC32 checksum. |
 
-# Version Message
+## Types of Messages
+
+According to its [Message Type](./constants.md#message-types), a message can be of any of the following types:
+
+### Version Message
 
 This message transmits the node's version of the protocol, peer ddress, the hash of its Genesis block, and the hash of the latest block in its blockchain (the head).
 
@@ -22,7 +26,7 @@ This message transmits the node's version of the protocol, peer ddress, the hash
 | version     | Uint4 | 4	 		    | version of the protocol|
 | peer address | Uint4 | 4	 		    | [Ws Peer Address](#wspeeraddress) or [Rtc Peer Address](#rtcpeeraddress)|
 
-## Ws Peer Address
+#### Ws Peer Address
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
@@ -32,7 +36,7 @@ This message transmits the node's version of the protocol, peer ddress, the hash
 | host      | string         | (?)   | Hostname.               |
 | port      | number         | 2     | Port number for Web Socket Connector to listen to.	|
 
-## Rtc Peer Address
+#### Rtc Peer Address
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
@@ -42,7 +46,7 @@ This message transmits the node's version of the protocol, peer ddress, the hash
 | signalId  | Uint2	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
 | distance  | number		 | 1     | 0: self, 1: direct connection, 2: 1 hop |
 
-# Inventory Message
+## Inventory Message
 
 The inventory message points a vector to requested data. The structure for `BaseInventoryMessage` is the following:
 
@@ -57,7 +61,7 @@ There are several sub-message categories related to inventory message:
   * Get Header
   * Not Found
 
-# Get Blocks Message
+## `Get Blocks` Message
 
 
 | Element   | Data type      | Bytes | Description            |
@@ -66,43 +70,43 @@ There are several sub-message categories related to inventory message:
 | max inventory size | Uint1   | 2     | The number of blocks that are been asked.  |
 | direction | Uint1   | 1     | Defines if the blocks been asked are the ones after the locators or before the locators.  |
 
-# Block Message
+## Block Message
 
 This message is used to send one block at a time (in serialized form).
 
-# Header Message
+## Header Message
 
 This message is used to send one header at a time (in serialized form).
 
-# Transaction Message
+## Transaction Message
 
-This message is used to send one transaction at a time (in serialized form) but can also contain an accountsProof.
+This message is used to send one transaction at a time (in serialized form) but can also contain an [`accountsProof`](/messages.md#accounts-proof-message).
 
-# Mempool Message
+## Mempool Message
 
 FIXME: What's the mempool message for?
 
-# Reject Message
+## Reject Message
 
 This message is used to signal to a peer that something they sent us was rejected and the reason why it was rejected.
 
 | Element     | Data type      | Bytes | Description            |
 |-------------|----------------|-------|------------------------|
 | message type | Uint1   | 1     | [message type](/constants.md#message-types)  |
-| code        | Uint1   | 1     | [Reject Message Code](./constants.md#reject-message-code)  |
+| code        | Uint1   | 1     | [Reject Message Code](/constants.md#reject-message-code)  |
 | reason      | Uint   | >255  | FIXME: What is reason for?  |
 | byte length  | Uint1   | 1     |   |
 | extra data   | Uint2   | 2     |   |
 
-# Subscribe Message
+## Subscribe Message
 
 This message is used to subscribe to messages from the node that this message is sent to.
 
-# Addresses Message
+## Addresses Message
 
 This message is used to relay the addresses we know to other peers.
 
-# Get Addresses Message
+## `Get Addresses` Message
 
 Ask for the addresses that the peer knows that use the specified protocols and provide the specified services.
 
@@ -111,15 +115,15 @@ Ask for the addresses that the peer knows that use the specified protocols and p
 | protocol mask| Uint1   | 1     | 0:DUMB, 1:WS, 2:RTC  			    |
 | service mask | Uint4   | 4     | 0: NONE, 1:LIGHT, 2:LIGHT, 4:FULL  |
 
-# Ping Message
+## Ping Message
 
 This message is used to check if we can still communicate with a peer node.
 
-# Pong Message
+## Pong Message
 
 This is the response to a ping message.
 
-# Signal Message
+## Signal Message
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|------------------------------------|
@@ -135,31 +139,31 @@ This is the response to a ping message.
 
 FIXME: What's this for? Something to do with WebRTC?
 
-# Get ChainProof Message
+## `Get Chain Proof` Message
 
-This message is used to ask for the ChainProof from a peer node.
+This message is used to ask for the [`Chain Proof`](/messages.md#chain-proof-message) from a peer node.
 
-# ChainProof Message
+## `Chain Proof` Message
 
 This message is used to send a ChainProof to a peer node.
 
-# Get AccountsProof Message
+## `Get Accounts Proof` Message
 
 This message is used to ask for the AccountsProof for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
 
-# AccountsProof Message
+## `Accounts Proof` Message
 
 This message is used to send an AccountsProof to a peer node that requested it.
 
-# Get AccountsTreeChunk Message
+## `Get Accounts Tree Chunk` Message
 
 This message is used to ask for an AccountsTreeChunk for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
 
-# AccountsTreeChunk Message
+## `Accounts Tree Chunk` Message
 
 This message is used to send a AccountsTreeChunk to a peer node.
 
-# Get TransactionsProof Message
+## `Get Transactions Proof` Message
 
 This message is used to ask for the TransactionsProof from a peer node.
 
@@ -168,7 +172,7 @@ This message is used to ask for the TransactionsProof from a peer node.
 | block hash      | hash 		  | 32    | 									|
 | addresses length    | SignalId  | FIXME | 						   		    |
 
-# TransactionsProof Message
+## `Transactions Proof` Message
 
 This message is used to send a TransactionsProof to a peer node. FIXME: What's a TransactionsProof?
 
@@ -177,6 +181,6 @@ This message is used to send a TransactionsProof to a peer node. FIXME: What's a
 | has roof       | Uint1   | 1     | 						   		    |
 | proof          | Uint    | FIXME | 						   		    |
 
-# TransactionsReceipts Message
+## `Transactions Receipts` Message
 
 This message is used to request a TransactionsReceipt to a peer node.
