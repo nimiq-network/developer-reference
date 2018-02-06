@@ -6,14 +6,15 @@ category: "Higher level concepts"
 Or: What's a valid Nimiq blockchain?
 
 ## Blockchain verification
+(//): # how many block in suffix?
 
-Every block is either a valid successor of another block or the genesis block.
+Of the [three client types](nodes-and-clients.md), a full client synchonizes the entire chain, while nano and light clients can skip major parts of chain due to a chain proof based on [NIPoPoW (Non-Interactive Proofs of Proof-of-Work)](https://eprint.iacr.org/2017/963.pdf).
+The chain verification is split in two parts. First, during the suffix part, the client will build a complete list of 120 blocks starting from the header block. Nano clients will also drop the body part of each block to reduce load. From the last block of the suffix, the prefix will will start by using the interlink to connect to the genesis block via the most difficult blocks in the chain and this way skipping major parts of the remaining blockchain.
 
 ### Verify block order
+Every block needs to be a valid successor of another block (besides the genesis block).
 
-* Is this block a valid successor
-    * Either as the [immediate successor](#verify-immediate-successor) of the known previous block (And the interlink is valid, cf. (verify interlink)[#verify-interlink]); or
-    * As the [interlink successor](#verify-interlink-successor) of the previous block
+A block is a valid successor if it is the [immediate successor](#verify-immediate-successor) of the known previous block (and the interlink is valid, cf. (verify interlink)[#verify-interlink]).
 
 #### Verify immediate successor
 Each block needs to be an immediate successor of the previous block.
@@ -31,16 +32,16 @@ Rules to verify if this block has a valid predecessor in the interlink:
 
 * This height > predecessor height
 * This timestamp is >= previous time stamp
-* Verify that the previous block is contained in this block's interlink
-    * and it's difficulty fits it's position in the interlink
-    * and if the previous interlink block is also the previous block of this one
-        * make sure that previous height == this height + 1
-        * the interlink is valid
-    * otherwise, if not the immediate previous block make sure the previous block height is not exactly one less than this block's height
-    * then, check
+* Verify that the predecessor is contained in this block's interlink
+* and if the predecessor's difficulty fits the position in this block's interlink
+    * If the predecessor block is also the immediate predecessor:
+        * Make sure that previous height == this height + 1
+        * Generating the next interlink on the previous block == interlink of this block.
+    * Otherwise, if not the immediate previous block make sure the previous block height is not exactly one less than this block's height
+    * Otherwise
         * that the number of hashes that have been added to this block's interlink compared to the interlink in the previous block is at maximum the height difference
-        * That the interlink is long enough to fit the previous block according to it's target // TODO validate
-        * // TODO common block
+        * That the interlink is long enough to fit the previous block according to it's target 
+        * If both block share a block in the interlink, then all block below this shared block must be the same.
 
 ## Verify
 
