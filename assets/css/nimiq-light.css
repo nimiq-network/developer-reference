@@ -42,6 +42,8 @@ footer {
 
 
 
+
+
 /* Typography */
 
 body {
@@ -76,13 +78,13 @@ h2 {
 
 h3 {
     font-size: 20px;
-    padding-top: 0px;
+    margin-top: 0px;
     padding-top: 40px;
 }
 
 h4 {
     font-size: 16px;
-    padding-top: 0px;
+    margin-top: 0px;
     padding-top: 24px;
     font-weight: 500;
 }
@@ -95,6 +97,11 @@ h3+p {
 h1+h2 {
     padding-top: 40px;
 }
+
+h2+h3 {
+    padding-top: 16px;
+}
+
 
 p,
 ul,
@@ -116,10 +123,13 @@ p+ul {
 
 
 
+
+
 /* Colors */
 
 :root {
     --cta-color: #0070c9;
+    --box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -149,6 +159,8 @@ aside:before {
 
 
 
+
+
 /* Lists */
 
 ul,
@@ -168,6 +180,8 @@ li>ul {
 li {
     line-height: 18px;
 }
+
+
 
 
 
@@ -199,6 +213,11 @@ td:first-child {
     width: 120px;
 }
 
+th:first-child,
+td:first-child {
+    padding-left: 0;
+}
+
 
 
 
@@ -218,6 +237,8 @@ a:hover {
 
 
 
+
+
 /* Code */
 
 code {
@@ -227,6 +248,8 @@ code {
     border-radius: 2px;
     margin-right: 2px;
 }
+
+
 
 
 
@@ -258,24 +281,45 @@ nav li {
     line-height: 24px;
 }
 
-nav li a:hover {
-    border-bottom: none;
+nav li a {
+    color: black;
+    opacity: 0.6;
+    transition: opacity 300ms;
+    will-change: opacity;
 }
 
-nav li a:hover:before {
+nav li a:hover {
+    border-bottom: none;
+    color: black;
+    opacity: 1;
+    display: inline;
+}
+
+nav li a:before {
     content: '';
-    background-color: rgba(0, 0, 0, 0.1);
     position: absolute;
     left: 16px;
     right: 0;
     height: 32px;
     margin-top: -4px;
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 0;
+}
+
+nav li a:hover:before {
+    opacity: 1;
 }
 
 
 
 
 /* Logo */
+
+a.logo {
+    margin-top: 3px;
+    display: block;
+    border-bottom: none;
+}
 
 .logo h1 {
     text-transform: uppercase;
@@ -295,6 +339,47 @@ nav li a:hover:before {
 }
 
 
+
+/* Improve me button */
+
+.improve-me {
+    position: fixed;
+    bottom: 64px;
+    right: 64px;
+    color: #333;
+    background: var(--cta-color);
+    border-radius: 50%;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    color:#efefef;
+}
+
+.improve-me:hover {
+    color:#efefef;
+    border-bottom: none;
+}
+
+.improve-me:before{
+    content: 'Improve this page';
+    position: fixed;
+    bottom: 136px;
+    right: 16px;
+    width: 128px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 8px;
+    border-radius: 3px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.improve-me:hover:before{
+    opacity: 1;
+}
 
 
 
@@ -332,4 +417,3 @@ nav li a:hover:before {
         transform: translate(-100%);
     }
 }
-
