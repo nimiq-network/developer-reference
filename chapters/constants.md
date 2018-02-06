@@ -138,8 +138,9 @@ category: "Higher level concepts"
 ## Messages
 
 ### Message Magic
-|**Type**					|**Value**	|**Description**																		|
-|--------------------------	|----------	|-------------------------------------------	|
+
+|**Type**					|**Value**	|**Description**			|
+|----------------	|----------	|-----------------------------	|
 |`MAGIC`					|0x42042042	|Special string that indicates the information sent should be interpreted as a message.	|
 
 ### Message Types
