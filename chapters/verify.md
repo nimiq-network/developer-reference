@@ -6,7 +6,7 @@ category: "Higher level concepts"
 Or: What's a valid Nimiq blockchain?
 
 ## Blockchain verification
-(//): # how many block in suffix?
+[//]: # how many block in suffix?
 
 Of the [three client types](nodes-and-clients.md), a full client synchonizes the entire chain, while nano and light clients can skip major parts of chain due to a chain proof based on [NIPoPoW (Non-Interactive Proofs of Proof-of-Work)](https://eprint.iacr.org/2017/963.pdf).
 The chain verification is split in two parts. First, during the suffix part, the client will build a complete list of 120 blocks starting from the header block. Nano clients will also drop the body part of each block to reduce load. From the last block of the suffix, the prefix will will start by using the interlink to connect to the genesis block via the most difficult blocks in the chain and this way skipping major parts of the remaining blockchain.
@@ -14,7 +14,7 @@ The chain verification is split in two parts. First, during the suffix part, the
 ### Verify block order
 Every block needs to be a valid successor of another block (besides the genesis block).
 
-A block is a valid successor if it is the [immediate successor](#verify-immediate-successor) of the known previous block (and the interlink is valid, cf. (verify interlink)[#verify-interlink]).
+A block is a valid successor if it is the [immediate successor](#verify-immediate-successor) of the known previous block (and the interlink is valid, cf. [verify interlink](#verify-interlink).
 
 #### Verify immediate successor
 Each block needs to be an immediate successor of the previous block.
