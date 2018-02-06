@@ -8,13 +8,20 @@ category: "Higher level concepts"
 
 ### Block Parameters
 
-|**Parameters**						|**Value**		|**Description**													|
-|----------------------------------	|---------------|------------------------------------------------------------------	|
-|`BLOCK_TIME`						|60				|Targeted block time in seconds.									|
-|`BLOCK_SIZE_MAX`					|1e6 (1 MB)		|Maximum block size in bytes.										|
-|`DIFFICULTY_BLOCK_WINDOW`			|120			|Number of blocks we take into account to calculate next difficulty.|
-|`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`	|2				|Limits the rate at which the difficulty is adjusted min/max.		|
-|`TRANSACTION_VALIDITY_WINDOW`		|120			|Number of blocks a transaction is valid.							|
+`Policy.BLOCK_TIME = 60`
+The targeted block time in seconds.
+
+`Policy.BLOCK_SIZE_MAX = 1e6 (1000000 => 1MB)`
+The maximum block size in bytes.
+
+`Policy.DIFFICULTY_BLOCK_WINDOW = 120`
+Number of past blocks that are taken into account for calculating the next difficulty.
+
+`Policy.DIFFICULTY_MAX_ADJUSTMENT_FACTOR = 2`
+Maximum factor about which the difficulty can be adjusted from one block to the next.
+
+`Policy.TRANSACTION_VALIDITY_WINDOW = 120`
+Number of blocks a transaction is valid for after it's `startValidity`.
 
 ### Supply & Emission Parameters
 
