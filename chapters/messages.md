@@ -84,7 +84,7 @@ This message is used to send one transaction at a time (in serialized form) but 
 
 ## Mempool Message
 
-FIXME: What's the mempool message for?
+This message is used to request to a peer node to send the transactions of its meempool.
 
 ## Reject Message
 
@@ -94,7 +94,7 @@ This message is used to signal to a peer that something they sent us was rejecte
 |-------------|----------------|-------|------------------------|
 | message type | Uint1   | 1     | [message type](/constants.md#message-types)  |
 | code        | Uint1   | 1     | [Reject Message Code](/constants.md#reject-message-code)  |
-| reason      | Uint   | >255  | FIXME: What is reason for?  |
+| reason      | Uint   | >255  | Indicates the peer the reason why it was rejected.  |
 | byte length  | Uint1   | 1     |   |
 | extra data   | Uint2   | 2     |   |
 
@@ -125,19 +125,20 @@ This is the response to a ping message.
 
 ## Signal Message
 
+This message is used by [Browser Clients](/nodes-and-clients.md#browser-client) to send the signaling needed for to establish a connection with other clients of the same type.
+
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|------------------------------------|
-| sender id       | SignalId 	  | 16    | 									|
-| recipient id    | SignalId 	  | 16    | 						   		    |
+| sender id       | Uint16 	  | 16    | 									|
+| recipient id    | Uint16 	  | 16    | 						   		    |
 | nonce		     | Uint4   | 4     | 								    |
 | ttl	     	 | Uint1   | 1     | 								    |
 | flags		     | Uint1   | 1     | 								    |
 | payload byte lenght | Uint2   | 2     | 								    |
-| payload        | Uint   | FIXME | 								    |
+| payload        | Uint   | FIXME | 	Contains the necessary data to establish a connection. 							    |
 | sender public key   | Uint32   | 32    |Only present if payload Bytelenght > 0.  |
 | signature      | Uint 64  | 64    |Only present if payload Bytelenght > 0.  |
 
-FIXME: What's this for? Something to do with WebRTC?
 
 ## `Get Chain Proof` Message
 
@@ -170,16 +171,17 @@ This message is used to ask for the TransactionsProof from a peer node.
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|-------------------------------------|
 | block hash      | hash 		  | 32    | 									|
-| addresses length    | SignalId  | FIXME | 						   		    |
+| addresses length    | Uint  | 2 | 						   		    |
+| addresses     | Uint  | 2 | 						   		    |
 
 ## `Transactions Proof` Message
 
-This message is used to send a TransactionsProof to a peer node. FIXME: What's a TransactionsProof?
+This message is used to send a TransactionsProof to a peer node.
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|-------------------------------------|
-| has roof       | Uint1   | 1     | 						   		    |
-| proof          | Uint    | FIXME | 						   		    |
+| has proof      | Uint1   | 1     | 						   		    |
+| proof          | transactionProof    | FIXME  | 	Only present if payload = 0.					   		    |
 
 ## `Transactions Receipts` Message
 
