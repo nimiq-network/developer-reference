@@ -13,7 +13,7 @@ All message contain following basic fields:
 | length    | uint32       | 4	 		    | length of the message. Currently ignored. |
 | checksum  | uint32       | 4	 		    | CRC32 checksum. |
 
-All messeges have a fixed [message type](constants.md#message-types).
+All messages have a fixed [message type](constants.md#message-types).
 Additional fields of specialized messages will be added behind.
 
 ## Version message
