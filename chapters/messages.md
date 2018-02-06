@@ -246,6 +246,7 @@ To request a paricular chunk of of account tree nodes (`type = 44`)
 | start prefix        | string                     | length         | Defining the part of the tree where accounts are needed from.
 
 The node should respond a message `type = 45`:
+
 | Element             | Data type                  | Bytes  | Description
 |---------------------|----------------------------|--------|---
 | block hash          | Hash                       | 32     | hash of block these accounts should be in
