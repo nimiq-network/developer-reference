@@ -63,7 +63,7 @@ Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 ### Interlink construction
 The concept of [Non-Interactive Proofs of Proof-of-Work](https://eprint.iacr.org/2017/963.pdf) are used to create the interlink.
 
-An interlink contains hashes to previous blocks with an high-than-target difficulty. The position of a hash in the interlink correlates to how much higher the difficulty was compared to the target difficulty.
+An interlink contains hashes to previous blocks with an higher-than-target difficulty. The position of a hash in the interlink correlates to how much higher the difficulty was compared to the target difficulty.
 
 An interlink is created based on the interlink of the previous block plus putting the current hash into place.
 
