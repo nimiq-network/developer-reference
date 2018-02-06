@@ -250,33 +250,33 @@ category: "Higher level concepts"
 
 |**Type**					|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
-|`VERSION`					|0			|	[Version message.](/messages.md#version-message)														|
-|`INV`						|1			|	[Inventory message](/messages.md#inventory-message)														|
-|`GET_DATA`					|2			|															|
-|`GET_HEADER`				|3			|															|
-|`NOT_FOUND`				|4			|															|
-|`GET_BLOCKS`				|5			|	[Get Blocks message](/messages.md#get-blocks-message)														|
-|`BLOCK`					|6			|	[Blocks message](/messages.md#block-message)														|
-|`HEADER`					|7			|	[Header message](/messages.md#header-message)														|
-|`TX`						|8			|	[Transaction message](/messages.md#transaction-message)														|
-|`MEMPOOL`					|9			|	[Mempool message](/messages.md#mempool-message)														|
-|`REJECT`					|10			|	[Reject message](/messages.md#reject-message)														|
-|`SUBSCRIBE`				|11			| [Subscribe message](/messages.md#subscribe-message)															|
-|`ADDR`						|20			|	[Addresses Message](/messages.md#addresses-message)														|
-|`GET_ADDR`					|21			|	[Get Addresses Message](/messages.md#get-addresses-message)														|
-|`PING`						|22			|	[Ping message](/messages.md#ping-message)														|
-|`PONG`						|23			|	[Pong message](/messages.md#pong-message)														|
-|`SIGNAL`					|30			|	[Signal message](/messages.md#signal-message)														|
-|`GET_CHAIN_PROOF`			|40			|	[Get Chain Proof message](/messages.md#get-chain-proof-message)														|
-|`CHAIN_PROOF`				|41			|	[Chain proof message](#chain-proof-message)														|
-|`GET_ACCOUNTS_PROOF`		|42			| [Get accounts proof message](/messages.md#get-accounts-proof-message)															|
-|`ACCOUNTS_PROOF`			|43			|	[Accounts proof message](/messages.md#accounts-proof-message)														|
-|`GET_ACCOUNTS_TREE_CHUNK`	|44			|	[Gets accounts tree chunk message](/messages.md#get-accounts-tree-chunk-message)														|
-|`ACCOUNTS_TREE_CHUNK`		|45			|	[Accounts tree chunk message](/messages.md#accounts-tree-chunk-message)														|
-|`GET_TRANSACTIONS_PROOF`	|47			|	[Get transactions proof message](/messages.md#get-transactions-proof-message)														|
-|`TRANSACTIONS_PROOF`		|48			|	[Transactions proof](/messages.md#transactions-proof-message)														|
-|`GET_TRANSACTION_RECEIPTS`	|49			|											|
-|`TRANSACTION_RECEIPTS`		|50			|	[Transactions receipts](/messages.md#transactions-receipts-message)														|
+|`VERSION`					|0			|	[Version message.](/messages.md#version-message).														|
+|`INV`						|1			|	[Inventory message](/messages.md#inventory-message).														|
+|`GET_DATA`					|2			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`GET_HEADER`				|3			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`NOT_FOUND`				|4			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`GET_BLOCKS`				|5			|	[Get Blocks message](/messages.md#get-blocks-message).														|
+|`BLOCK`					|6			|	[Blocks message](/messages.md#block-message).														|
+|`HEADER`					|7			|	[Header message](/messages.md#header-message).														|
+|`TX`						|8			|	[Transaction message](/messages.md#transaction-message).														|
+|`MEMPOOL`					|9			|	[Mempool message](/messages.md#mempool-message).														|
+|`REJECT`					|10			|	[Reject message](/messages.md#reject-message).														|
+|`SUBSCRIBE`				|11			| [Subscribe message](/messages.md#subscribe-message).															|
+|`ADDR`						|20			|	[Addresses Message](/messages.md#addresses-message).														|
+|`GET_ADDR`					|21			|	[Get Addresses Message](/messages.md#get-addresses-message).														|
+|`PING`						|22			|	[Ping message](/messages.md#ping-message).														|
+|`PONG`						|23			|	[Pong message](/messages.md#pong-message).														|
+|`SIGNAL`					|30			|	[Signal message](/messages.md#signal-message).													|
+|`GET_CHAIN_PROOF`			|40			|	[Get Chain Proof message](/messages.md#get-chain-proof-message).														|
+|`CHAIN_PROOF`				|41			|	[Chain proof message](#chain-proof-message).														|
+|`GET_ACCOUNTS_PROOF`		|42			| [Get accounts proof message](/messages.md#get-accounts-proof-message).															|
+|`ACCOUNTS_PROOF`			|43			|	[Accounts proof message](/messages.md#accounts-proof-message).														|
+|`GET_ACCOUNTS_TREE_CHUNK`	|44			|	[Gets accounts tree chunk message](/messages.md#get-accounts-tree-chunk-message).														|
+|`ACCOUNTS_TREE_CHUNK`		|45			|	[Accounts tree chunk message](/messages.md#accounts-tree-chunk-message).														|
+|`GET_TRANSACTIONS_PROOF`	|47			|	[Get transactions proof message](/messages.md#get-transactions-proof-message).														|
+|`TRANSACTIONS_PROOF`		|48			|	[Transactions proof](/messages.md#transactions-proof-message).														|
+|`GET_TRANSACTION_RECEIPTS`	|49			|	[Get transactions receipts](/messages.md#get-transactions-receipts-message).										|
+|`TRANSACTION_RECEIPTS`		|50			|	[Transactions receipts](/messages.md#transactions-receipts-message).														|
 
 #### `GetBlocksMessage` Directions
 
