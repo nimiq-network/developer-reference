@@ -32,21 +32,21 @@ This message transmits the node's version of the protocol, peer ddress, the hash
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | Uint1 | 1     | [Protocol type](./constants.md#protocol-types)      |
-| services  | Uint4 | 4     | [Service type](./constants.md#services-types)      |
-| timestamp | Uint8 | 8     | Used by other nodes to calculate offset.   |
-| host      | string         | (?)   | Hostname.               |
-| port      | number         | 2     | Port number for Web Socket Connector to listen to.	|
+| `protocol`  | Uint1 | 1     | [Protocol type](./constants.md#protocol-types)      |
+| `services`  | Uint4 | 4     | [Service type](./constants.md#services-types)      |
+| `timestamp` | Uint8 | 8     | Used by other nodes to calculate offset.   |
+| `host`      | string         | (?)   | Hostname.               |
+| `port`      | number         | 2     | Port number for Web Socket Connector to listen to.	|
 
 #### Rtc Peer Address
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| protocol  | Uint1   | 1     | [Protocol type](./constants.md#protocol-types)      |
-| services  | Uint4   | 4     | [Service type](./constants.md#services-types)      |
-| timestamp | Uint8   | 8     | Used by other nodes to calculate offset.   |
-| signalId  | Uint2	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
-| distance  | number		 | 1     | 0: self, 1: direct connection, 2: 1 hop |
+| `protocol`  | Uint1   | 1     | [Protocol type](./constants.md#protocol-types)      |
+| `services`  | Uint4   | 4     | [Service type](./constants.md#services-types)      |
+| `timestamp` | Uint8   | 8     | Used by other nodes to calculate offset.   |
+| `signal id`  | Uint2	 | 2     | Signaling Id (Add a link to a Signaling Section)     |
+| `distance`  | number		 | 1     | 0: self, 1: direct connection, 2: 1 hop |
 
 ### Inventory message
 
@@ -54,8 +54,8 @@ The inventory message points a vector to requested data. The structure for `Base
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| type  | Uint4   | 4     | [Protocol type](./constants.md#protocol-types)      |
-| hash  | Uint32   | 32     | Hash of the message  |
+| `type`  | Uint4   | 4     | [Protocol type](./constants.md#protocol-types)      |
+| `hash`  | Uint32   | 32     | Hash of the message  |
 
 There are several sub-message categories related to inventory message:
 
@@ -68,9 +68,9 @@ There are several sub-message categories related to inventory message:
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| locators  | Uint2   | 2     | The hash of the block from which to start sending blocks. This is an array, the first block that is found in the blockchain of the receiving node should be used. |
-| max inventory size | Uint1   | 2     | The number of blocks that are been asked.  |
-| direction | Uint1   | 1     | Defines if the blocks been asked are the ones after the locators or before the locators.  |
+| `locators`  | Uint2   | 2     | The hash of the block from which to start sending blocks. This is an array, the first block that is found in the blockchain of the receiving node should be used. |
+| `max inventory size` | Uint1   | 2     | The number of blocks that are been asked.  |
+| `direction` | Uint1   | 1     | Defines if the blocks been asked are the ones after the locators or before the locators.  |
 
 ### Block message
 
@@ -94,11 +94,11 @@ This message is used to signal to a peer that something they sent us was rejecte
 
 | Element     | Data type      | Bytes | Description            |
 |-------------|----------------|-------|------------------------|
-| message type | Uint1   | 1     | [message type](/constants.md#message-types)  |
-| code        | Uint1   | 1     | [Reject Message Code](/constants.md#reject-message-code)  |
-| reason      | Uint   | >255  | Indicates the peer the reason why it was rejected.  |
-| byte length  | Uint1   | 1     |   |
-| extra data   | Uint2   | 2     |   |
+| `message type` | Uint1   | 1     | [message type](/constants.md#message-types)  |
+| `code`        | Uint1   | 1     | [Reject Message Code](/constants.md#reject-message-code)  |
+| `reason`      | Uint   | >255  | Indicates the peer the reason why it was rejected.  |
+| `byte length`  | Uint1   | 1     |   |
+| `extra data`   | Uint2   | 2     |   |
 
 ### Subscribe message
 
@@ -114,8 +114,8 @@ Ask for the addresses that the peer knows that use the specified protocols and p
 
 | Element     | Data type      | Bytes | Description       			        |
 |-------------|----------------|-------|------------------------------------|
-| protocol mask| Uint1   | 1     | 0:DUMB, 1:WS, 2:RTC  			    |
-| service mask | Uint4   | 4     | 0: NONE, 1:LIGHT, 2:LIGHT, 4:FULL  |
+| `protocol mask`| Uint1   | 1     | 0:DUMB, 1:WS, 2:RTC  			    |
+| `service mask` | Uint4   | 4     | 0: NONE, 1:LIGHT, 2:LIGHT, 4:FULL  |
 
 ### Ping message
 
@@ -131,15 +131,15 @@ This message is used by [Browser Clients](/nodes-and-clients.md#browser-client) 
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|------------------------------------|
-| sender id       | Uint16 	  | 16    | 									|
-| recipient id    | Uint16 	  | 16    | 						   		    |
-| nonce		     | Uint4   | 4     | 								    |
-| ttl	     	 | Uint1   | 1     | 								    |
-| flags		     | Uint1   | 1     | 								    |
-| payload byte lenght | Uint2   | 2     | 								    |
-| payload        | Uint   | FIXME | 	Contains the necessary data to establish a connection. 							    |
-| sender public key   | Uint32   | 32    |Only present if payload Bytelenght > 0.  |
-| signature      | Uint 64  | 64    |Only present if payload Bytelenght > 0.  |
+| `sender id`       | Uint16 	  | 16    | 									|
+| `recipient id`    | Uint16 	  | 16    | 						   		    |
+| `nonce`		     | Uint4   | 4     | 								    |
+| `ttl`	     	 | Uint1   | 1     | 								    |
+| `flags`		     | Uint1   | 1     | 								    |
+| `payload byte lenght` | Uint2   | 2     | 								    |
+| `payload`        | Uint   | FIXME | 	Contains the necessary data to establish a connection. 							    |
+| `sender public key`   | Uint32   | 32    |Only present if payload `Bytelenght` > 0.  |
+| `signature`      | Uint 64  | 64    |Only present if payload `Bytelenght` > 0.  |
 
 
 ### `Get Chain Proof` message
@@ -152,7 +152,7 @@ This message is used to send a `ChainProof` to a peer node.
 
 ### `Get Accounts Proof` message
 
-This message is used to ask for the `AccountsProof` for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
+This message is used to ask for the {`AccountsProof`}(/messages.md#accounts-proof-message) for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
 
 ### `Accounts Proof` message
 
@@ -160,7 +160,7 @@ This message is used to send an `AccountsProof` to a peer node that requested it
 
 ### `Get Accounts Tree Chunk` message
 
-This message is used to ask for an `AccountsTreeChunk` for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
+This message is used to ask for an [`AccountsTreeChunk`](/messages.md#accounts-tree-chunk) for a given state of certain accounts (using the hash of the root of its Merkle Patricia Tree) from a peer node.
 
 ### `Accounts Tree Chunk` message
 
@@ -168,7 +168,7 @@ This message is used to send a `AccountsTreeChunk` to a peer node.
 
 ### `Get Transactions Proof` message
 
-This message is used to ask for the `TransactionsProof` from a peer node.
+This message is used to ask for the [`TransactionsProof`](/messages.md#transactions-proof-message) from a peer node.
 
 | Element        | Data type      | Bytes | Description       			        |
 |----------------|----------------|-------|-------------------------------------|
@@ -187,7 +187,7 @@ This message is used to send a `TransactionsProof` to a peer node.
 
 ### `Get Transactions Receipts` message
 
-This message is used to request `TransactionsReceipts` to a peer node.
+This message is used to request [`TransactionsReceipts`](/messages.md#transactions-receipts-message) to a peer node.
 
 ### `Transactions Receipts` message
 
