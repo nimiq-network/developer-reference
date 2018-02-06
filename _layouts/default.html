@@ -17,9 +17,11 @@
         </a>
       </header>
       <nav>
-{% for node in site.pages %}
-{% include toc.html html=node.content url=node.url %}
-{% endfor %}
+
+        {% for node in site.pages %}
+          {% include toc.html html=node.content url=node.url %}
+        {% endfor %}
+
       </nav>
     </aside>
     <main>
@@ -27,13 +29,6 @@
 
       {{ content }}
 
-{% for node in site.pages %}
-
-  {% if node.title %}
-    {{ node.content }}
-  {% endif %}
-
-{% endfor %}
       </section>
     </main>
   </body>

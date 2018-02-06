@@ -28,7 +28,7 @@
     {% assign orderedList = include.ordered | default: false %}
     {% assign minHeader = include.h_min | default: 1 %}
     {% assign maxHeader = include.h_max | default: 6 %}
-    {% assign nodes = include.html | split: '<h' %}
+    {% assign nodes = include.html | markdownify | split: '<h' %}
     {% assign firstHeader = true %}
 
     {% capture listModifier %}{% if orderedList %}1.{% else %}-{% endif %}{% endcapture %}
@@ -70,7 +70,7 @@
 
 {% comment %}{{ site.baseurl }}{{ include.url }}#{{ html_id }}{% endcomment %}
         {% capture my_toc %}{{ my_toc }}
-{{ space }}{{ listModifier }} {{ listItemClass }} [{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}](#{{ html_id }}){% endcapture %}
+{{ space }}{{ listModifier }} {{ listItemClass }} [{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}]({{ site.baseurl }}{{ include.url }}#{{ html_id }}){% endcapture %}
 
     {% endfor %}
 
