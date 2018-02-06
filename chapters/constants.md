@@ -4,9 +4,11 @@ category: "Higher level concepts"
 
 # Constants
 
-## Policy
+## Consensus
 
-### Block Parameters
+### Policy
+
+#### Block Parameters
 
 |**Parameters**						|**Value**		|**Description**													|
 |----------------------------------	|---------------|------------------------------------------------------------------	|
@@ -16,7 +18,7 @@ category: "Higher level concepts"
 |`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`	|2				|Limits the rate at which the difficulty is adjusted min/max.		|
 |`TRANSACTION_VALIDITY_WINDOW`		|120			|Number of blocks a transaction is valid.							|
 
-### Supply & Emission Parameters
+#### Supply & Emission Parameters
 
 |**Parameter**				|**Value**		|**Description**																		|
 |--------------------------	|--------------	|--------------------------------------------------------------------------------------	|
@@ -32,14 +34,111 @@ category: "Higher level concepts"
 |`NUM_BLOCKS_VERIFICATION`	|250			|Number of blocks the light client downloads to verify the `AccountsTree` construction.	|
 |`NUM_SNAPSHOTS_MAX`		|20				|Maximum number of snapshots.															|
 
-## Miner
+### Full Consensus constants
+
+#### Full Consensus
+
+|**Parameter**				|**Value**	|**Description**											|
+|--------------------------	|----------	|----------------------------------------------------------	|
+|`SYNC_THROTTLE`			|1500		|Time {ms} for the node to wait for more peers to connect before start syncing. |
+
+#### FullConsensusAgent
+
+|**Parameter**				|**Value**			|**Description**																	|
+|--------------------------	|------------------	|----------------------------------------------------------------------------------	|
+|`SYNC_ATTEMPTS_MAX`		|10					|Maximum number of blockchain sync retries before closing the connection.			|
+|`GETBLOCKS_VECTORS_MAX`	|500				|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.		|
+|`RESYNC_THROTTLE`			|3000<br>(3 sec)	|Time in millisecongs to wait before triggering a blockchain re-sync with the peer.	|
+|`MEMPOOL_DELAY_MIN`		|2000<br>(2 sec)	|Minimum time {ms} to wait before triggering the initial mempool request.			|
+|`MEMPOOL_DELAY_MAX`		|20000<br>(20 sec)	|Maximum time {ms} to wait before triggering the initial mempool request.			|
+|`MEMPOOL_THROTTLE`			|1000				|Time {ms} to wait between sending full inv vectors of transactions during Mempool request.	|
+|`MEMPOOL_ENTRIES_MAX`		|10					|Maximum number Number of allowed transaction to send.								|
+
+
+#### FullChain 
+
+|**Parameter**		|**Value**	|**Description**																						|
+|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
+|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
+|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant.	|
+|`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
+|`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
+|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
+|`OK_FORKED`		|3			|Indicates new fork was created.															|
+
+### Light Consensus constants
+
+#### PartialLightChain State
+
+|**Parameter**			|**Value**	|**Description**													|
+|----------------------	|----------	|------------------	|
+|`ABORTED`				|-1			|				|
+|`PROVE_CHAIN`			|0			|				|
+|`PROVE_ACCOUNTS_TREE`	|1			|				|
+|`PROVE_BLOCKS`			|2			|				|
+|`COMPLETE`				|3			|				|
+
+#### LightConsensusAgent
+
+|**Parameter**							|**Value**	|**Description**	|
+|--------------------------------------	|----------	|------------------	|
+|`CHAINPROOF_REQUEST_TIMEOUT`			|20000		|Maximum time {ms} to wait for `chainProof` after sending out `getChainProof` before dropping the peer.	|
+|`ACCOUNTS_TREE_CHUNK_REQUEST_TIMEOUT`	|5000		|Maximum time {ms} to wait for accounts tree chunk after requesting it to a peer before dropping that peer.|
+|`SYNC_ATTEMPTS_MAX`					|5			|Maximum number of blockchain sync retries before closing the connection.	|
+|`GETBLOCKS_VECTORS_MAX`				|500		|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.	|
+
+
+#### Light Consensus 
+
+|**Parameter**				|**Value**	|**Description**											|
+|--------------------------	|----------	|----------------------------------------------------------	|
+|`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
+
+### Nano Consensus constants
+
+#### NanoMempool
+
+|**Parameter**				|**Value**	|**Description**											|
+|--------------------------	|----------	|----------------------------------------------------------	|
+|`TRANSACTIONS_MAX_COUNT`	|50000		|Maximum lenght of the mempool, oldest transactions are evicted from the mempool if it grows too large than this value. |
+|`TRANSACTIONS_EVICT_COUNT`	|5000		|Amount of transaction to be evicted each time. |
+
+#### NanoConsensusAgent
+
+|**Parameter**					|**Value**	|**Description**											|
+|------------------------------	|----------	|----------------------------------------------------------	|
+|`CHAINPROOF_REQUEST_TIMEOUT`	|30000		|Maximum time {ms} to wait for `chainProof` after sending out `getChainProof` before dropping the peer. 	 |
+|`ACCOUNTSPROOF_REQUEST_TIMEOUT`|5000		|Maximum time {ms} to wait for accounts proof after requesting it to a peer before dropping that peer. |
+|`TRANSACTIONSPROOF_REQUEST_TIMEOUT`	|10000		|Maximum time {ms} to wait for transaction proof after requesting it to a peer before dropping that peer. |
+|`TRANSACTIONS_REQUEST_TIMEOUT`	|15000		|Maximum time {ms} to wait for `transactions` after sending out `getTransactions` before dropping the peer.|
+
+#### Nano Consensus
+
+|**Parameter**				|**Value**	|**Description**											|
+|--------------------------	|----------	|----------------------------------------------------------	|
+|`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
+
+#### NanoChain
+
+|**Parameter**		|**Value**	|**Description**																						|
+|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
+|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
+|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant.	|
+|`OK_KNOWN`			|0			|Indicates the node already knows this block.															|
+|`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
+|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
+|`OK_FORKED`		|3			|Indicates new fork was created.															|
+
+## Miner constants
 
 |**Parameter**				|**Value**		|**Description**																		|
 |--------------------------	|--------------	|--------------------------------------------------------------------------------------	|
 |`MIN_TIME_ON_BLOCK`		|10000<br>*(10 sec)	|Minimum time in milliseconds a miner needs to wait before starting work on a block.	|
 |`MOVING_AVERAGE_MAX_SIZE`	|10				|Number of blocks considered in moving average for the hashrate calculation.			|
 
-## Network
+## Network constants
+
+### Network
 
 |**Parameter**				|**Value**							|**Description**														|
 |--------------------------	|----------------------------------	|----------------------------------------------------------------------	|
@@ -55,15 +154,22 @@ category: "Higher level concepts"
 |`PEER_COUNT_PER_IP_WS_MAX`	|1/25		|Maximum WebSocket connections from the same IP Address. Browsers are limited to 1, other platforms to 25.|
 |`PEER_COUNT_PER_IP_RTC_MAX`|2									|Maximum RTC connections for a peer's IP Address.						|
 
-## NetUtils
+### Protocol Types
+
+|**Protocol**	|**Value**	|
+|--------------	|----------	|
+|`DUMP`			|0 			|
+|`WS`			|1			|
+|`RTC`			|2			|
+
+### Network Utils
 
 |**Parameter**				|**Value**							|**Description**											|
 |--------------------------	|----------------------------------	|----------------------------------------------------------	|
 |`IP_BLACKLIST`				|'0.0.0.0',<br>'255.255.255.255','::'|Blacklisted IP address.|
 |`IPv4_PRIVATE_NETWORK`		|'10.0.0.0/8',<br>'172.16.0.0/12',<br>'192.168.0.0/16',<br>'100.64.0.0/10',<br>'169.254.0.0/16'|IP Address ranges considered within private network.|
 
-## NetworkAgent
-
+### NetworkAgent
 
 |**Parameter**					|**Value**			|**Description**																|
 |------------------------------	|------------------	|------------------------------------------------------------------------------	|
@@ -75,9 +181,9 @@ category: "Higher level concepts"
 |`VERSION_ATTEMPTS_MAX`			|10					|During handshake, maximum amount of version attempts per address the node will allow before droping the connection. A version attempt checks version, network address & blockchain head hash.|
 |`VERSION_RETRY_DELAY`			|500				|Time {ms} the node waits before retrying a version attempt during handshake.	|
 
-## Peer Address
+### Peer Address constants
 
-### Parameters
+#### Peer Address
 
 |**Parameter**					|**Value**		|**Description**																|
 |--------------------------	|-----------------	|------------------------------------------------------------------------------	|
@@ -91,7 +197,7 @@ category: "Higher level concepts"
 |`INITIAL_FAILED_BACKOFF`	|15000<br>(15 sec)	|Initial backoff, {ms}, for failed connections.									|
 |`MAX_FAILED_BACKOFF`		|600000<br>(10 min)	|Maximum backoff, {ms}, for failed connections.									|
 
-### States
+#### Peer Address states
 
 |**State**					|**Value**	|**Description**																			|
 |--------------------------	|----------	|------------------------------------------------------------------------------------------	|
@@ -102,29 +208,29 @@ category: "Higher level concepts"
 |`FAILED`					|5			|Indicates a network connection to a peerAddress has failed.								|
 |`BANNED`					|6			|State of a peer address that have been banned.												|
 
+### Message constants
 
-## Signal Id Serialized Size
+#### Signal Id Serialized Size
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`SERIALIZED_SIZE`			|16			|Size in bytes of the serialized signal.					|
 
 
-## Transaction Receipts Message Maximum Count
+#### Transaction Receipts Message Maximum Count
 
 |**Parameter**				|**Value**	|**Description**												|
 |--------------------------	|----------	|--------------------------------------------------------------	|
 |`RECEIPTS_MAX_COUNT`		|500		|Maximum amount of transaction receipts in transaction receipts.|
 
-## Signal Message Flags
+#### Signal Message Flags
 
 |**Flag**					|**Value**	|**Description**														|
 |--------------------------	|----------	|----------------------------------------------------------------------	|
 |`UNROUTABLE`				|0x1		|Indicates a signal message is unroutable.								|
 |`TTL_EXCEEDED`				|0x2		|Indicates the TTL of a signal message has exceeded the maximum allowed.|
 
-
-## Reject Message Code
+#### Reject Message Code
 
 |**Flag**					|**Value**	|
 |--------------------------	|----------	|
@@ -135,61 +241,53 @@ category: "Higher level concepts"
 |`REJECT_DUST`				|0x41		|
 |`REJECT_INSUFFICIENT_FEE`	|0x42		|
 
-## Messages
-
-### Message Magic
+#### Message Magic
 |**Type**					|**Value**	|**Description**																		|
 |--------------------------	|----------	|--------------------------------------------------------------------------------------	|
 |`MAGIC`					|0x42042042	|Special string that indicates the information sent should be interpreted as a message.	|
 
-### Message Types
+#### Message Types
 
 |**Type**					|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
-|`VERSION`					|0			|	[Version message.](/messages.md#version-message)														|
-|`INV`						|1			|	[Inventory message](/messages.md#inventory-message)														|
-|`GET_DATA`					|2			|															|
-|`GET_HEADER`				|3			|															|
-|`NOT_FOUND`				|4			|															|
-|`GET_BLOCKS`				|5			|	[Get Blocks message](/messages.md#get-blocks-message)														|
-|`BLOCK`					|6			|	[Blocks message](/messages.md#block-message)														|
-|`HEADER`					|7			|	[Header message](/messages.md#header-message)														|
-|`TX`						|8			|	[Transaction message](/messages.md#transaction-message)														|
-|`MEMPOOL`					|9			|	[Mempool message](/messages.md#mempool-message)														|
-|`REJECT`					|10			|	[Reject message](/messages.md#reject-message)														|
-|`SUBSCRIBE`				|11			| [Subscribe message](/messages.md#subscribe-message)															|
-|`ADDR`						|20			|	[Addresses Message](/messages.md#addresses-message)														|
-|`GET_ADDR`					|21			|	[Get Addresses Message](/messages.md#get-addresses-message)														|
-|`PING`						|22			|	[Ping message](/messages.md#ping-message)														|
-|`PONG`						|23			|	[Pong message](/messages.md#pong-message)														|
-|`SIGNAL`					|30			|	[Signal message](/messages.md#signal-message)														|
-|`GET_CHAIN_PROOF`			|40			|	[Get Chain Proof message](/messages.md#get-chain-proof-message)														|
-|`CHAIN_PROOF`				|41			|	[Chain proof message](#chain-proof-message)														|
-|`GET_ACCOUNTS_PROOF`		|42			| [Get accounts proof message](/messages.md#get-accounts-proof-message)															|
-|`ACCOUNTS_PROOF`			|43			|	[Accounts proof message](/messages.md#accounts-proof-message)														|
-|`GET_ACCOUNTS_TREE_CHUNK`	|44			|	[Gets accounts tree chunk message](/messages.md#get-accounts-tree-chunk-message)														|
-|`ACCOUNTS_TREE_CHUNK`		|45			|	[Accounts tree chunk message](/messages.md#accounts-tree-chunk-message)														|
-|`GET_TRANSACTIONS_PROOF`	|47			|	[Get transactions proof message](/messages.md#get-transactions-proof-message)														|
-|`TRANSACTIONS_PROOF`		|48			|	[Transactions proof](/messages.md#transactions-proof-message)														|
-|`GET_TRANSACTION_RECEIPTS`	|49			|											|
-|`TRANSACTION_RECEIPTS`		|50			|	[Transactions receipts](/messages.md#transactions-receipts-message)														|
+|`VERSION`					|0			|	[Version message.](/messages.md#version-message).														|
+|`INV`						|1			|	[Inventory message](/messages.md#inventory-message).														|
+|`GET_DATA`					|2			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`GET_HEADER`				|3			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`NOT_FOUND`				|4			|	Type of [inventory message](/messages.md#inventory-message).														|
+|`GET_BLOCKS`				|5			|	[Get Blocks message](/messages.md#get-blocks-message).														|
+|`BLOCK`					|6			|	[Blocks message](/messages.md#block-message).														|
+|`HEADER`					|7			|	[Header message](/messages.md#header-message).														|
+|`TX`						|8			|	[Transaction message](/messages.md#transaction-message).														|
+|`MEMPOOL`					|9			|	[Mempool message](/messages.md#mempool-message).														|
+|`REJECT`					|10			|	[Reject message](/messages.md#reject-message).														|
+|`SUBSCRIBE`				|11			| [Subscribe message](/messages.md#subscribe-message).															|
+|`ADDR`						|20			|	[Addresses Message](/messages.md#addresses-message).														|
+|`GET_ADDR`					|21			|	[Get Addresses Message](/messages.md#get-addresses-message).														|
+|`PING`						|22			|	[Ping message](/messages.md#ping-message).														|
+|`PONG`						|23			|	[Pong message](/messages.md#pong-message).														|
+|`SIGNAL`					|30			|	[Signal message](/messages.md#signal-message).													|
+|`GET_CHAIN_PROOF`			|40			|	[Get Chain Proof message](/messages.md#get-chain-proof-message).														|
+|`CHAIN_PROOF`				|41			|	[Chain proof message](#chain-proof-message).														|
+|`GET_ACCOUNTS_PROOF`		|42			| [Get accounts proof message](/messages.md#get-accounts-proof-message).															|
+|`ACCOUNTS_PROOF`			|43			|	[Accounts proof message](/messages.md#accounts-proof-message).														|
+|`GET_ACCOUNTS_TREE_CHUNK`	|44			|	[Gets accounts tree chunk message](/messages.md#get-accounts-tree-chunk-message).														|
+|`ACCOUNTS_TREE_CHUNK`		|45			|	[Accounts tree chunk message](/messages.md#accounts-tree-chunk-message).														|
+|`GET_TRANSACTIONS_PROOF`	|47			|	[Get transactions proof message](/messages.md#get-transactions-proof-message).														|
+|`TRANSACTIONS_PROOF`		|48			|	[Transactions proof](/messages.md#transactions-proof-message).														|
+|`GET_TRANSACTION_RECEIPTS`	|49			|	[Get transactions receipts](/messages.md#get-transactions-receipts-message).										|
+|`TRANSACTION_RECEIPTS`		|50			|	[Transactions receipts](/messages.md#transactions-receipts-message).														|
 
-## `GetBlocksMessage` Directions
+#### `GetBlocksMessage` Directions
 
 |**Direction**	|**Value**	|
 |--------------	|----------	|
 |`FORWARD`		|0x1 		|
 |`BACKWARD`		|0x2 		|
 
-## Protocol Types
+## Utils constants
 
-|**Protocol**	|**Value**	|
-|--------------	|----------	|
-|`DUMP`			|0 			|
-|`WS`			|1			|
-|`RTC`			|2			|
-
-## Services Types
+### Services Types
 
 |**Protocol**	|**Value**	|
 |--------------	|----------	|
@@ -198,7 +296,7 @@ category: "Higher level concepts"
 |`LIGHT`		|2			|
 |`FULL`			|4			|
 
-## Alphabets
+### Alphabets
 
 |**Alphabet**	|**Value**							|
 |--------------	|----------------------------------	|
@@ -207,7 +305,7 @@ category: "Higher level concepts"
 |`NIMIQ`		|'0123456789ABCDEFGHJKLMNPQRSTUVXY'	|
 |`HEX_ALPHABET`	|'0123456789abcdef'					|
 
-## CryptoWorker
+### CryptoWorker
 
 |**Paramemter**				|**Value**	|
 |--------------------------	|----------	|
@@ -221,8 +319,7 @@ category: "Higher level concepts"
 |`PARTIAL_SIGNATURE_SIZE` 	|32 		|
 |`SIGNATURE_HASH_SIZE` 		|64 		|
 
-
-## MerkleProof Operations
+### MerkleProof Operations
 
 |**Operation**	|**Value**	|
 |--------------	|----------	|
@@ -230,7 +327,9 @@ category: "Higher level concepts"
 |`CONSUME_INPUT`|1			|
 |`HASH`			|2			|
 
-## Browser Client Errors
+## Platform specific constants
+
+### Browser errors
 
 |**Error**			|**Value**	|
 |------------------	|----------	|
@@ -238,7 +337,7 @@ category: "Higher level concepts"
 |`ERR_UNSUPPORTED`	|-2			|
 |`ERR_UNKNOWN`		|-3			|
 
-## WebRtc Data Channel
+### Browser WebRtc Data Channel
 
 **Parameter**				|**Value**			|**Description**																		|
 |--------------------------	|------------------	|--------------------------------------------------------------------------------------	|
@@ -249,99 +348,14 @@ category: "Higher level concepts"
 |`CHUNK_INNER_MAGIC`		|0xfe				|Special string that indicates the middle chunks of a message splitted in chunks.		|
 |`CHUNK_END_MAGIC`			|0xfd				|Special string that indicates the end chunk of a message splitted in chunks.			|
 
-## WebSocket Connector
+### Browser WebSocket Connector
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
 |`CONNECT_TIMEOUT`			|5000		|Timeout for WebSocket conections in Browsers.				|
 
-## Full Consensus
+### NodeJS WebSocket Connector
 
 |**Parameter**				|**Value**	|**Description**											|
 |--------------------------	|----------	|----------------------------------------------------------	|
-|`SYNC_THROTTLE`			|1500		|Time {ms} for the node to wait for more peers to connect before start syncing. |
-
-## FullConsensusAgent
-
-|**Parameter**				|**Value**			|**Description**																	|
-|--------------------------	|------------------	|----------------------------------------------------------------------------------	|
-|`SYNC_ATTEMPTS_MAX`		|10					|Maximum number of blockchain sync retries before closing the connection.			|
-|`GETBLOCKS_VECTORS_MAX`	|500				|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.		|
-|`RESYNC_THROTTLE`			|3000<br>(3 sec)	|Time in millisecongs to wait before triggering a blockchain re-sync with the peer.	|
-|`MEMPOOL_DELAY_MIN`		|2000<br>(2 sec)	|Minimum time {ms} to wait before triggering the initial mempool request.			|
-|`MEMPOOL_DELAY_MAX`		|20000<br>(20 sec)	|Maximum time {ms} to wait before triggering the initial mempool request.			|
-|`MEMPOOL_THROTTLE`			|1000				|Time {ms} to wait between sending full inv vectors of transactions during Mempool request.	|
-|`MEMPOOL_ENTRIES_MAX`		|10					|Maximum number Number of allowed transaction to send.								|
-
-
-## FullChain
-
-|**Parameter**		|**Value**	|**Description**																						|
-|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
-|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
-|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
-|`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
-|`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
-|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
-|`OK_FORKED`		|3			|Indicates new fork was created.															|
-
-
-
-## PartialLightChain State
-
-|**Parameter**			|**Value**	|**Description**													|
-|----------------------	|----------	|------------------	|
-|`ABORTED`				|-1			|(?)				|
-|`PROVE_CHAIN`			|0			|(?)				|
-|`PROVE_ACCOUNTS_TREE`	|1			|(?)				|
-|`PROVE_BLOCKS`			|2			|(?)				|
-|`COMPLETE`				|3			|(?)				|
-
-## LightConsensusAgent
-
-|**Parameter**							|**Value**	|**Description**	|
-|--------------------------------------	|----------	|------------------	|
-|`CHAINPROOF_REQUEST_TIMEOUT`			|20000		|Maximum time {ms} to wait for `chainProof` after sending out `getChainProof` before dropping the peer.	|
-|`ACCOUNTS_TREE_CHUNK_REQUEST_TIMEOUT`	|5000		|Maximum time {ms} to wait for accounts tree chunk after requesting it to a peer before dropping that peer.|
-|`SYNC_ATTEMPTS_MAX`					|5			|Maximum number of blockchain sync retries before closing the connection.	|
-|`GETBLOCKS_VECTORS_MAX`				|500		|Maximum number of inventory vectors to sent in the response for `onGetBlocks`.	|
-
-
-## Light Consensus
-
-|**Parameter**				|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
-|`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
-
-## NanoMempool
-
-|**Parameter**				|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
-|`TRANSACTIONS_MAX_COUNT`	|50000		|Maximum lenght of the mempool, oldest transactions are evicted from the mempool if it grows too large than this value. |
-|`TRANSACTIONS_EVICT_COUNT`	|5000		|Amount of transaction to be evicted each time. |
-
-## NanoConsensusAgent
-
-|**Parameter**					|**Value**	|**Description**											|
-|------------------------------	|----------	|----------------------------------------------------------	|
-|`CHAINPROOF_REQUEST_TIMEOUT`	|30000		|Maximum time {ms} to wait for `chainProof` after sending out `getChainProof` before dropping the peer. 	 |
-|`ACCOUNTSPROOF_REQUEST_TIMEOUT`|5000		|Maximum time {ms} to wait for accounts proof after requesting it to a peer before dropping that peer. |
-|`TRANSACTIONSPROOF_REQUEST_TIMEOUT`	|10000		|Maximum time {ms} to wait for transaction proof after requesting it to a peer before dropping that peer. |
-|`TRANSACTIONS_REQUEST_TIMEOUT`	|15000		|Maximum time {ms} to wait for `transactions` after sending out `getTransactions` before dropping the peer.|
-
-## Nano Consensus
-
-|**Parameter**				|**Value**	|**Description**											|
-|--------------------------	|----------	|----------------------------------------------------------	|
-|`SYNC_THROTTLE`			|1000		|Time {ms} for the node to wait for more peers to connect before start syncing. |
-
-## NanoChain
-
-|**Parameter**		|**Value**	|**Description**																						|
-|------------------	|----------	|------------------------------------------------------------------------------------------------------	|
-|`ERR_ORPHAN`		|-2			|Indicates the block's immediate predecessor is not part of the chain.									|
-|`ERR_INVALID`		|-1			|Idicates the block is not a full block (includes block body) or match with an intrinsic variant. (?)	|
-|`OK_KNOWN`			|0			|Indicates the node already knows this block..															|
-|`OK_EXTENDED`		|1			|Indicates the block extends our current main chain.													|
-|`OK_REBRANCHED`	|2			|Indicates the block fork has become the hardest chain and node will rebranch to it.									|
-|`OK_FORKED`		|3			|Indicates new fork was created.															|
+|`CONNECT_TIMEOUT`			|5000		|Timeout for WebSocket conections in NodeJS clients.				|
