@@ -17,7 +17,7 @@ A Nimiq block can be at most 1MB (1 million bytes) maximum and is composed of (b
 
 
 ## Header
-The header has total size of 146 bytes and is composed of
+The header has total size of 162 bytes and is composed of
 
 | Element       | Data type | Bytes | Description                                                       |
 |---------------|-----------|-------|-------------------------------------------------------------------|
