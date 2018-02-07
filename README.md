@@ -13,7 +13,7 @@ Data schemas as used on the wire, focusing on fields, bytes sizes and short expl
 * [Transactions](chapters/transactions.md): basic and extended
 * [Blockchain](chapters/block.md): block, header, interlink, body
 * [Accounts and Contracts](chapters/accounts-and-contracts.md): basic account, vesting and hashed time-locked contracts
-* [Accounts Tree](chapters/account-tree.md): details on the PM tree used to store accounts
+* [Accounts Tree](chapters/account-tree.md): details on the Patricia Merkle Tree used to store accounts
 * [Primitives](chapters/primitives.md): none-composed elements, e.g. hashes, addresses
 * [Messages](chapters/messages.md): All p2p-related inter-node messages
 
