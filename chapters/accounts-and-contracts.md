@@ -1,10 +1,10 @@
 ---
-category: "Data schemas"
+category: "Data Schemas"
 ---
 
-# Accounts and contracts
+# Accounts and Contracts
 
-Nimiq supports three types of accounts and contracts: [Basic](#basic-account), [Vesting Contract](#vesting-contract), and [Hashed Time-Locked Contract](#hashed-time-locked-contract-htlc)
+Nimiq supports three types of accounts and contracts: [basic](#basic-account), [vesting contract](#vesting-contract), and [hashed time-locked contract](#hashed-time-locked-contract-htlc).
 
 All accounts and contracts share the following fields:
 
@@ -16,7 +16,7 @@ All accounts and contracts share the following fields:
 ## Account
 An account controlled by a (set of) private key(s).
 
-### Basic account
+### Basic Account
 A simple account that can holds funds (balance) and is controlled by a private key.
 The type field is set to `0`. No additional properties.
 No restrictions on when the funds might be used. Most common type.
@@ -28,15 +28,15 @@ Contract-specific properties are immutable. All incoming transactions will be re
 Cannot be replaced by other contract accounts.
 Can only be explicitly pruned (replaced by an empty basic account) when empty. When pruning, contract type & contract-specific properties must be stored in the block body (for reverts).
 
-### Contract creation
-* If transaction.recipientType !== Basic and currentRecipientAccount.type === Basic and contract creation flag is set (0x01), a contract of type recipientType will be created.
+### Contract Creation
+* If receiving account in a transaction is not to `basic` but the current recipient account type is `basic` and the contract creation flag `0x01` is set, a contract of the type defined for the recipient will be created.
 * The contract address is the transaction hash with the recipient address set to all zero (because recipient is not know at that time), truncated to the address size.
-* transaction.recipient MUST be equal to the contract address.
+* The recipient defined in the transaction must be equal to the contract address.
 * The created contract inherits any balance already present in the account. I.e. the funds of the contract will be added if a balance is already available.
 * All properties of the transaction are available to the contract constructor, i.e. all values are stored inside, no outside dependencies.
 
-### Vesting contract
-A vesting contract allows to spend money in scheduled way.
+### Vesting Contract
+A vesting contract allows to spend money in a scheduled way.
 
 An initial amount (`balance` - `vesting total amount`) can be spend immediately followed by a scheduled distribution of the remaining amount the set total is used up.
 
@@ -81,7 +81,7 @@ The field `vesting total amount` is again initialized with `balance`.
 
 All other fields are initialized automatically: 'vesting start` = 0, 'vesting step amount` = `vesting total amount` = `balance`
 
-### Hashed time-locked contract HTLC
+### Hashed Time-Locked Contract HTLC
 Used for conditional transfers, off-chain payment methods, and cross-chain [atomic swaps](https://en.wikipedia.org/wiki/Atomic_swap). [HTLC](https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts) are time limited. When settling the contract, a pre-image needs to be presented that fits the hash root to transfer the balance.
 
 | Element        | Data type    | Bytes | Description                                    |

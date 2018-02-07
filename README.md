@@ -3,27 +3,27 @@
 
 This technical documentation contains:
 
-* [Data schemas](#data-schemas)
-* [High level concepts and architecture](#high-level-concepts)
+* [Data Schemas](#data-schemas)
+* [High Level Concepts and Architecture](#high-level-concepts)
 
-## Data schemas
+## Data Schemas
 
 Data schemas as used on the wire, focusing on fields, bytes sizes and short explanations.
 
 * [Transactions](chapters/transactions.md): basic and extended
 * [Blockchain](chapters/block.md): block, header, interlink, body
 * [Accounts and Contracts](chapters/accounts-and-contracts.md): basic account, vesting and hashed time-locked contracts
-* [Account tree](chapters/account-tree.md): details on the PM tree used to store accounts
+* [Accounts Tree](chapters/account-tree.md): details on the PM tree used to store accounts
 * [Primitives](chapters/primitives.md): none-composed elements, e.g. hashes, addresses
 * [Messages](chapters/messages.md): All p2p-related inter-node messages
 
-## High level concepts
+## High Level Concepts
 
 High level concepts used in and underlying Nimiq.
 
 * [Constants](chapters/constants.md): Configuration of the Nimiq core
-* [Nodes and clients](chapters/nodes-and-clients.md): Node.js and browser, full, small, and nano
-* [Supply and reward](chapters/supply-and-reward.md): total supply, rewards, difficulty adjustment
+* [Nodes and Clients](chapters/nodes-and-clients.md): Node.js and browser, full, small, and nano
+* [Supply and Reward](chapters/supply-and-reward.md): total supply, rewards, difficulty adjustment
 * [Verification](chapters/verify.md): Validation rules for the Nimiq Blockchain
 
 ## Further Resources

@@ -30,11 +30,11 @@ Distinct Node types are used for different usecases and they differentiate from 
 
 ### Full Nodes
 
-Nodes of this type download the full blockchain thus requiring more storage. We expect this Node type to be used solely with NodeJS Clients although theoretically you could run it also in a Browser Client.
+Nodes of this type download the full blockchain thus requiring more storage. We expect this node type to be used solely with NodeJS Clients although theoretically it could run also in a browser.
 
 ### Light Nodes
 
-This type of nodes securely sync to almost full consensus by downloading just about 100 MB. To do that they use a *LightChain* which is initialized by using NiPoPoWs instead of the full blockchain history, but after initialization, it behaves as a regular full blockchain.
+This type of nodes securely sync to almost full consensus by downloading just about 100 MB. To do that they use a LightChain which is initialized by using NiPoPoWs instead of the full blockchain history, but after initialization, it behaves as a regular full blockchain.
 
 ### Nano Nodes
 

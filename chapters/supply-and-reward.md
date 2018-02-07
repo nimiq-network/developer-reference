@@ -14,7 +14,7 @@ After launch the **circulating supply** will increase in a curved fashion follow
 
 ## Dynamic Block Reward
 
-To avoid the inestability caused by the modification breakpoints in a halving scheme like Bitcoin's, Nimiq uses a **dynamic block reward**. Thi dynamic block reward ensures a smooth decay in the emission rate. It is inspired by [Monero](https://github.com/monero-project/research-lab/blob/master/whitepaper/whitepaper.pdf) & [Cryptonote](https://cryptonote.org/whitepaper.pdf). They base their reward in the following formula.
+To avoid the inestability caused by the modification breakpoints in a halving scheme like Bitcoin's, Nimiq uses a **dynamic block reward**. The dynamic block reward ensures a smooth decay in the emission rate. It is inspired by [Monero](https://github.com/monero-project/research-lab/blob/master/whitepaper/whitepaper.pdf) & [Cryptonote](https://cryptonote.org/whitepaper.pdf). They base their reward in the following formula.
 
 	blockReward = (totalSupply - circulatingSupply) >>> 2^k
 
@@ -28,4 +28,4 @@ We have taken a similar approach but we selected a value of `k=22` and, at a cer
 
 ## Difficulty Adjustment
 
-The difficulty for every block is calculated according to the time it took to mine the *last 120 blocks*. To account for sudden changes in the global hashing power of the network, a *minimum/maximum adjustment rate of 2* limits the variation of the difficulty. The targeted block time is 60s.
+The difficulty for every block is calculated according to the time it took to mine the last 120 blocks. To account for sudden changes in the global hashing power of the network, a minimum/maximum adjustment rate of 2 limits the variation of the difficulty. The targeted block time is 60s.

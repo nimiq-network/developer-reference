@@ -16,17 +16,16 @@ All message contain following basic fields:
 All messages have a fixed [message type](constants.md#message-types).
 Additional fields of specialized messages will be added behind.
 
-## Version message
+## Version Message
 
-This message send out the status of this node, including it's protocol version, peer address, genesis block hash, and the hash of the latest block in its blockchain (the head).
+This message `type = 0` sends out the status of this node, including it's protocol version, peer address, genesis block hash, and the hash of the latest block in its blockchain (the head).
 
-| Element     | Data type    | Bytes            | Description            |
-|-------------|--------------|------------------|------------------------|
-| Basic message | Basic message | 13     | type = `0`
-| version       | uint32 | 4	 		    | version of the protocol|
-| peer address  | uint32 | 4	 		    | Three address types; see below
-| genesis hash | Hash|32| Hash of Genesis block
-| head hash| Hash|32| Hash of latest block in node's blockchain.
+| Element     | Data type    | Bytes            | Description
+|-------------|--------------|------------------|---
+| version       | uint32     | 4              	| version of the protocol
+| peer address  | uint32     | 4              	| Three address types; see below
+| genesis hash  | Hash       | 32               | Hash of Genesis block
+| head hash     | Hash       | 32               | Hash of latest block in node's blockchain.
 
 Three addresses can be used, a Web Socket address, a Web RTC address or a pain/dumb address.
 
@@ -62,16 +61,22 @@ Three addresses can be used, a Web Socket address, a Web RTC address or a pain/d
 | net address  | uint16	 | 2     | see previous
 | id        | uint64		 | 8     |
 
-## Request and receive inventory
+## Request and Receive Inventory
 
 A typical situation:
-1. Node A enters the network and needs to synchronize > 
-1. B sends out a get blocks message
-1. B receives and sends an InvMsg with hashes of blocks that B considers useful for A
+1. Node A enters the network and needs to synchronize
+1. B sends out a `get blocks` message
+1. B receives and sends an `relay inventory` with hashes of blocks that B considers useful for A
 1. B compares the list with the blocks it has already
-1. B uses GET DATA to request the data for the block it doesn't have yet.
+1. B uses `get data` to request the data for the blocks it doesn't have yet.
 
-### Request blocks
+Similarily
+1. Node A wants to update it's mempool and
+1. A sends out a `mempool` message
+1. Node B receives and sends an `relay inventory` message with blocks and transaction they have in their mempool
+1. ... same like previous
+
+### Get Blocks
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
@@ -82,26 +87,26 @@ A typical situation:
 
 The response can be `type = 6` for blocks, `7` for header, `8` for transaction, or `type = 4` if the requested inventory could not be found.
 
-### Relay inventory
+### Relay Inventory
 
 Announcing it's blocks and transmissions, a node sends out an inventory message:
 
 | Element   | Data type   | Bytes      | Description
 |-----------|-------------|------------|---
-| count     | uint16      | 2          | 
+| count     | uint16      | 2          |
 | hashes    | [Type+Hash] | count * 36 | Depending on type, hashes of transactions or blocks
 
-### Requesting data
+### Requesting Data
 Request headers via `type = 3`, and block or transactions data via `type = 2`
 
 | Element   | Data type   | Bytes      | Description
 |-----------|-------------|------------|---
-| count     | uint16      | 2          | 
+| count     | uint16      | 2          |
 | hashes    | [Type+Hash] | count * 36 | Depending on type, hashes of transactions or blocks
 
 The type for each element in the hashes list can be `0..2`: error, transaction, and block. `0` is not being used.
 
-### Block message
+### Block Message
 
 This message is used to send one block at a time (in serialized form).
 
@@ -109,7 +114,7 @@ This message is used to send one block at a time (in serialized form).
 |-----------|-----------|--------|------------------------|
 | block     | Block     | <= 1MB | [Full block](block.md#block) |
 
-### Header message
+### Header Message
 
 This message is used to send one header at a time (in serialized form).
 
@@ -117,7 +122,7 @@ This message is used to send one header at a time (in serialized form).
 |-----------|-----------|-------|------------------------|
 | header    | Header    | 162   | [Block header](block.md#header) |
 
-### TX message
+### TX Message
 
 This message is used to send one header at a time (in serialized form).
 
@@ -125,29 +130,25 @@ This message is used to send one header at a time (in serialized form).
 |-------------|-------------|-------|------------------------|
 | transaction | Transaction | XXX   | [Transaction](transaction.md#header) |
 
-## Mempool message
+## Mempool Message
 
-[//]: # (FIXME functionality? what's the response message to expect)
-[//]: # (FIXME Is this the GetTransactionMsg? Response is msg `8` having a list of transactions?)
+This message is used to request peers to relay their inventory/mempool content. No additional fields, `type = 9`, cf. [message types](constants.md#message-types).
 
-This message is used to request to a peer node to send the transactions of its mempool. No additional fields, just `type` beging set to `9`, cf. [message types](constants.md#message-types).
+## Reject Message
 
-## Reject message
-
-[//]: # (FIXME reason human readable?)
 
 This message is used to signal to a peer that something they sent to the node was rejected and the reason why it was rejected.
 
-| Element     | Data type      | Bytes | Description            |
-|-------------|----------------|-------|------------------------|
-| message type | [VarInt](primitves.md#variable-integer) | 1     | [message type](/constants.md#message-types)  |
-| code        | uint8   | 1     | [Reject message codes](/constants.md#reject-message-code)  |
-| reason length | uint8   | 1  |
-| reason      | string   | length  | The reason why.  |
-| extra data length  | uint16   | 2     |
-| extra data   | raw   | length     | Extra information that might be useful to the requester.
+| Element            | Data type                               | Bytes  | Description
+|--------------------|-----------------------------------------|--------|---
+| message type       | [VarInt](primitves.md#variable-integer) | 1      | [message type](/constants.md#message-types)  |
+| code               | uint8                                   | 1      | [Reject message codes](/constants.md#reject-message-code)  |
+| reason length      | uint8                                   | 1      |
+| reason             | string                                  | length | The reason why.  |
+| extra data length  | uint16                                  | 2      |
+| extra data         | raw                                     | length | Extra information that might be useful to the requester.
 
-## Subscribe message
+## Subscribe Message
 
 This message is used to subscribe to messages from the node that this message is sent to, two version exist, "addresses" and "min fee".
 
@@ -170,13 +171,11 @@ Type "min fee" adds:
 |---------|-----------|-------|---
 | fee     | uint64    | 8     | Min fee per byte in Satoshi required to subscribe
 
-## Relay addresses
-
-[//]: # (FIXME make groups like 'network', 'transactions')
+## Relay Addresses
 
 This message is used to relay the addresses to other peers.
 
-### Get addresses message
+### Get Addresses Message
 
 Ask for for addresses to peers that use the specified protocol and provide the specified services.
 
@@ -185,7 +184,7 @@ Ask for for addresses to peers that use the specified protocol and provide the s
 | protocol mask | uint8     | 1     | `0` dumb, `1` ws, `2` rtc
 | service mask  | uint32    | 4     | `0` none, `1` nano, `2` light, `4` full
 
-### Addresses message
+### Addresses Message
 
 A list of address in return for a `get addresses` message.
 
@@ -194,7 +193,7 @@ A list of address in return for a `get addresses` message.
 | address count | uint16    | 2          | Number of addresses
 | addresses     | [Address] | count * 20 | List of addresses of other peers in the network.
 
-## Heart beat messages
+## Heart Beat Messages
 
 This messages are used to make sure that the other peer node is available still.
 
@@ -204,7 +203,7 @@ This messages are used to make sure that the other peer node is available still.
 | ...
 | nonce   | uint32    | 4     | Make pings and pongs unique, avoid replay  |
 
-## Signal message
+## Signal Message
 
 [//]: # (FIXME What's the effect of this message? Answers?)
 
@@ -222,9 +221,9 @@ Signaling is needed for the [browser clients](nodes-and-clients.md#browser-clien
 | sender public key  | uint32    | 32     | if payload payload length > 0
 | signature          | raw       | 64     | if payload payload length > 0
 
-## Relay proofs
+## Relay Proofs
 
-### Chain proof
+### Chain Proof
 To get chain proof, sent a basic message with type = `40`.
 
 [//]: # (FIXME More details on the reponse. Any fields in get?)
@@ -238,7 +237,7 @@ The response (`type = 41`) contains blocks and headers.
 | header count       | uint16                    | 2               | amount of headers attached
 | header chain       | [Header](block.md#header) | count * 162     | headers
 
-### Accounts proof
+### Accounts Proof
 
 A node can ask (`type = 42`) for proofs for certain accounts by using the hash of it's [accounts tree root](block.md#header).
 
@@ -278,12 +277,12 @@ The node should respond a message `type = 45`:
 
 [//]: # (FIXME both nodes and proof are acount tree nodes?)
 
-### Transactions proof
+### Transactions Proof
 
 [//]: # (FIXME can not find a transaction message, only a transaction proof message)
 This message is used to send one transaction at a time (in serialized form) but can also contain an [`accountsProof`](/messages.md#accounts-proof-message).
 
-#### Request transaction proofs
+#### Request Transaction Proofs
 
 | Element   | Data type | Bytes | Description            |
 |-----------|-----------|-------|------------------------|
@@ -291,7 +290,7 @@ This message is used to send one transaction at a time (in serialized form) but 
 | transactions count | uint16    | 2   | count of transactoins being requested
 | transactions hash    | [Transaction]    | count * 20   | Hashes of transactions being requested
 
-#### Receive transaction proofs
+#### Receive Transaction Proofs
 
 [//]: # (FIXME how do the tx hashes of the get relate to this response?)
 
@@ -302,7 +301,7 @@ This message is used to send one transaction at a time (in serialized form) but 
 | proof length          | uint16       | 2            | if `has proof` was set                                                       |
 | proof                 | raw          | proof length | the proof if `has proof` was set                                                       |
 
-### Transaction receipts
+### Transaction Receipts
 
 Get transactions receipts via message `type = 49`
 

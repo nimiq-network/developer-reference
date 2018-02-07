@@ -1,5 +1,5 @@
 ---
-category: "Data schemas"
+category: "Data Schemas"
 ---
 
 # Blockchain
@@ -21,23 +21,23 @@ The header has total size of 162 bytes and is composed of
 
 | Element       | Data type | Bytes | Description                                                       |
 |---------------|-----------|-------|-------------------------------------------------------------------|
-| version       | uint16    | 2     | protocol version                                                  |
-| previous hash | Hash      | 32    | block hash of previous block                                      |
-| interlink     | Hash      | 32    | cf. [Interlink](#interlink)                                       |
-| body hash     | Hash      | 32    | cf. [Body hash](#body-hash) and [Body](#body)                     |
-| accounts hash | Hash      | 32    | root hash of PM tree storing accounts state, cf. [Account tree](accounts-tree.md) |
-| nBits         | bits      | 4     | minimum difficulty for Proof-of-Work                              |
-| height        | uint32    | 4     | blockchain height when created                                    |
-| timestamp     | uint32    | 4     | when the block was created                                        |
-| nonce         | uint32    | 4     | needs to fulfill Proof-of-Work difficulty required for this block |
+| version       | uint16    | 2     | Protocol version                                                  |
+| previous hash | Hash      | 32    | Hash of previous block                                            |
+| interlink     | Hash      | 32    | Cf. [interlink](#interlink)                                       |
+| body hash     | Hash      | 32    | Cf. [body hash](#body-hash) and [body](#body)                     |
+| accounts hash | Hash      | 32    | Root hash of PM tree storing accounts state, cf. [account tree](accounts-tree.md) |
+| nBits         | bits      | 4     | Minimum difficulty for Proof-of-Work                              |
+| height        | uint32    | 4     | Blockchain height when created                                    |
+| timestamp     | uint32    | 4     | When the block was created                                        |
+| nonce         | uint32    | 4     | Needs to fulfill Proof-of-Work difficulty required for this block |
 
 At main net launch time, version will be "1" and hashes in the header will be based on Blake2b.
 
-### Previous hash
+### Previous Hash
 
-The expressions "block hash" and "block header hash" refer to the same hash.
-The hash is used to refer to the previous block in the blockchain.
-It's created using [Blake2b](#hash) on the serialized block header of the previous block as pre-image.
+The expressioNs "block hash" and "block header hash" refer to the same hash.
+The hash is uSed to refer to the previous block in the blockchain.
+It's created Using [Blake2b](#hash) on the serialized block header of the previous block as pre-image.
 
 
 ## Interlink
@@ -60,7 +60,7 @@ As each hash is represented by one bit the size is ceil(count/8).
 
 Thus, an interlink can be up to 1+ceil(255/8)+255*32 = 8193 bytes.
 
-### Interlink construction
+### Interlink Construction
 The concept of [Non-Interactive Proofs of Proof-of-Work](https://eprint.iacr.org/2017/963.pdf) are used to create the interlink.
 
 An interlink contains hashes to previous blocks with an higher-than-target difficulty. The position of a hash in the interlink correlates to how much higher the difficulty was compared to the target difficulty.
@@ -72,27 +72,26 @@ An interlink is created based on the interlink of the previous block plus puttin
 
 ## Body
 The body part is 25 bytes plus data, transactions, and prunded accounts.
-The maximum block size is 1MB (10^6 bytes).
 
 | Element               | Data type                     | Size in bytes     | Description                                         |
 |-----------------------|-------------------------------|-------------------|-----------------------------------------------------|
-| miner address         | Address                       | 20                | recipient of the mining reward                      |
+| miner address         | Address                       | 20                | Recipient of the mining rewardr                     |
 | extra data length     | uint8                         | 1                 |                                                     |
 | extra data            | raw                           | extra data length | For future use                                      |
 | transaction count     | uint16                        | 2                 |                                                     |
-| transactions          | [Transaction]                 | ~150 each         |                                                     |
+| transactions          | [Transaction]                 | ~150 each         | Transactions mined in this block                    |
 | pruned accounts count | uint16                        | 2                 |                                                     |
-| pruned accounts       | [Pruned Account](accounts.md) | each >= 20+8      | Accounts with balence `0`. So they will be dropped. |
+| pruned accounts       | [Pruned Account](accounts.md) | each >= 20+8      | Accounts with balence `0`; so they will be dropped  |
 
 [Transactions](./transactions) can be basic or extended.
 Basic uses 138 bytes, extended more than 68 bytes.
 Transactions need to be in block order (first recipient, then validityStartHeight, fee, value, sender).
 Prunded accounts by their address.
 
-### Body hash
+### Body Hash
 The body hash is generated by calculaing the root of a [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) with following leaves: `miner address`, `extra data`, each `Transaction`, and each `Prunded Account`. (in this order)
 
-### Pruned account
+### Pruned Account
 A prunded account is composed of an account of any type with an address:
 
 | Element | Data type | Bytes | Description                                       |
