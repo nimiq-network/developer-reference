@@ -35,5 +35,5 @@ Unimportant
 #- external links should have target="_blank" > done for template, not supported in MD
 # - add footer > *add logo?*
 # - unifiy table and column widths
-- add sticky header
-- show full depth of menu in current page
+- add sticky header *still todo?*
+#- show full depth of menu in current page
