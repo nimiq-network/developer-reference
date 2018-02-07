@@ -123,7 +123,7 @@ This message is used to signal to a peer that something they sent to the node wa
 | message type | [VarInt](primitves.md#variable-integer) | 1     | [message type](/constants.md#message-types)  |
 | code        | uint8   | 1     | [Reject message codes](/constants.md#reject-message-code)  |
 | reason length | uint8   | 1  |
-| reason      | string   | >255  | The reason why.  |
+| reason      | string   | length  | The reason why.  |
 | extra data length  | uint16   | 2     |
 | extra data   | raw   | length     | Extra information that might be useful to the requester.
 
