@@ -10,7 +10,7 @@
 |`BLOCK_SIZE_MAX`          |1e6 (1 MB)    |Maximum block size in bytes.                    |
 |`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks that are taken into account for calculating the next difficulty.|
 |`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`  |2        |Maximum factor about which the difficulty can be adjusted from one block to the next.|
-|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks (after its `startValidity`) that a transaction is valid for.       |
+|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid for, after it's `startValidity`.       |
 
 ### Supply & Emission Parameters
 
