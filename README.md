@@ -4,7 +4,7 @@
 This technical documentation contains:
 
 * [Data schemas](#data-schemas)
-* [High level concepts and architecture](#higher-level-concepts)
+* [High level concepts and architecture](#high-level-concepts)
 
 ## Data schemas
 
@@ -17,18 +17,18 @@ Data schemas as used on the wire, focusing on fields, bytes sizes and short expl
 * [Primitives](chapters/primitives.md): none-composed elements, e.g. hashes, addresses
 * [Messages](chapters/messages.md): All p2p-related inter-node messages
 
-## Higher level concepts
+## High level concepts
 
-Higher level concepts used in and underlying Nimiq.
+High level concepts used in and underlying Nimiq.
 
 * [Constants](chapters/constants.md): Configuration of the Nimiq core
-* [Nodes and clients](chapters/nodes-and-clients.md): Node.js and browser, full, small, and nano.
+* [Nodes and clients](chapters/nodes-and-clients.md): Node.js and browser, full, small, and nano
 * [Supply and reward](chapters/supply-and-reward.md): total supply, rewards, difficulty adjustment
-* [Verification](chapters/verify.md): Validation rules for the Nimiq blockchain
+* [Verification](chapters/verify.md): Validation rules for the Nimiq Blockchain
 
-## Further Ressources
-Further ressources to get an overview of the Nimiq project and ecosystem:
+## Further Resources
+Further resources to get an overview of the Nimiq project and ecosystem:
 * [API Documentation](https://github.com/nimiq-network/core/blob/master/dist/API_DOCUMENTATION.md)
 * [Browser Miner](https://nimiq.com/miner) and [Browser Wallet](https://nimiq.com/wallet)
 * [Contributing Guidelines](https://github.com/nimiq-network/core/blob/master/.github/CONTRIBUTING.md) and [Code of Conduct](https://github.com/nimiq-network/core/blob/master/.github/CODE_OF_CONDUCT.md)
-* This project is under the [Apache License 2.0](https://github.com/nimiq-network/core/blob/master/LICENSE.md)
+* This project is released under the [Apache License 2.0](https://github.com/nimiq-network/core/blob/master/LICENSE.md)
