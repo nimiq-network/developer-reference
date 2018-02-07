@@ -81,8 +81,8 @@ The field `vesting total amount` is again initialized with `balance`.
 
 All other fields are initialized automatically: 'vesting start` = 0, 'vesting step amount` = `vesting total amount` = `balance`
 
-### Hashed Time-Locked Contract HTLC
-Used for conditional transfers, off-chain payment methods, and cross-chain [atomic swaps](https://en.wikipedia.org/wiki/Atomic_swap). [HTLC](https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts) are time limited. When settling the contract, a pre-image needs to be presented that fits the hash root to transfer the balance.
+### Hashed Time-Locked Contract
+Hashed Time-Locked Contracts (HTLCs) are used for conditional transfers, off-chain payment methods, and cross-chain [atomic swaps](https://en.wikipedia.org/wiki/Atomic_swap). [HTLC](https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts) are time limited. When settling the contract, a pre-image needs to be presented that fits the hash root to transfer the balance.
 
 | Element        | Data type    | Bytes | Description                                    |
 |----------------|--------------|-------|------------------------------------------------|

@@ -329,7 +329,7 @@ nav li a:hover {
     display: inline;
 }
 
-nav li a:before {
+nav li a:after {
     content: '';
     position: absolute;
     left: 16px;
@@ -340,16 +340,32 @@ nav li a:before {
     opacity: 0;
 }
 
-nav li a:hover:before {
+nav li a:hover:after {
     opacity: 1;
 }
 
-nav ul ul ul {
+nav ul ul ul{
     display: none;
 }
 
+nav ul.active-toc ul ul{
+    display: block;
+}
 
+nav ul.active-toc ul ul ul{
+    display: none;
+} 
 
+nav ul.active-toc > li > a{
+    font-weight: 700;
+}
+
+nav ul.active-toc > li > a:before{
+    content: '>';
+    position: absolute;
+    margin-left: -24px;
+    margin-top: -1px;
+}
 
 /* Logo */
 
