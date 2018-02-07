@@ -8,8 +8,7 @@ category: "Primitives"
 32 bytes, derived using the [Ed25519](https://ed25519.cr.yp.to/) algorithm.
 
 ## Signature
-64 bytes, created from private and public key and a data component using
- [Ed25519](https://ed25519.cr.yp.to/).
+64 bytes. The result of the [Ed25519](https://ed25519.cr.yp.to/) `sign: (privateKey, message) -> signature` operation.
 
 ## Address
 Serialized in 20 bytes usually created by keeping the first 20 bytes of a hash or a public key.

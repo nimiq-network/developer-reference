@@ -20,8 +20,8 @@ main {
 }
 
 section {
-    width: 660px;
-    padding: 16px 48px;
+    width: 720px;
+    padding: 16px 0 16px 48px;
 }
 
 aside {
@@ -192,7 +192,7 @@ th {
 
 th,
 td {
-    padding: 8px 16px;
+    padding: 8px;
 }
 
 th {
@@ -212,8 +212,22 @@ td:first-child {
     padding-left: 0;
 }
 
+th:first-child{
+    width: 272px;
+}
 
+th:nth-child(2){
+    width: 104px;
+}
 
+th:nth-child(3){
+    min-width: 112px;
+}
+
+/* four items */
+th:first-child:nth-last-child(4){
+    width: 172px;
+}
 
 /* Links */
 
@@ -241,6 +255,7 @@ code {
     padding: 2px 4px;
     border-radius: 2px;
     margin-right: 2px;
+    color: #222;
 }
 
 
@@ -387,7 +402,7 @@ a.logo {
     }
 
     aside {
-        width: 480px;
+        width: 400px;
         padding: 16px 0px 16px 128px;
     }
 }
@@ -398,7 +413,7 @@ a.logo {
     }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1048px) {
     main {
         margin-left: 0;
         overflow-x: scroll;
