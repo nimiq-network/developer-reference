@@ -2,7 +2,7 @@
 A tree storing addresses and account (i.e. balances and further fields).
 This tree's root is stored in each [block's header](block.md#header).
 The account tree can be used to verify that an account in a certain state was part of a certain block.
-And account tree is composed of [account tree nodes](#account-tree-node) using the standard [Merkle Patricia Trie Specification](https://github.com/ethereum/wiki/wiki/Patricia-Tree).
+And account tree is composed of [account tree nodes](#account-tree-node) using Ethereum's [Merkle Patricia Trie Specification](https://github.com/ethereum/wiki/wiki/Patricia-Tree).
 
 ## Accounts and Transactions
 
