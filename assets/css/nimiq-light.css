@@ -31,6 +31,8 @@ aside {
     bottom: 0;
     width: 320px;
     padding: 16px 0px 16px 72px;
+    background: white;
+    transition: transform 300ms;
 }
 
 footer {
@@ -38,6 +40,8 @@ footer {
     padding: 32px 24px;
     margin-top: 80px;
 }
+
+
 
 
 
@@ -119,6 +123,8 @@ strong {
 
 
 
+
+
 /* Colors */
 
 :root {
@@ -129,6 +135,7 @@ strong {
 body {
     color: #333;
     background-color: white;
+    position: relative;
 }
 
 footer {
@@ -155,6 +162,8 @@ aside:before {
 
 
 
+
+
 /* Lists */
 
 ul,
@@ -174,6 +183,8 @@ li>ul {
 li {
     line-height: 18px;
 }
+
+
 
 
 
@@ -212,22 +223,32 @@ td:first-child {
     padding-left: 0;
 }
 
-th:first-child{
+th:first-child {
     width: 272px;
 }
 
-th:nth-child(2){
+th:nth-child(2),
+td:nth-child(2) {
     width: 104px;
+    text-align: center;
 }
 
-th:nth-child(3){
+td:nth-child(3):not(:last-child),
+th:nth-child(3):not(:last-child) {
     min-width: 112px;
+    text-align: center;
 }
+
+
 
 /* four items */
-th:first-child:nth-last-child(4){
+
+th:first-child:nth-last-child(4) {
     width: 172px;
 }
+
+
+
 
 /* Links */
 
@@ -247,6 +268,8 @@ a:hover {
 
 
 
+
+
 /* Code */
 
 code {
@@ -257,6 +280,8 @@ code {
     margin-right: 2px;
     color: #222;
 }
+
+
 
 
 
@@ -324,6 +349,8 @@ nav ul ul ul {
 }
 
 
+
+
 /* Logo */
 
 a.logo {
@@ -351,6 +378,8 @@ a.logo {
 
 
 
+
+
 /* Improve me button */
 
 .improve-me {
@@ -366,21 +395,21 @@ a.logo {
     justify-content: center;
     align-items: center;
     box-shadow: var(--box-shadow);
-    color:#efefef;
+    color: #efefef;
 }
 
 .improve-me:hover {
-    color:#efefef;
+    color: #efefef;
     border-bottom: none;
 }
 
-.improve-me:before{
+.improve-me:before {
     content: 'Improve this page';
     position: fixed;
     bottom: 136px;
     right: 16px;
     width: 128px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 8px;
     border-radius: 3px;
     text-align: center;
@@ -388,9 +417,11 @@ a.logo {
     transition: opacity 300ms;
 }
 
-.improve-me:hover:before{
+.improve-me:hover:before {
     opacity: 1;
 }
+
+
 
 
 
@@ -413,6 +444,10 @@ a.logo {
     }
 }
 
+a#nav-button{
+    display: none;
+}
+
 @media (max-width: 1048px) {
     main {
         margin-left: 0;
@@ -422,9 +457,47 @@ a.logo {
 
     section {
         width: auto;
+        padding: 80px 32px;
     }
 
     aside {
         transform: translate(-100%);
+        box-shadow: var(--box-shadow);
+        width: 360px;
+        z-index: 1;
+    }
+
+    aside:target {
+        transform: translate(0);
+    }
+
+    a#nav-button{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 24px 32px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        color: #555;
+        background-color: white;
+    }
+
+    #nav-backdrop{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 300ms;
+        pointer-events: none;
+    }
+
+    aside:target + #nav-backdrop {
+        pointer-events: all;
+        opacity: 1;
     }
 }
