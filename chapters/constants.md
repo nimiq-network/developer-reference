@@ -10,23 +10,23 @@
 |`BLOCK_SIZE_MAX`          |1e6 (1 MB)    |Maximum block size in bytes.                    |
 |`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks that are taken into account for calculating the next difficulty.|
 |`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`  |2        |Maximum factor about which the difficulty can be adjusted from one block to the next.|
-|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid for after it's `startValidity`.              |
+|`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid for, after it's `startValidity`.       |
 
 ### Supply & Emission Parameters
 
 |  Parameter  				|  Value  		|  Description  																		|
 |--------------------------	|--------------	|------------------------------------------	|
-|`SATOSHIS_PER_COIN`		|1e5			|Number of satoshis per Nimiq 															|
+|`SATOSHIS_PER_COIN`		|1e5			|Number of satoshis per Nimiq. 															|
 |`TOTAL_SUPPLY`				|21e14			|Targeted total supply in satoshis.	This is the same amount that Bitcoin has.	|
-|`INITIAL_SUPPLY`			|0				|Initial supply at the genesis block in satoshis. This describes the amount NIMs that are created from the ICO and all other pre-allocated funds.										|
-|`EMISSION_SPEED`			|2^22			|Emission speed 																		|
+|`INITIAL_SUPPLY`			|0				|Initial supply at the genesis block in satoshis. This describes the amount NIMs that are created from the ICO and all other pre-allocated funds. Note: This parameter will be updated before mainnet launch. |
+|`EMISSION_SPEED`			|2^22			|The amount of satoshis that haven't been rewarded at that point in time are divided by this speed to calculate the reward (this ensures the smoothness of the reward emission process). |
 |`EMISSION_TAIL_START`		|48692960		|First block using constant tail emission until total supply is reached.				|
-|`EMISSION_TAIL_REWARD`		|4000			|Constant tail emission in satoshis until total supply is reached.						|
-|`M`						|240			|NIPoPoW Security parameter `M`															|
-|`K`						|120			|NIPoPoW Security parameter `K`															|
-|`DELTA`					|0.1			|NIPoPoW Security parameter `DELTA`														|
+|`EMISSION_TAIL_REWARD`		|4000			|Constant tail emission per block in satoshis until total supply is reached.						|
+|`M`						|240			|NIPoPoW Security parameter `M`.															|
+|`K`						|120			|NIPoPoW Security parameter `K`.															|
+|`DELTA`					|0.1			|NIPoPoW Security parameter `DELTA`.														|
 |`NUM_BLOCKS_VERIFICATION`	|250			|Number of blocks the light client downloads to verify the [accounts tree](account-tree.md) construction.	|
-|`NUM_SNAPSHOTS_MAX`		|20				|Maximum number of snapshots.															|
+|`NUM_SNAPSHOTS_MAX`		|20				|Maximum number of snapshots that a node will keep (snapshots are used so that other nodes can synchronize to a consistent state even if a new block is added to the blockchain). |
 
 ## Network
 
