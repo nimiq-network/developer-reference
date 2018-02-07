@@ -3,10 +3,12 @@ category: "Data schemas"
 ---
 
 # Transactions
-All transactions MUST transfer value (value > 0). The value is always transferred from transaction sender to transaction recipient.
-The hash of the transaction does not include the signature/proof.
-All transactions in Nimiq have a maximum validity window of 120 blocks, approximately two hours.
-Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can be send only once the previous transaction has been invalidated or mined.
+
+- All transactions MUST transfer value (value > 0). 
+- The value is always transferred from transaction _sender_ to transaction _recipient_.
+- The hash of the transaction does not include the signature/proof.
+- All transactions in Nimiq have a maximum validity window of 120 blocks, approximately two hours.
+- Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can be send only once the previous transaction has been invalidated or mined.
 
 ## Basis transaction
 Size-Optimized format (138 bytes) for simple value transfer from basic to basic account.

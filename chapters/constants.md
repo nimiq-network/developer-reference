@@ -32,13 +32,6 @@ category: "Higher level concepts"
 |`NUM_BLOCKS_VERIFICATION`	|250			|Number of blocks the light client downloads to verify the [accounts tree](account-tree.md) construction.	|
 |`NUM_SNAPSHOTS_MAX`		|20				|Maximum number of snapshots.															|
 
-## Miner
-
-|  Parameter  				|  Value  		|  Description  																		|
-|--------------------------	|--------------	|--------------------------------------------	|
-|`MIN_TIME_ON_BLOCK`		|10000<br>*(10 sec)*	|Minimum time in milliseconds a miner needs to wait before (re)starting work on the same block with new transactions or the next block. This prevents the miner from constantly restarting when the mempool receives new transactions without the miner having a chance to start mining on a fixed block body.	|
-|`MOVING_AVERAGE_MAX_SIZE`	|10				|Number of past `hashrate-changed`events considered in the moving average for the hashrate calculation.	The event is dispatched every second.		|
-
 ## Network
 
 |  Parameter  				|  Value  							|  Description  														|
@@ -209,37 +202,6 @@ category: "Higher level concepts"
 |`NIMIQ`		|'0123456789ABCDEFGHJKLMNPQRSTUVXY'	|
 |`HEX_ALPHABET`	|'0123456789abcdef'					|
 
-### Crypto Worker
-
-|  Paramemter  				|  Value  	|
-|--------------------------	|----------	|
-|`ARGON2_HASH_SIZE` 		|32 		|
-|`BLAKE2_HASH_SIZE` 		|32			|
-|`SHA256_HASH_SIZE` 		|32 		|
-|`PUBLIC_KEY_SIZE` 			|32 		|
-|`PRIVATE_KEY_SIZE` 		|32 		|
-|`MULTISIG_RANDOMNESS_SIZE` |32 		|
-|`SIGNATURE_SIZE` 			|64 		|
-|`PARTIAL_SIGNATURE_SIZE` 	|32 		|
-|`SIGNATURE_HASH_SIZE` 		|64 		|
-
-
-### Merkle Proof Operations
-
-|  Operation  	|  Value  	|
-|--------------	|----------	|
-|`CONSUME_PROOF`|0 	    		|
-|`CONSUME_INPUT`|1	    		|
-|`HASH`		    	|2	    		|
-
-### Browser Client Errors
-
-|  Error  			|  Value  	|
-|------------------	|----------	|
-|`ERR_WAIT`			|-1 		|
-|`ERR_UNSUPPORTED`	|-2			|
-|`ERR_UNKNOWN`		|-3			|
-
 ### WebRTC Data Channel
 
 |  Parameter  				|  Value  			|  Description  																		|
@@ -291,16 +253,6 @@ category: "Higher level concepts"
 |`OK_FORKED`		|3			|Indicates a new fork was created.															|
 
 
-
-### Partial Light Chain State
-
-|  Parameter  			|  Value  	|  Description  	|
-|----------------------	|----------	|------------------	|
-|`ABORTED`				|-1			|(?)				|
-|`PROVE_CHAIN`			|0			|(?)				|
-|`PROVE_ACCOUNTS_TREE`	|1			|(?)				|
-|`PROVE_BLOCKS`			|2			|(?)				|
-|`COMPLETE`				|3			|(?)				|
 
 ### Light Consensus Agent
 
