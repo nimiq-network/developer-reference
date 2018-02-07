@@ -4,8 +4,8 @@ Important
 #		-  h1 -> h2 !
 #		- fix content
 #		- add tables
-	- Constants.md
-		- fix tables
+#	- Constants.md
+#		- fix tables
 	- Make navigation more clear
 #		- Reduce depth of nav to only H1 and H2 - especially constants
 			- refine headings accordingly
@@ -22,9 +22,9 @@ Important
 		- variable names like 'proof length' should always be in a <code> tag
 	- Always use lists when enumerating rules
 		- see intro of transactions.md
-- Review with Core Dev and Fix content bugs
+#- Review with Core Dev and Fix content bugs
 # - Edit this page button (see: https://jekyllrb.com/docs/pages/ on the top right "Improve this page")
-- Readme should redirect to index
+#- Readme should redirect to index
 
 Unimportant
 - extract theme into own project and fork theme
