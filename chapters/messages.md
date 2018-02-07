@@ -1,7 +1,3 @@
----
-category: "Data schemas"
----
-
 # Messages
 
 All message contain following basic fields:

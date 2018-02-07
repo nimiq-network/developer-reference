@@ -1,7 +1,3 @@
----
-category: "Higher level concepts"
----
-
 # Constants
 
 ## Policy

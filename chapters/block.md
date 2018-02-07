@@ -1,7 +1,3 @@
----
-category: "Data Schemas"
----
-
 # Blockchain
 
 ## Block
@@ -73,7 +69,7 @@ An interlink is created based on the interlink of the previous block plus puttin
 ## Body
 The body part is 25 bytes plus data, transactions, and prunded accounts.
 
-| Element               | Data type                     | Size in bytes     | Description                                         |
+| Element               | Data type                     | Bytes             | Description                                         |
 |-----------------------|-------------------------------|-------------------|-----------------------------------------------------|
 | miner address         | Address                       | 20                | Recipient of the mining rewardr                     |
 | extra data length     | uint8                         | 1                 |                                                     |

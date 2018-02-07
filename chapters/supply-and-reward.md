@@ -1,7 +1,3 @@
----
-category: "Higher level concepts"
----
-
 # Supply and Rewards
 
 ## Total and Circulating Supply
