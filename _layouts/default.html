@@ -33,7 +33,7 @@
             </a>
         </header>
         <nav>
-          {% include toc.html html=content url=url h_max=3 class="active-toc" %}
+          {% include toc.html html=content url=page.url h_max=3 class="active-toc" %}
           {% for node in site.pages %}
             {% unless node.title == page.title %}
               {% include toc.html html=node.content url=node.url h_max=2 %}
