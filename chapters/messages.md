@@ -9,7 +9,7 @@ All message contain following basic fields:
 | Element   | Data type    | Bytes      | Description                |
 |-----------|--------------|------------|----------------------------|
 | magic     | uint32       | 4	 		    | `0x42042042`, Indicating that this is a message. |
-| type      | [VarInt](primitves.md#variable-integer)       | >=8, <= 72 | Usually 8 bytes |
+| type      | [VarInt](primitves.md#variable-integer) | >=1, <= 8 | Usually 1 bytes |
 | length    | uint32       | 4	 		    | length of the message. Currently ignored. |
 | checksum  | uint32       | 4	 		    | CRC32 checksum. |
 
@@ -64,30 +64,42 @@ Three addresses can be used, a Web Socket address, a Web RTC address or a pain/d
 
 ## Request and receive inventory
 
-[//]: # (FIXME can't find data message, and only getdataMsg and getHeaderMsg, no getTransactionMsg, no getBlockMsg)
-[//]: # (FIXME what is data?)
-[//]: # (FIXME can't find where transactions are requested)
-
-### Request headers and data
-Request headers via `type = 3`, data via `type = 2`
-
-| Element   | Data type   | Bytes      | Description
-|-----------|-------------|------------|---
-| count     | uint16      | 2          | `0..2`: error, transaction, and block
-| hashes    | [Type+Hash] | count * 36 | Depending on type, hashes of transactions or blocks
-
-The type for each element in the hashes list can be `0..2`: error, transaction, and block.
+A typical situation:
+1. Node A enters the network and needs to synchronize > 
+1. B sends out a get blocks message
+1. B receives and sends an InvMsg with hashes of blocks that B considers useful for A
+1. B compares the list with the blocks it has already
+1. B uses GET DATA to request the data for the block it doesn't have yet.
 
 ### Request blocks
 
 | Element   | Data type      | Bytes | Description            |
 |-----------|----------------|-------|------------------------|
-| count  | uint16   | 2     | Number of hashes requested
+| count     | uint16   | 2     | Number of hashes requested
 | locators  | [Hash]   | count * 32     | List of block hashes from where to start sending more blocks. The receiving node will start sending from the first block it finds in it's blockchain.
 | max inventory size | uint8   | 2     | The number of blocks that are been asked.  |
 | direction | uint8   | 1     | `1` forward (blocks afterwards); `2` backwards (previous blocks).
 
 The response can be `type = 6` for blocks, `7` for header, `8` for transaction, or `type = 4` if the requested inventory could not be found.
+
+### Relay inventory
+
+Announcing it's blocks and transmissions, a node sends out an inventory message:
+
+| Element   | Data type   | Bytes      | Description
+|-----------|-------------|------------|---
+| count     | uint16      | 2          | 
+| hashes    | [Type+Hash] | count * 36 | Depending on type, hashes of transactions or blocks
+
+### Requesting data
+Request headers via `type = 3`, and block or transactions data via `type = 2`
+
+| Element   | Data type   | Bytes      | Description
+|-----------|-------------|------------|---
+| count     | uint16      | 2          | 
+| hashes    | [Type+Hash] | count * 36 | Depending on type, hashes of transactions or blocks
+
+The type for each element in the hashes list can be `0..2`: error, transaction, and block. `0` is not being used.
 
 ### Block message
 
@@ -104,6 +116,14 @@ This message is used to send one header at a time (in serialized form).
 | Element   | Data type | Bytes | Description            |
 |-----------|-----------|-------|------------------------|
 | header    | Header    | 162   | [Block header](block.md#header) |
+
+### TX message
+
+This message is used to send one header at a time (in serialized form).
+
+| Element     | Data type   | Bytes | Description            |
+|-------------|-------------|-------|------------------------|
+| transaction | Transaction | XXX   | [Transaction](transaction.md#header) |
 
 ## Mempool message
 
