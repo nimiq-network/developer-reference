@@ -32,9 +32,7 @@ Can only be explicitly pruned (replaced by an empty basic account) when empty. W
 * All properties of the transaction are available to the contract constructor, i.e. all values are stored inside, no outside dependencies.
 
 ### Vesting Contract
-A vesting contract allows money to be spent in a scheduled way.
-
-An initial amount (`balance` - `vesting total amount`) can be spent immediately followed by a scheduled distribution of the remaining amount the set total is used up. (<- This sentence is unclear)
+A vesting contract allows money to be spent in a scheduled way. An initial amount can be made available immediately followed by a scheduled release of the remaining amount.
 
 A vesting contract can be initialized in three different ways, from full/explicit to minimal:
 
