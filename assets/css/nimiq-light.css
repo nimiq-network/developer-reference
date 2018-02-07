@@ -344,18 +344,6 @@ nav li a:hover:after {
     opacity: 1;
 }
 
-nav ul ul ul{
-    display: none;
-}
-
-nav ul.active-toc ul ul{
-    display: block;
-}
-
-nav ul.active-toc ul ul ul{
-    display: none;
-} 
-
 nav ul.active-toc > li > a{
     font-weight: 700;
 }
