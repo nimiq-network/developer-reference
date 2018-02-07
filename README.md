@@ -1,9 +1,7 @@
 # Nimiq Blockchain
 [Nimiq](https://nimiq.com/) is a frictionless payment protocol for the web. For a high-level introduction please read the [Nimiq White Paper](https://medium.com/nimiq-network/nimiq-a-peer-to-peer-payment-protocol-native-to-the-web-ffd324bb084). The source code is available on [GitHub](https://github.com/nimiq-network/core).
 
-We believe in communicating our concepts and approaches as clearly as possible. The easier it is to dive into the details, the more people will do it resulting in a better peer-reviewing process which is essential for the hardening of our protocol.
-
-This technical documentation contains:
+This developer reference contains:
 
 * [Data Schemas](#data-schemas)
 * [High Level Concepts and Architecture](#high-level-concepts)
@@ -34,3 +32,7 @@ Further resources to get an overview of the Nimiq project and ecosystem:
 * [Browser Miner](https://nimiq.com/miner) and [Browser Wallet](https://nimiq.com/wallet)
 * [Contributing Guidelines](https://github.com/nimiq-network/core/blob/master/.github/CONTRIBUTING.md) and [Code of Conduct](https://github.com/nimiq-network/core/blob/master/.github/CODE_OF_CONDUCT.md)
 * This project is released under the [Apache License 2.0](https://github.com/nimiq-network/core/blob/master/LICENSE.md)
+
+
+We believe in communicating our concepts and approaches as clearly as possible. The easier it is to dive into the details, the more people will do it, resulting in a deeper peer-reviewing process which is essential for the hardening of our protocol. 
+You are very welcome to improve this reference via pull requests.
