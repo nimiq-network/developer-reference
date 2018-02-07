@@ -23,17 +23,25 @@
                 </svg>
             </a>
             {{ content }}
+            <footer>
+              <a href="https://nimiq.com" target="_blank">The Nimiq Network</a>
+            </footer>
         </section>
     </main>
     <aside id="nav">
         <header>
-            <a href="{{ site.github.url }}" class="logo">
+            <a href="{{ site.baesurl }}" class="logo">
                 <h1>{{ site.title | default: site.github.repository_name }}</h1>
                 <p>{{ site.description | default: site.github.project_tagline }}</p>
             </a>
         </header>
         <nav>
-            {% for node in site.pages %} {% include toc.html html=node.content url=node.url %} {% endfor %}
+          {% include toc.html html=content url=url h_max=4 %}
+          {% for node in site.pages %}
+            {% unless node.title == page.title %}
+              {% include toc.html html=node.content url=node.url h_max=2 %}
+            {% endunless %}
+          {% endfor %}
         </nav>
     </aside>
     <a href="#" id="nav-backdrop"></a>
