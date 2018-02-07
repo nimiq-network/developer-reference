@@ -14,7 +14,6 @@ main {
     display: flex;
     justify-content: center;
     position: relative;
-    padding-bottom: 64px;
     margin-left: 320px;
     min-height: 100vh;
 }
@@ -38,7 +37,7 @@ aside {
 footer {
     width: 100%;
     padding: 32px 24px;
-    margin-top: 80px;
+    margin-top: 96px;
 }
 
 
@@ -292,7 +291,7 @@ code {
 
 nav {
     padding-top: 24px;
-    padding-bottom: 64px;
+    padding-bottom: 128px;
 }
 
 nav li {
@@ -342,10 +341,6 @@ nav li a:before {
 
 nav li a:hover:before {
     opacity: 1;
-}
-
-nav ul ul ul {
-    display: none;
 }
 
 
