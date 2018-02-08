@@ -12,10 +12,10 @@ Serialized in 20 bytes usually created by keeping the first 20 bytes of a hash o
 Alternatively, Nimiq addresses can also be expressed in a a human-friendly form:
 
 ```
-nqCC XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX
+NQCC XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX
 ```
 
-* `nq` as a prefix for "Nimiq".
+* `NQ` as a prefix for "Nimiq".
 * Followed by a two digit checksum (`CC`) using the same algorithm like IBAN called [MOD-97-10](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Check_digits)
 * The remaining part (`XXXX ...`) is the actual address base32 encoded as 32 characters. To reduce possibility of confusion the letters "I" and "O" are omitted.
 
