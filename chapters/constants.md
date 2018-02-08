@@ -22,8 +22,8 @@
 |`EMISSION_SPEED`			|2^22			|The amount of satoshis that haven't been rewarded at that point in time are divided by this speed to calculate the reward (this ensures the smoothness of the reward emission process). |
 |`EMISSION_TAIL_START`		|48692960		|First block using constant tail emission until total supply is reached.				|
 |`EMISSION_TAIL_REWARD`		|4000			|Constant tail emission per block in satoshis until total supply is reached.						|
-|`M`						|240			|NIPoPoW Security parameter `M`.															|
-|`K`						|120			|NIPoPoW Security parameter `K`.															|
+|`M`						|240			|NIPoPoW parameter `M`; The minimum length of a superchain.															|
+|`K`						|120			|NIPoPoW parameter `K`; The suffix size of the [chainproof](verify.md#chainproof).															|
 |`DELTA`					|0.1			|NIPoPoW Security parameter `DELTA`.														|
 |`NUM_BLOCKS_VERIFICATION`	|250			|Number of blocks the light client downloads to verify the [accounts tree](account-tree.md) construction.	|
 |`NUM_SNAPSHOTS_MAX`		|20				|Maximum number of snapshots that a node will keep (snapshots are used so that other nodes can synchronize to a consistent state even if a new block is added to the blockchain). |
