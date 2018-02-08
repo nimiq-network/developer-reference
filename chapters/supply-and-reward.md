@@ -12,7 +12,7 @@ After launch the **circulating supply** will increase in a curved fashion follow
 
 To avoid the inestability caused by the modification breakpoints in a halving scheme like Bitcoin's, Nimiq uses a **dynamic block reward**. The dynamic block reward ensures a smooth decay in the emission rate. It is inspired by [Monero](https://github.com/monero-project/research-lab/blob/master/whitepaper/whitepaper.pdf) & [Cryptonote](https://cryptonote.org/whitepaper.pdf). They base their reward in the following formula.
 
-	blockReward = (totalSupply - circulatingSupply) >>> 2^k
+	blockReward = (totalSupply - circulatingSupply) >>> k
 
 We have taken a similar approach but we selected a value of `k=22` and, at a certain height (Block 48692960), switching to constant block reward of 4,000 satoshis (*tail emission*) until the total supply of 21e14 satoshis is reached. This has the following beneficial side effects:
 
