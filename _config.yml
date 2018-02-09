@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal
+remote_theme: nimiq/doc-theme
 title: "Nimiq"
 description: "Developer Reference"
 show_downloads: false
