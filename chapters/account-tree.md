@@ -53,3 +53,4 @@ The terminal node is the leave node of the account tree, it contains the actual 
 | prefix        | string       | length | The address of the account          |
 | account       | Account      | >= 9   | The actual account, can be any kind |
 
+
