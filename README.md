@@ -36,3 +36,5 @@ Further resources to get an overview of the Nimiq project and ecosystem:
 
 We believe in communicating our concepts and approaches as clearly as possible. The easier it is to dive into the details, the more people will do it, again resulting in a deeper peer-reviewing process which is essential for the hardening of our protocol. 
 You are very welcome to improve this reference via pull requests.
+
+
