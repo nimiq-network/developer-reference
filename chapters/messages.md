@@ -5,7 +5,7 @@ All message contain following basic fields:
 | Element   | Data type    | Bytes      | Description                |
 |-----------|--------------|------------|----------------------------|
 | magic     | uint32       | 4	 		    | `0x42042042`, Indicating that this is a message. |
-| type      | [VarInt](primitves.md#variable-integer) | >=1, <= 8 | Usually 1 bytes |
+| type      | [VarInt](primitives.md#variable-integer) | >=1, <= 8 | Usually 1 bytes |
 | length    | uint32       | 4	 		    | length of the message. Currently ignored. |
 | checksum  | uint32       | 4	 		    | CRC32 checksum. |
 
@@ -130,7 +130,7 @@ This message is used to signal to a peer that something they sent to the node wa
 
 | Element            | Data type                               | Bytes  | Description
 |--------------------|-----------------------------------------|--------|---
-| message type       | [VarInt](primitves.md#variable-integer) | 1      | [message type](/constants.md#message-types)  |
+| message type       | [VarInt](primitives.md#variable-integer) | 1      | [message type](/constants.md#message-types)  |
 | code               | uint8                                   | 1      | [Reject message codes](/constants.md#reject-message-code)  |
 | reason length      | uint8                                   | 1      |
 | reason             | string                                  | length | The reason why.  |
