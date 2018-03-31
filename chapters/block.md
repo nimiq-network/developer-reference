@@ -66,6 +66,8 @@ An interlink is created based on the interlink of the previous block plus puttin
 1. The block's hash will be placed into the beginning of the new interlink as many times as it is more difficult than the required difficulty.
 2. The remaining places of the new interlink will be filled by the hashes of the previous interlink, keeping the position.
 
+Finally, the interlink is compressed by counting and skipping repeating hashes.
+
 ## Body
 The body part is 25 bytes plus data, transactions, and prunded accounts:
 
