@@ -59,7 +59,7 @@ Send by client directly after connecting to the server.
  
 Sent by the server after a succesful registration. Does not include parameters.
  
- ##### Example
+##### Example
  
  ```json
  {
@@ -80,6 +80,18 @@ Sent by the server to announce new mining settings.
 | `target`  |number, uint256 | The maximum allowed hash value for future shares |
 | `nonce`   |number, uint64 | A number used once that is associated with this connection |
 
+##### Example
+ 
+```json
+{
+    "message": "settings",
+    "address": "NQ07 0000 0000 0000 0000 0000 0000 0000 0000",
+    "extraData": "J8riQiN1lgXT6QYlsdWMKA+qEWxCPYycjZ19zsk1...",
+    "target": 1.7668470647783843e+72,
+    "nonce": 1030036789885656
+}
+ ```
+
 #### `new-block` (nano)
 
 Sent by the server to announce a new block that should be used by a client running in nano-mode.
@@ -92,13 +104,26 @@ Sent by the server to announce a new block that should be used by a client runni
 | `accountsHash` | string | Base64 encoded hash of the accounts tree after applying the block body |
 | `previousBlock` | string | Base64 encoded light block that is the predecessor of the block to be mined |
 
+##### Example
+ 
+```json
+{
+    "message": "new-block",
+    "bodyHash": "rCBGsSJGOOo82af+MhRXb7Dj+lb0oRzrN0EXBg7Jh4g=",
+    "accountsHash": "9GgRxMDSVUpePCyUDKuAw3hmHeMEj7Y77GsWEssd2qU=",
+    "previousBlock": "AAHL9kSzaU/uVRSsBVRSlYrx7Dw7NUSFDCWIDhY/..."
+}
+```
+
 #### `share`
 
 Sent by client when a valid share was found.
 
 ##### Parameters (nano)
 
-- `block` (string): Base64 encoded light block
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `block`   | string | Base64 encoded light block |
 
 ##### Parameters (smart)
 
@@ -108,6 +133,26 @@ Sent by client when a valid share was found.
 | `minerAddrProof` | string | Base64 encoded inclusion proof for the `minerAddr` field in the block body |
 | `extraDataProof` | string | Base64 encoded inclusion proof for the `extraData` field in the block body |
 | `block`   | string, optional | Base64 encoded full block. May only be sent if the block is a valid block so that the pool server is faster in picking it up |
+
+##### Example (nano)
+ 
+```json
+{
+    "message": "share",
+    "block": "AAHL9kSzaU/uVRSsBVRSlYrx7Dw7NUSFDCWIDhY/..."
+}
+```
+
+##### Example (smart)
+ 
+```json
+{
+    "message": "share",
+    "blockHeader": "AAHL9kSzaU/uVRSsBVRSlYrx7Dw7NUSFDCWIDhY/...",
+    "minerAddrProof": "IXd9Hbms/FWTUl5YEYa5ztf6N9eIz+nIfswDOqGk...",
+    "extraDataProof": "aZiypZ9S4qvSYbG4dBX4ww9TwOdKeLB+KRwNc0eP..."
+}
+```
 
 #### `error`
 
@@ -119,6 +164,15 @@ The server may send this message at most once per `share`.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `reason`  | string | A user-readable string explaining why the server denied the share |
+
+##### Example
+ 
+```json
+{
+    "message": "error",
+    "reason": "Invalid PoW"
+}
+```
 
 #### `balance`
 
@@ -134,6 +188,17 @@ The server may send this message at any time after the client registered. A new 
 | `confirmedBalance` | number | The current balance of the user in the smalest possible unit. This only includes funds that operator considers confirmed and are available for payout |
 | `payoutRequestActive` | boolean | `true`, if there is a payout request waiting for the user, `false` otherwise |
 
+##### Example
+ 
+```json
+{
+    "message": "balance",
+    "balance": 123010221,
+    "confirmedBalance": 122010202,
+    "payoutRequestActive": false
+}
+```
+
 #### `payout`
 
 Sent by the client to request payout from the server. Depending on server configuration, manual payout may be suspect to an additional fee.
@@ -143,3 +208,12 @@ Sent by the client to request payout from the server. Depending on server config
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `proof`   | string | Base64 encoded signature proof of the string `POOL_PAYOUT`, concatenated with the byte representation of the connection nonce. |
+
+##### Example
+ 
+```json
+{
+    "message": "payout",
+    "proof": "J4VEpFwKNoklkyeUCvzBvixate3yPbDyYfWSusF/..."
+}
+```
