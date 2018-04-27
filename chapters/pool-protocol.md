@@ -77,7 +77,7 @@ Sent by the server to announce new mining settings.
 |-----------|------|-------------|
 | `address` | string | The address (in IBAN-style format) that the client should use as a miner address for future shares |
 | `extraData` | string | Base64 encoded buffer that the client should use in the `extraData` field for future shares |
-| `target`  |number, uint256 | The maximum allowed hash value for future shares |
+| `targetCompact`  | number, uint32 | The maximum allowed hash value for future shares, in compact form |
 | `nonce`   |number, uint64 | A number used once that is associated with this connection |
 
 ##### Example
@@ -87,7 +87,7 @@ Sent by the server to announce new mining settings.
     "message": "settings",
     "address": "NQ07 0000 0000 0000 0000 0000 0000 0000 0000",
     "extraData": "J8riQiN1lgXT6QYlsdWMKA+qEWxCPYycjZ19zsk1...",
-    "target": 1.7668470647783843e+72,
+    "targetCompact": 520159232,
     "nonce": 1030036789885656
 }
  ```
