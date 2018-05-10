@@ -41,6 +41,7 @@ Send by client directly after connecting to the server.
 | `mode`    | string, `nano` or `smart` | The mode this client uses |
 | `address` | string | The address (in IBAN-style format) that should be rewarded for the miner actions |
 | `deviceId` | number, uint32 | The clients device id. This ID should be unique for the device and stored, such that it stays the same after restarts |
+| `deviceData` | object, optional | A JSON object including stats about the device. The format of this JSON should be defined by the pool operator |
 | `genesisHash` | string | Base64 encoded hash of the genesis block used by the client |
 
 ##### Example
@@ -51,6 +52,9 @@ Send by client directly after connecting to the server.
     "mode": "nano",
     "address": "NQ07 0000 0000 0000 0000 0000 0000 0000 0000",
     "deviceId": 12345678,
+    "deviceData": {
+      "groupLabel": "AWS Skylakes"
+    },
     "genesisHash": "Jkqvik+YKKdsVQY12geOtGYwahifzANxC+6fZJyGnRI="
 }
 ```
