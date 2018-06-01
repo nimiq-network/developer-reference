@@ -24,7 +24,7 @@ The nano-mode Pool Miner requires a Nimiq node of any kind, a nano-node is suffi
 
 ### Network communication
 
-A secure websocket connection is used as a transport layer for client-server communication. All messages are exchanges as a single WebSocket frame.
+A secure websocket connection is used as a transport layer for client-server communication. All messages are exchanged as a single WebSocket frame.
 
 ## Messages
 
