@@ -24,7 +24,7 @@ The nano-mode Pool Miner requires a Nimiq node of any kind, a nano-node is suffi
 
 ### Network communication
 
-A secure websocket connection is used as a transport layer for client-server communication. All messages are exchanges as a single WebSocket frame.
+A secure websocket connection is used as a transport layer for client-server communication. All messages are exchanged as a single WebSocket frame.
 
 ## Messages
 
@@ -188,8 +188,8 @@ The server may send this message at any time after the client registered. A new 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `balance` | number | The current balance of the user in the smalest possible unit. This includes funds that are not yet confirmed on the blockchain |
-| `confirmedBalance` | number | The current balance of the user in the smalest possible unit. This only includes funds that operator considers confirmed and are available for payout |
+| `balance` | number | The current balance of the user in the smallest possible unit. This includes funds that are not yet confirmed on the blockchain |
+| `confirmedBalance` | number | The current balance of the user in the smallest possible unit. This only includes funds that operator considers confirmed and are available for payout |
 | `payoutRequestActive` | boolean | `true`, if there is a payout request waiting for the user, `false` otherwise |
 
 ##### Example
