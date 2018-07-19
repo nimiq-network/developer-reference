@@ -4,7 +4,8 @@
 - The value is always transferred from transaction _sender_ to transaction _recipient_.
 - The hash of the transaction does not include the signature/proof.
 - All transactions in Nimiq have a maximum validity window of 120 blocks, approximately two hours.
-- Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can be send only once the previous transaction has been invalidated or mined.
+- Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can not be send (usually transactions at least differ in validity start height)
+- Free transactions or those with a very low fee may be throttled or denied by nodes if it seems someone is spamming the network.
 
 ## Basic transaction
 Size-Optimized format (138 bytes) for simple value transfer from basic to basic account.
@@ -14,7 +15,6 @@ Size-Optimized format (138 bytes) for simple value transfer from basic to basic 
 | Type                  | uint8        | 1     | `0`                                             |
 | sender                | raw          | 32    | Public key of sender                            |
 | recipient             | Address      | 20    | Recipient's address                             |
-| recipient type        | uint8        | 1     | Account type of recipient                       |
 | value                 | uint64       | 8     | In Satoshi                                      |
 | fee                   | uint64       | 8     | Miner fee                                       |
 | validity start height | uint32       | 4     | Delay by blocks, defaults to current height + 1 |
