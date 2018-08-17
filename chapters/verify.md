@@ -5,7 +5,7 @@ Or: What's a valid Nimiq blockchain?
 [//]: # (how many blocks in suffix? 120 or 240)
 
 Of the [three client types](nodes-and-clients.md), a full client synchonizes the entire chain, while nano and light clients can skip major parts of chain due to a chain proof based on [NIPoPoW&mdash;Non-Interactive Proofs of Proof-of-Work](https://eprint.iacr.org/2017/963.pdf).
-The chain verification is split in two parts. First, during the suffix part, the client will build a complete list of 120 blocks starting from the header block. Nano clients will also drop the body part of each block to reduce load. From the last block of the suffix, the prefix will will start by using the interlink to connect to the genesis block via the most difficult blocks in the chain and this way skipping major parts of the remaining blockchain.
+The chain verification is split in two parts. First, during the suffix part, the client will build a complete list of 120 blocks starting from the header block. Nano clients will also drop the body part of each block to reduce load. From the last block of the suffix, the prefix will start by using the interlink to connect to the genesis block via the most difficult blocks in the chain and this way skipping major parts of the remaining blockchain.
 
 After intializing, a node will keep listening for new blocks to keep up with the blockchain. In case it receives more than one node as the immediate successor, it will choose the more difficult one (cf. [difficulty adjustment](https://nimiq.com/developer-reference/chapters/supply-and-reward.html#supply-and-rewards) for details).
 
