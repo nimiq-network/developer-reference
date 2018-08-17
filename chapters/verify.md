@@ -69,7 +69,7 @@ Rules
 * Verify each transaction
     * Is ordered correctly, cf. [transaction order](#transaction-order)
     * Is valid
-* And each accountd
+* And each account
     * Is ordered
     * Is to be pruned
 
