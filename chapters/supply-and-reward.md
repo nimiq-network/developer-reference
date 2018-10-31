@@ -2,7 +2,7 @@
 
 ## Total and Circulating Supply
 
-The **total supply** of NIM is 21 billion (21e9 NIM, inspired by Bitcoin but increased by a factor of 1000). The smallest unit of NIM is also called luna, there are 100,000 (1e5) lunas in 1 NIM, which makes the total supply of NIM equivalent to 21e14 luna (exactly like Bitcoin).
+The **total supply** of NIM is 21 billion (21e9 NIM, inspired by Bitcoin but increased by a factor of 1000). While originally named a satoshi, the smallest unit of NIM was was renamed to Luna in order to prevent confusion.  There are 100,000 (1e5) lunas in 1 NIM, which makes the total supply of NIM equivalent to 21e14 luna (exactly like Bitcoin).
 
 The Mainnet's **initial supply** will be 12% of the total supply (2.52 billion NIM) which will be included in the Genesis Block and corresponds to the NIM redeemed by NET holders during NET-to-NIM conversion.
 
