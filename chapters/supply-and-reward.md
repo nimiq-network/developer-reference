@@ -2,7 +2,7 @@
 
 ## Total and Circulating Supply
 
-The **total supply** of NIM is 21 billion (21e9 NIM, inspired by Bitcoin but increased by a factor of 1000). The smallest unit of NIM is also called satoshi, there are 100,000 (1e5) satoshis in 1 NIM, which makes the total supply of NIM equivalent to 21e14 satoshi (exactly like Bitcoin).
+The **total supply** of NIM is 21 billion (21e9 NIM, inspired by Bitcoin but increased by a factor of 1000). The smallest unit of NIM is also called luna, there are 100,000 (1e5) lunas in 1 NIM, which makes the total supply of NIM equivalent to 21e14 luna (exactly like Bitcoin).
 
 The Mainnet's **initial supply** will be 12% of the total supply (2.52 billion NIM) which will be included in the Genesis Block and corresponds to the NIM redeemed by NET holders during NET-to-NIM conversion.
 
@@ -14,12 +14,12 @@ To avoid the inestability caused by the modification breakpoints in a halving sc
 
 	blockReward = (totalSupply - circulatingSupply) >>> k
 
-We have taken a similar approach but we selected a value of `k=22` and, at a certain height (Block 48692960), switching to constant block reward of 4,000 satoshis (*tail emission*) until the total supply of 21e14 satoshis is reached. This has the following beneficial side effects:
+We have taken a similar approach but we selected a value of `k=22` and, at a certain height (Block 48692960), switching to constant block reward of 4,000 lunas (*tail emission*) until the total supply of 21e14 lunas is reached. This has the following beneficial side effects:
 
- - At block 48692959 the dynamic block reward will be 4,001 satoshis, causing a **fluid transition to tail emission reward** of 4,000 satoshis.
- - The circulating supply at block 48692959 will be 2,099,983,215,900,000 satoshis, which is **divisible by 4,000**.
+ - At block 48692959 the dynamic block reward will be 4,001 lunas, causing a **fluid transition to tail emission reward** of 4,000 lunas.
+ - The circulating supply at block 48692959 will be 2,099,983,215,900,000 lunas, which is **divisible by 4,000**.
  - The last block governed by dynamic block reward will be reached in aproximately 92 years.
- - Block 48692960 will mark the beggining of tail emission. Remaining supply at this point will be 16,784,100,000 satoshis which results in **~7 years of a constant 4,000 reward**.
+ - Block 48692960 will mark the beggining of tail emission. Remaining supply at this point will be 16,784,100,000 lunas which results in **~7 years of a constant 4,000 reward**.
  - Total supply of 21e14 will be reached at block 52888984 (~100 years).
 
 ## Difficulty Adjustment
