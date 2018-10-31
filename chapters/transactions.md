@@ -15,7 +15,7 @@ Size-Optimized format (138 bytes) for simple value transfer from basic to basic 
 | sender                | raw          | 32    | Public key of sender                            |
 | recipient             | Address      | 20    | Recipient's address                             |
 | recipient type        | uint8        | 1     | Account type of recipient                       |
-| value                 | uint64       | 8     | In Satoshi                                      |
+| value                 | uint64       | 8     | In Luna                                         |
 | fee                   | uint64       | 8     | Miner fee                                       |
 | validity start height | uint32       | 4     | Delay by blocks, defaults to current height + 1 |
 | signature             | raw          | 64    | By sender's private key                         |
