@@ -15,6 +15,7 @@ Additional fields of specialized messages will be added behind.
 ## Version Message
 
 This message `type = 0` sends out the status of this node, including it's protocol version, peer address, genesis block hash, and the hash of the latest block in its blockchain (the head).
+It must be the first message a node sends to another node.
 
 | Element         | Data type  | Bytes | Description
 |-----------------|------------|-------|---
@@ -24,9 +25,20 @@ This message `type = 0` sends out the status of this node, including it's protoc
 | head hash       | Hash       | 32    | Hash of latest block in node's blockchain.
 | challenge nonce | raw        | 32    | Peer needs to sign to authenticate.
 
+## VerAck Message
+
+Immediately after receiving the initial version message, a node answers with the VerAck message.
+
+| Element      | Data type      | Bytes  | Description
+|--------------|----------------|--------|---
+| public key   | raw            | 32     | Peer's public key
+| signature    | raw            | 64     | Peer signs net address to make sure it can not be modified by someone else
+
+The signature is formed by signing the other peer's ID concatenated with the challenge nonce of the received version message.
+
 ## Addresses
 
-Three addresses are being used: Web Socket address, Web RTC address, and pain/dumb address.
+Three addresses are being used: Web Socket address, Web RTC address, and plain/dumb address.
 
 All three share following fields:
 
