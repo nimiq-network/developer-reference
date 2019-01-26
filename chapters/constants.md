@@ -7,7 +7,7 @@
 |  Parameters              |  Value      |  Description                            |
 |--------------------  |---------------|---------------------------------  |
 |`BLOCK_TIME`            |60        |Targeted block time in seconds.                  |
-|`BLOCK_SIZE_MAX`          |1e6 (1 MB)    |Maximum block size in bytes.                    |
+|`BLOCK_SIZE_MAX`          |1e5 (100 kB)    |Maximum block size in bytes.                    |
 |`DIFFICULTY_BLOCK_WINDOW`      |120      |Number of blocks that are taken into account for calculating the next difficulty.|
 |`DIFFICULTY_MAX_ADJUSTMENT_FACTOR`  |2        |Maximum factor about which the difficulty can be adjusted from one block to the next.|
 |`TRANSACTION_VALIDITY_WINDOW`    |120      |Number of blocks a transaction is valid for, after it's `startValidity`.       |
@@ -16,7 +16,7 @@
 
 |  Parameter  				|  Value  		|  Description  																		|
 |--------------------------	|--------------	|------------------------------------------	|
-|`SATOSHIS_PER_COIN`		|1e5			|Number of satoshis per Nimiq. 															|
+|`LUNAS_PER_COIN`		|1e5			|Number of Luna per Nimiq. 															|
 |`TOTAL_SUPPLY`				|21e14			|Targeted total supply in satoshis.	This is the same amount that Bitcoin has.	|
 |`INITIAL_SUPPLY`			|0				|Initial supply at the genesis block in satoshis. This describes the amount NIMs that are created from the ICO and all other pre-allocated funds. Note: This parameter will be updated before mainnet launch. |
 |`EMISSION_SPEED`			|2^22			|The amount of satoshis that haven't been rewarded at that point in time are divided by this speed to calculate the reward (this ensures the smoothness of the reward emission process). |
