@@ -7,7 +7,7 @@ All accounts and contracts share the following fields:
 | Element | Data type    | Bytes | Description                                                                                     |
 |---------|--------------|-------|-------------------------------------------------------------------------------------------------|
 | type    | uint8        | 1     | 0..2: basic, [vesting](#vesting-contract), [HTLC](#hashed-time-locked-contract-htlc); immutable |
-| balance | uint64       | 8     | In Satoshi; mutable                                                                             |
+| balance | uint64       | 8     | In Luna; mutable                                                                             |
 
 ## Account
 An account controlled by a (set of) private key(s).

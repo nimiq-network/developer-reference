@@ -158,7 +158,7 @@ Type "min fee" adds:
 
 | Element | Data type | Bytes | Description
 |---------|-----------|-------|---
-| fee     | uint64    | 8     | Min fee per byte in Satoshi required to subscribe
+| fee     | uint64    | 8     | Min fee per byte in Luna required to subscribe
 
 ## Relay Addresses
 
