@@ -6,7 +6,7 @@ All message contain following basic fields:
 |-----------|--------------|------------|----------------------------|
 | magic     | uint32       | 4	 		    | `0x42042042`, Indicating that this is a message. |
 | type      | [VarInt](primitives.md#variable-integer) | >=1, <= 8 | Usually 1 bytes |
-| length    | uint32       | 4	 		    | length of the message. Currently ignored. |
+| length    | uint32       | 4	 		    | Length of the message. Currently ignored. |
 | checksum  | uint32       | 4	 		    | CRC32 checksum. |
 
 All messages have a fixed [message type](constants.md#message-types).
@@ -19,7 +19,7 @@ It must be the first message a node sends to another node.
 
 | Element         | Data type  | Bytes | Description
 |-----------------|------------|-------|---
-| version         | uint32     | 4     | version of the protocol
+| version         | uint32     | 4     | Version of the protocol
 | peer address    | uint32     | 4     | Three address types; see below
 | genesis hash    | Hash       | 32    | Hash of Genesis block
 | head hash       | Hash       | 32    | Hash of latest block in node's blockchain.
@@ -140,7 +140,7 @@ This message is used to signal to a peer that something they sent to the node wa
 
 | Element            | Data type                               | Bytes  | Description
 |--------------------|-----------------------------------------|--------|---
-| message type       | [VarInt](primitives.md#variable-integer) | 1      | [message type](/constants.md#message-types)  |
+| message type       | [VarInt](primitives.md#variable-integer) | 1      | [Message type](/constants.md#message-types)  |
 | code               | uint8                                   | 1      | [Reject message codes](/constants.md#reject-message-code)  |
 | reason length      | uint8                                   | 1      |
 | reason             | string                                  | length | The reason why.  |
@@ -212,13 +212,13 @@ Signaling is needed for the [browser clients](nodes-and-clients.md#browser-clien
 |--------------------|-----------|--------|---
 | sender id          | raw 	     | 16     | 16 bytes address of sender
 | recipient id       | raw 	     | 16     | 16 bytes address of recipient
-| nonce	             | uint32    | 4      | aviod replay
+| nonce	             | uint32    | 4      | To avoid replay
 | time to live       | uint8     | 1      | TTL
-| flags		           | uint8     | 1      | unroutable: `0x1`, TTL exceeded: `0x2`
+| flags		           | uint8     | 1      | Unroutable: `0x1`, TTL exceeded: `0x2`
 | payload length     | uint16    | 2      |
-| payload            | raw       | length | signed data, cf. `signature`
-| sender public key  | uint32    | 32     | if payload payload length > 0
-| signature          | raw       | 64     | if payload payload length > 0
+| payload            | raw       | length | Signed data, cf. `signature`
+| sender public key  | uint32    | 32     | If payload payload length > 0
+| signature          | raw       | 64     | If payload payload length > 0
 
 ## Relay Proofs
 
@@ -231,10 +231,10 @@ The response (`type = 41`) contains blocks and headers.
 
 | Element            | Data type                 | Bytes           | Description
 |--------------------|---------------------------|-----------------|---
-| block count        | uint16                    | 2               | amount of blocks attached
-| blocks             | [Block](block.md#block)   | max count * 1MB | full blocks
-| header count       | uint16                    | 2               | amount of headers attached
-| header chain       | [Header](block.md#header) | count * 162     | headers
+| block count        | uint16                    | 2               | Amount of blocks attached
+| blocks             | [Block](block.md#block)   | max count * 1MB | Full blocks
+| header count       | uint16                    | 2               | Amount of headers attached
+| header chain       | [Header](block.md#header) | count * 162     | Headers
 
 ### Accounts Proof
 
@@ -242,7 +242,7 @@ A node can ask (`type = 42`) for proofs for certain accounts by using the hash o
 
 | Element            | Data type                  | Bytes          | Description
 |--------------------|----------------------------|----------------|---
-| block hash         | Hash                       | 32             | hash of block these accounts should be in
+| block hash         | Hash                       | 32             | Hash of block these accounts should be in
 | address count      | uint16                     | 2              |
 | addresses          | [Address](block.md#header) | count * 20     | Addresses to be checked
 
@@ -250,7 +250,7 @@ To get a response (`type = 43`) with following data:
 
 | Element            | Data type                  | Bytes          | Description
 |--------------------|----------------------------|----------------|---
-| block hash         | Hash                       | 32             | block these accounts are in
+| block hash         | Hash                       | 32             | Block these accounts are in
 | has proof          | uint8                      | 1   | `1` means the proof is attached, otherwise `0`
 | proof count        | uint16                     | 2              |
 | proofs             | [AccountsTreeNode](account-tree.md#account-tree-node) | count * variable size | Proofs for the requested accounts as nodes from the Merkle tree.
@@ -259,7 +259,7 @@ To request a paricular chunk of of account tree nodes (`type = 44`)
 
 | Element             | Data type                  | Bytes          | Description
 |---------------------|----------------------------|----------------|---
-| block hash          | Hash                       | 32             | hash of block these accounts should be in
+| block hash          | Hash                       | 32             | Hash of block these accounts should be in
 | start prefix length | uint8                      | 1              |
 | start prefix        | string                     | length         | Defining the part of the tree where accounts are needed from.
 
@@ -267,7 +267,7 @@ The node should respond a message `type = 45`:
 
 | Element             | Data type                  | Bytes  | Description
 |---------------------|----------------------------|--------|---
-| block hash          | Hash                       | 32     | hash of block these accounts should be in
+| block hash          | Hash                       | 32     | Hash of block these accounts should be in
 | has chunks          | uint8                      | 1      | `1` means chunks are attached
 | node count          | uint16                     | 2      |
 | nodes               | [AccountsTreeNode](account-tree.md#account-tree-node) | count * variable size | Account tree nodes from the requested part of the tree.
@@ -286,7 +286,7 @@ This message is used to send one transaction at a time (in serialized form) but 
 | Element   | Data type | Bytes | Description            |
 |-----------|-----------|-------|------------------------|
 | block hash    | Hash    | 32   | Hash of [block](block.md#block) the transactions belong to |
-| transactions count | uint16    | 2   | count of transactoins being requested
+| transactions count | uint16    | 2   | Count of transactoins being requested
 | transactions hash    | [Transaction]    | count * 20   | Hashes of transactions being requested
 
 #### Receive Transaction Proofs
@@ -297,8 +297,8 @@ This message is used to send one transaction at a time (in serialized form) but 
 |-----------|-----------|-------|------------------------|
 | block hash    | Hash    | 32   | Hash of [block](block.md#block) the transactions belong to |
 | has proof | uint8    | 1   | `1` means the proof is attached, otherwise `0`
-| proof length          | uint16       | 2            | if `has proof` was set                                                       |
-| proof                 | raw          | proof length | the proof if `has proof` was set                                                       |
+| proof length          | uint16       | 2            | If `has proof` was set                                                       |
+| proof                 | raw          | proof length | The proof if `has proof` was set                                                       |
 
 ### Transaction Receipts
 
@@ -313,6 +313,6 @@ Receive transactions receipts in a `type = 50` message:
 | Element       | Data type | Bytes | Description            |
 |---------------|-----------|-------|------------------------|
 | receipt count | uint16    | 2     |
-| receipts      | 2x Hash   | 64    | transaction hash and block hash
+| receipts      | 2x Hash   | 64    | Transaction hash and block hash
 
 
