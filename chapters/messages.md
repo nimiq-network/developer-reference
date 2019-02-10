@@ -25,16 +25,14 @@ It must be the first message a node sends to another node.
 | head hash       | Hash       | 32    | Hash of latest block in node's blockchain.
 | challenge nonce | raw        | 32    | Peer needs to sign to authenticate.
 
-## VerAck Message
+## Version Acknowledgement Message
 
-Immediately after receiving the initial version message, a node answers with the VerAck message.
+Immediately after receiving the initial version message, a node answers with the version acknowledgement message.
 
 | Element      | Data type      | Bytes  | Description
 |--------------|----------------|--------|---
-| public key   | raw            | 32     | Peer's public key
-| signature    | raw            | 64     | Peer signs net address to make sure it can not be modified by someone else
-
-The signature is formed by signing the other peer's ID concatenated with the challenge nonce of the received version message.
+| public key   | raw            | 32     | Public key of peer
+| signature    | raw            | 64     | Signature on received address concatinated with challenge nonce
 
 ## Addresses
 
