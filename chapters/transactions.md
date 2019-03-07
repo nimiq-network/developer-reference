@@ -14,10 +14,10 @@ Size-Optimized format (138 bytes) for simple value transfer from basic to basic 
 | Type                  | uint8        | 1     | `0`                                             |
 | sender                | raw          | 32    | Public key of sender                            |
 | recipient             | Address      | 20    | Recipient's address                             |
-| recipient type        | uint8        | 1     | Account type of recipient                       |
 | value                 | uint64       | 8     | In Luna                                         |
 | fee                   | uint64       | 8     | Miner fee                                       |
 | validity start height | uint32       | 4     | Delay by blocks, defaults to current height + 1 |
+| network id            | uint8        | 1     | Network ID (mainnet = 42)                       |
 | signature             | raw          | 64    | By sender's private key                         |
 
 To make a transaction validity shorter than the default of 120 blocks, set the start height to a value before the current blockchain height. For example, current height - 60 will result in a remaining livetime of 60 blocks, approximately one hour.
