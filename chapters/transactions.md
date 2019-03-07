@@ -4,7 +4,7 @@
 - The value is always transferred from transaction _sender_ to transaction _recipient_.
 - The hash of the transaction does not include the signature/proof.
 - All transactions in Nimiq have a maximum validity window of 120 blocks, approximately two hours.
-- Transactions in Nimiq do not use a nonce, reoccuring, identical transactions can be send only once the previous transaction has been invalidated or mined.
+- Transactions in Nimiq do not use a nonce, reoccurring, identical transactions can be send only once the previous transaction has been invalidated or mined.
 
 ## Basic transaction
 Size-Optimized format (138 bytes) for simple value transfer from basic to basic account.
@@ -38,6 +38,7 @@ Each extended transaction is at least 68 (3+|data|+65+|proof|) bytes long.
 | value                 | uint64       | 8            |                                                                              |
 | fee                   | uint64       | 8            | Fee for miner to include tx in a block                                       |
 | validity start height | uint32       | 4            | Delay by blocks, defaults to current height + 1                              |
+| network id            | uint8        | 1            | Network ID (mainnet = 42)                       |
 | flags                 | uint8        | 1            | Unknown flags must be 0; Contract Creation (0x1)                             |
 | proof length          | uint16       | 2            |                                                                              |
 | proof                 | raw          | proof length | Validity depends on sender account type, account state, current block height |
