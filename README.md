@@ -6,7 +6,7 @@ This developer reference contains:
 * [Data Schemas](#data-schemas)
 * [High Level Concepts and Architecture](#high-level-concepts)
 
-This documentation is also [available in German](https://github.com/terorie/nimiq-developer-reference-german) as a community effort by Terorie.
+This documentation is also [available in German](https://terorie.github.io/nimiq-developer-reference-german/) as a community effort by Terorie.
 
 ## Data Schemas
 
