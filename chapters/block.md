@@ -69,7 +69,7 @@ An interlink is created based on the interlink of the previous block plus puttin
 Finally, the interlink is compressed by counting and skipping repeating hashes.
 
 ## Body
-The body part is 25 bytes plus data, transactions, and prunded accounts:
+The body part is 25 bytes plus data, transactions, and pruned accounts:
 
 | Element               | Data type                     | Bytes             | Description                                         |
 |-----------------------|-------------------------------|-------------------|-----------------------------------------------------|
@@ -79,7 +79,7 @@ The body part is 25 bytes plus data, transactions, and prunded accounts:
 | transaction count     | uint16                        | 2                 |                                                     |
 | transactions          | [Transaction]                 | ~150 each         | Transactions mined in this block                    |
 | pruned accounts count | uint16                        | 2                 |                                                     |
-| pruned accounts       | [Pruned Account](accounts.md) | each >= 20+8      | Accounts with balence `0`; so they will be dropped  |
+| pruned accounts       | [Pruned Account](accounts.md) | each >= 20+8      | Accounts with balance `0`; so they will be dropped  |
 
 [Transactions](./transactions) can be basic or extended.
 Basic uses 138 bytes, extended more than 68 bytes.
