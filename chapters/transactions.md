@@ -29,7 +29,7 @@ Each extended transaction is at least 68 (3+|data|+65+|proof|) bytes long.
 | Element               | Data type    | Bytes        | Description                                                                  |
 |-----------------------|--------------|--------------|------------------------------------------------------------------------------|
 | Type                  | uint8        | 1            | `1`                                                                          |
-| data length           | uint16       | 2            |                                                                              |
+| data length           | uint16       | 2            | Maximum 64                                                                   |
 | data                  | raw          | data length  | Intended for recipient                                                       |
 | sender                | Address      | 20           |                                                                              |
 | sender type           | uint8        | 1            | Account type of sender                                                       |
