@@ -49,7 +49,7 @@ See [block](block.md) for all the fields of a block.
 
 Rules
 * The [header is valid](#verify-header)
-* The block is not longer than 1MB (1e6 bytes)
+* The block is not longer than 100kB (1e5 bytes)
 * The interlink is valid
 * And if it's a full block with body, also [verify the body](#verify-body)
 

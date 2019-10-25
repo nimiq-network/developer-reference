@@ -109,9 +109,9 @@ The type for each element in the hashes list can be `0..2`: error, transaction, 
 
 This message is used to send one block at a time (in serialized form).
 
-| Element   | Data type | Bytes  | Description            |
-|-----------|-----------|--------|------------------------|
-| block     | Block     | <= 1MB | [Full block](block.md#block) |
+| Element   | Data type | Bytes    | Description                  |
+|-----------|-----------|----------|------------------------------|
+| block     | Block     | <= 100kB | [Full block](block.md#block) |
 
 ### Header Message
 
@@ -225,16 +225,16 @@ Signaling is needed for the [browser clients](nodes-and-clients.md#browser-clien
 ### Chain Proof
 To get chain proof, sent a basic message with type = `40`.
 
-[//]: # (FIXME More details on the reponse. Any fields in get?)
+[//]: # (FIXME More details on the response. Any fields in get?)
 
 The response (`type = 41`) contains blocks and headers.
 
-| Element            | Data type                 | Bytes           | Description
-|--------------------|---------------------------|-----------------|---
-| block count        | uint16                    | 2               | Amount of blocks attached
-| blocks             | [Block](block.md#block)   | max count * 1MB | Full blocks
-| header count       | uint16                    | 2               | Amount of headers attached
-| header chain       | [Header](block.md#header) | count * 162     | Headers
+| Element            | Data type                 | Bytes             | Description
+|--------------------|---------------------------|-------------------|---
+| block count        | uint16                    | 2                 | Amount of blocks attached
+| blocks             | [Block](block.md#block)   | max count * 100kB | Full blocks
+| header count       | uint16                    | 2                 | Amount of headers attached
+| header chain       | [Header](block.md#header) | count * 162       | Headers
 
 ### Accounts Proof
 

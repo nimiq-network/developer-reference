@@ -2,7 +2,7 @@
 
 ## Block
 A Nimiq block can exist in two modes: full and light. A light block is equal to a full block, but does not have a body.
-A Nimiq block can be at most 1MB (1 million bytes) maximum and is composed of (body optional):
+A Nimiq block can be at most 100kB (100 thousand bytes) maximum and is composed of (body optional):
 
 | Element           | Bytes   | Description
 |-------------------|---------|--------
